@@ -1,0 +1,570 @@
+# Copyright (C) 2024 TemplateSpare
+# This file is distributed under the GPLv3 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: TemplateSpare: Create a Website in Minutes 2.3.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/templatespare\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-06-24T09:39:55+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.6.0\n"
+"X-Domain: templatespare\n"
+
+#. Plugin Name of the plugin
+msgid "TemplateSpare: Create a Website in Minutes"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://templatespare.com/?uri=plugin"
+msgstr ""
+
+#. Description of the plugin
+msgid "Create a Website in Minutes with Widgets, Elementor, and Gutenberg Templates! No Coding Hassle, One-Click Import for Starter Sites and Landing Pages"
+msgstr ""
+
+#. Author of the plugin
+msgid "TemplateSpare"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://templatespare.com/"
+msgstr ""
+
+#: includes/companion/class-aftc-customizer-importer.php:38
+msgid "The customizer import file is missing! File path: %s"
+msgstr ""
+
+#: includes/companion/class-aftc-customizer-importer.php:58
+msgid "The customizer import file is not in a correct format. Please make sure to use the correct customizer import file."
+msgstr ""
+
+#: includes/companion/class-aftc-helpers.php:120
+msgid "\"import_file_url\" or \"local_import_file\" for %s%s%s are not defined!"
+msgstr ""
+
+#: includes/companion/class-aftc-helpers.php:227
+msgid "URL for %s%s%s file is not defined!"
+msgstr ""
+
+#: includes/companion/class-aftc-helpers.php:250
+msgid "An error occurred while fetching %s%s%s file from the server!%sReason: %s - %s."
+msgstr ""
+
+#: includes/companion/class-aftc-helpers.php:291
+#: includes/companion/class-aftc-helpers.php:341
+msgid "An error occurred while writing file to your server! Tried to write a file to: %s%s."
+msgstr ""
+
+#: includes/companion/class-aftc-helpers.php:377
+msgid "An error occurred while reading a file from your server! Tried reading file from path: %s%s."
+msgstr ""
+
+#: includes/companion/class-aftc-helpers.php:402
+msgid "This WordPress page does not have %sdirect%s write file access. This plugin needs it in order to save the demo import xml file to the upload directory of your site. You can change this setting with these instructions: %s."
+msgstr ""
+
+#: includes/companion/class-aftc-helpers.php:413
+#: includes/init.php:48
+#: includes/init.php:78
+#: includes/init.php:79
+msgid "Starter Sites"
+msgstr ""
+
+#: includes/companion/class-aftc-helpers.php:414
+msgid "Templatespare"
+msgstr ""
+
+#: includes/companion/class-aftc-helpers.php:428
+msgid "An error occurred while retrieving reading/writing permissions to your server (could not retrieve WP filesystem credentials)!"
+msgstr ""
+
+#: includes/companion/class-aftc-helpers.php:436
+msgid "Your WordPress login credentials don't allow to use WP_Filesystem!"
+msgstr ""
+
+#: includes/companion/class-aftc-helpers.php:503
+msgid "Templatespare - "
+msgstr ""
+
+#: includes/companion/class-aftc-helpers.php:541
+msgid "%sYour user role isn't high enough. You don't have permission to import demo data.%s"
+msgstr ""
+
+#: includes/companion/class-aftc-helpers.php:578
+msgid "Please upload XML file for content import. If you want to import widgets or customizer settings only, please use Widget Importer & Exporter or the Customizer Export/Import plugin."
+msgstr ""
+
+#: includes/companion/class-aftc-helpers.php:580
+#: includes/companion/class-aftc-helpers.php:601
+#: includes/companion/class-aftc-helpers.php:619
+#: includes/companion/class-aftc-helpers.php:627
+msgid "Upload files"
+msgstr ""
+
+#: includes/companion/class-aftc-helpers.php:597
+msgid "Widget file was not uploaded. Error: %s"
+msgstr ""
+
+#: includes/companion/class-aftc-helpers.php:615
+msgid "Customizer file was not uploaded. Error: %s"
+msgstr ""
+
+#: includes/companion/class-aftc-helpers.php:625
+msgid "The import files were successfully uploaded!"
+msgstr ""
+
+#: includes/companion/class-aftc-helpers.php:645
+msgid "Initial max execution time = %s"
+msgstr ""
+
+#: includes/companion/class-aftc-helpers.php:649
+msgid "Files info:%1$sSite URL = %2$s%1$sData file = %3$s%1$sWidget file = %4$s%1$sCustomizer file = %5$s"
+msgstr ""
+
+#: includes/companion/class-aftc-helpers.php:653
+#: includes/companion/class-aftc-helpers.php:654
+msgid "not defined!"
+msgstr ""
+
+#: includes/companion/class-aftc-main.php:198
+#: includes/companion/class-aftc-main.php:210
+msgid "Downloaded files"
+msgstr ""
+
+#: includes/companion/class-aftc-main.php:206
+msgid "The import files for: %s were successfully downloaded!"
+msgstr ""
+
+#: includes/companion/class-aftc-main.php:218
+msgid "No import files specified!"
+msgstr ""
+
+#: includes/companion/class-aftc-main.php:287
+msgid "%1$sThat's it, all done!%2$sThe demo import has finished. Please check your page and make sure that everything has imported correctly. For more other beautiful WordPress products please visit %3$sAF themes%4$s. %5$s"
+msgstr ""
+
+#: includes/companion/class-aftc-main.php:297
+msgid "%1$sThe demo import has finished, but there were some import errors.%2$sMore details about the errors can be found in this %3$s%5$slog file%6$s%4$s%7$s"
+msgstr ""
+
+#: includes/companion/class-aftc-main.php:359
+msgid "Max execution time after content import = "
+msgstr ""
+
+#: includes/companion/class-aftc-main.php:361
+msgid "Importing content"
+msgstr ""
+
+#: includes/companion/class-aftc-main.php:405
+#: includes/companion/class-aftc-main.php:417
+msgid "Importing widgets"
+msgstr ""
+
+#: includes/companion/class-aftc-main.php:441
+#: includes/companion/class-aftc-main.php:449
+msgid "Importing customizer settings"
+msgstr ""
+
+#: includes/companion/class-aftc-main.php:447
+msgid "Customizer settings import finished!"
+msgstr ""
+
+#: includes/companion/class-aftc-main.php:507
+msgid "Completed AJAX call number: "
+msgstr ""
+
+#: includes/companion/class-aftc-widget-importer.php:44
+msgid "Widget import file could not be found."
+msgstr ""
+
+#: includes/companion/class-aftc-widget-importer.php:76
+msgid "Widget import data could not be read. Please try a different file."
+msgstr ""
+
+#: includes/companion/class-aftc-widget-importer.php:116
+msgid "Sidebar does not exist in theme (moving widget to Inactive)"
+msgstr ""
+
+#: includes/companion/class-aftc-widget-importer.php:138
+msgid "Site does not support widget"
+msgstr ""
+
+#: includes/companion/class-aftc-widget-importer.php:173
+msgid "Widget already exists"
+msgstr ""
+
+#: includes/companion/class-aftc-widget-importer.php:232
+msgid "Imported"
+msgstr ""
+
+#: includes/companion/class-aftc-widget-importer.php:236
+msgid "Imported to Inactive"
+msgstr ""
+
+#: includes/companion/class-aftc-widget-importer.php:242
+msgid "No Title"
+msgstr ""
+
+#: includes/companion/class-aftc-widget-importer.php:291
+msgid "No results for widget import!"
+msgstr ""
+
+#: includes/companion/importer/class-wxr-importer.php:132
+msgid "Could not open the file for parsing"
+msgstr ""
+
+#: includes/companion/importer/class-wxr-importer.php:168
+#: includes/companion/importer/class-wxr-importer.php:284
+#: includes/companion/importer/class-wxr-importer.php:369
+msgid "This WXR file (version %s) is newer than the importer (version %s) and may not be supported. Please consider updating."
+msgstr ""
+
+#: includes/companion/importer/class-wxr-importer.php:525
+msgid "The file does not exist, please try again."
+msgstr ""
+
+#: includes/companion/importer/class-wxr-importer.php:585
+msgid "Invalid author mapping"
+msgstr ""
+
+#: includes/companion/importer/class-wxr-importer.php:686
+msgid "Cannot import auto-draft posts"
+msgstr ""
+
+#: includes/companion/importer/class-wxr-importer.php:774
+msgid "Failed to import \"%s\": Invalid post type %s"
+msgstr ""
+
+#: includes/companion/importer/class-wxr-importer.php:784
+msgid "%s \"%s\" already exists."
+msgstr ""
+
+#: includes/companion/importer/class-wxr-importer.php:862
+msgid "Skipping attachment \"%s\", fetching attachments disabled"
+msgstr ""
+
+#: includes/companion/importer/class-wxr-importer.php:876
+msgid "Failed to import \"%s\" (%s)"
+msgstr ""
+
+#: includes/companion/importer/class-wxr-importer.php:908
+#: includes/companion/importer/class-wxr-importer.php:1736
+msgid "Imported \"%s\" (%s)"
+msgstr ""
+
+#: includes/companion/importer/class-wxr-importer.php:913
+msgid "Post %d remapped to %d"
+msgstr ""
+
+#: includes/companion/importer/class-wxr-importer.php:1057
+msgid "Invalid file type"
+msgstr ""
+
+#: includes/companion/importer/class-wxr-importer.php:1550
+msgid "Failed to import user \"%s\""
+msgstr ""
+
+#: includes/companion/importer/class-wxr-importer.php:1571
+msgid "Imported user \"%s\""
+msgstr ""
+
+#: includes/companion/importer/class-wxr-importer.php:1575
+msgid "User %d remapped to %d"
+msgstr ""
+
+#: includes/companion/importer/class-wxr-importer.php:1712
+msgid "Failed to import %s %s"
+msgstr ""
+
+#: includes/companion/importer/class-wxr-importer.php:1741
+msgid "Term %d remapped to %d"
+msgstr ""
+
+#: includes/companion/importer/class-wxr-importer.php:1794
+msgid "Remote server returned %1$d %2$s for %3$s"
+msgstr ""
+
+#: includes/companion/importer/class-wxr-importer.php:1807
+msgid "Remote file is incorrect size"
+msgstr ""
+
+#: includes/companion/importer/class-wxr-importer.php:1812
+msgid "Zero size file downloaded"
+msgstr ""
+
+#: includes/companion/importer/class-wxr-importer.php:1818
+msgid "Remote file is too large, limit is %s"
+msgstr ""
+
+#: includes/companion/importer/class-wxr-importer.php:1840
+msgid "Running post-processing for post %d"
+msgstr ""
+
+#: includes/companion/importer/class-wxr-importer.php:1853
+msgid "Could not find the post parent for \"%s\" (post #%d)"
+msgstr ""
+
+#: includes/companion/importer/class-wxr-importer.php:1858
+msgid "Post %d was imported with parent %d, but could not be found"
+msgstr ""
+
+#: includes/companion/importer/class-wxr-importer.php:1872
+msgid "Could not find the author for \"%s\" (post #%d)"
+msgstr ""
+
+#: includes/companion/importer/class-wxr-importer.php:1877
+msgid "Post %d was imported with author \"%s\", but could not be found"
+msgstr ""
+
+#: includes/companion/importer/class-wxr-importer.php:1903
+msgid "Post %d was marked for post-processing, but none was required."
+msgstr ""
+
+#: includes/companion/importer/class-wxr-importer.php:1918
+msgid "Could not update \"%s\" (post #%d) with mapped data"
+msgstr ""
+
+#: includes/companion/importer/class-wxr-importer.php:1963
+msgid "Could not find the menu object for \"%s\" (post #%d)"
+msgstr ""
+
+#: includes/companion/importer/class-wxr-importer.php:1968
+msgid "Post %d was imported with object \"%d\" of type \"%s\", but could not be found"
+msgstr ""
+
+#: includes/companion/importer/class-wxr-importer.php:1990
+msgid "Could not find the comment parent for comment #%d"
+msgstr ""
+
+#: includes/companion/importer/class-wxr-importer.php:1994
+msgid "Comment %d was imported with parent %d, but could not be found"
+msgstr ""
+
+#: includes/companion/importer/class-wxr-importer.php:2008
+msgid "Could not find the author for comment #%d"
+msgstr ""
+
+#: includes/companion/importer/class-wxr-importer.php:2012
+msgid "Comment %d was imported with author %d, but could not be found"
+msgstr ""
+
+#: includes/companion/importer/class-wxr-importer.php:2029
+msgid "Could not update comment #%d with mapped data"
+msgstr ""
+
+#: includes/init.php:52
+#: includes/init.php:111
+#: includes/init.php:112
+#: includes/layouts/class-plugin-notice.php:106
+msgid "Access All Sites"
+msgstr ""
+
+#: includes/init.php:60
+msgid "View Starter Websites"
+msgstr ""
+
+#: includes/init.php:60
+#: includes/layouts/class-plugin-notice.php:104
+msgid "Demos"
+msgstr ""
+
+#: includes/init.php:61
+msgid "View Documentation"
+msgstr ""
+
+#: includes/init.php:61
+#: includes/layouts/class-plugin-notice.php:132
+msgid "Docs"
+msgstr ""
+
+#: includes/init.php:62
+msgid "View Videos Tutorials"
+msgstr ""
+
+#: includes/init.php:62
+#: includes/layouts/class-plugin-notice.php:133
+msgid "Videos"
+msgstr ""
+
+#: includes/init.php:102
+#: includes/init.php:103
+msgid "Import Demo Site"
+msgstr ""
+
+#: includes/init.php:120
+#: includes/init.php:121
+msgid "Build Your Website"
+msgstr ""
+
+#: includes/init.php:129
+#: includes/init.php:130
+msgid "How It Works"
+msgstr ""
+
+#: includes/init.php:138
+#: includes/init.php:139
+msgid "Need Help?"
+msgstr ""
+
+#: includes/layouts/class-plugin-notice.php:58
+msgid "Explore All Sites ✨"
+msgstr ""
+
+#: includes/layouts/class-plugin-notice.php:65
+msgid "Howdy!"
+msgstr ""
+
+#: includes/layouts/class-plugin-notice.php:66
+msgid "Welcome to Templatespare. We've assembled some links to get you started with better experience."
+msgstr ""
+
+#: includes/layouts/class-plugin-notice.php:98
+msgid "Create Your Dream Website with Easy Starter Sites! 🚀"
+msgstr ""
+
+#: includes/layouts/class-plugin-notice.php:99
+msgid "Explore a world of creativity with 300+ ready-to-use website templates! From chic blogs to dynamic news platforms, engaging magazines, and professional agency websites - find your perfect online space! 🌟"
+msgstr ""
+
+#: includes/layouts/class-plugin-notice.php:130
+msgid "Big thanks for choosing Templatespare 🙌"
+msgstr ""
+
+#: includes/layouts/class-plugin-notice.php:131
+msgid "Please check our full documentation for detailed information on how to setup and customize the theme."
+msgstr ""
+
+#: includes/layouts/class-plugin-notice.php:134
+msgid "Blog"
+msgstr ""
+
+#: includes/layouts/class-plugin-notice.php:135
+msgid "Support"
+msgstr ""
+
+#: includes/layouts/class-plugin-notice.php:136
+msgid "Share the Love ⭐️"
+msgstr ""
+
+#: includes/layouts/class-plugin-notice.php:137
+msgid "Love our one-click importer? Please give us rating on WordPress.org. Your support keeps us motivated to add more free features. Thanks! 🌟"
+msgstr ""
+
+#: includes/templatespare-kit.php:257
+msgid "No plugin specified."
+msgstr ""
+
+#: includes/templatespare-kit.php:270
+msgid "Sorry, you are not allowed to install plugins on this site."
+msgstr ""
+
+#: includes/templatespare-kit.php:317
+msgid "Unable to connect to the filesystem. Please confirm your credentials."
+msgstr ""
+
+#: includes/templatespare-kit.php:334
+msgid "success"
+msgstr ""
+
+#: src/Components/App.js:175
+msgid "Ready to Import Starter Sites"
+msgstr ""
+
+#: src/Components/App.js:177
+msgid "Get modern & creative websites with just one click!"
+msgstr ""
+
+#: src/Components/App.js:192
+msgid "Example: news, sport, fashion.."
+msgstr ""
+
+#: src/Components/App.js:200
+msgid "All Themes"
+msgstr ""
+
+#: src/Components/App.js:225
+msgid "All Builders"
+msgstr ""
+
+#: src/Components/App.js:228
+#: src/Components/import-steps/step-1.js:56
+msgid "Gutenberg"
+msgstr ""
+
+#: src/Components/App.js:231
+#: src/Components/import-steps/step-1.js:54
+msgid "Elementor"
+msgstr ""
+
+#: src/Components/App.js:251
+msgid "Other"
+msgstr ""
+
+#: src/Components/import-steps/step-1.js:59
+msgid "WooCommerce"
+msgstr ""
+
+#: src/Components/import-steps/step-1.js:62
+#: src/Components/import-steps/step-1.js:65
+msgid "Widgets"
+msgstr ""
+
+#: src/Components/import-steps/step-1.js:73
+msgid "Import"
+msgstr ""
+
+#: src/Components/import-steps/step-1.js:86
+msgid " - Ready in minutes"
+msgstr ""
+
+#: src/Components/import-steps/step-1.js:97
+msgid "Demo"
+msgstr ""
+
+#: src/Components/import-steps/step-1.js:101
+msgid "Theme"
+msgstr ""
+
+#: src/Components/import-steps/step-1.js:105
+msgid "Builder"
+msgstr ""
+
+#: src/Components/import-steps/step-1.js:111
+msgid "Demo settings will be imported safely, no data changes."
+msgstr ""
+
+#: src/Components/import-steps/step-1.js:132
+msgid "Next"
+msgstr ""
+
+#: src/Components/main.js:155
+msgid "No Records Found"
+msgstr ""
+
+#: src/Components/main.js:198
+msgid "Upgrade"
+msgstr ""
+
+#: src/Components/main.js:201
+msgid "All Themes Plan"
+msgstr ""
+
+#: src/Components/main.js:270
+msgid "Purchase"
+msgstr ""
+
+#: src/Components/main.js:288
+msgid "Details"
+msgstr ""
+
+#: src/Components/preview/preview.js:17
+msgid "Preview"
+msgstr ""
+
+#: src/Components/preview/preview.js:20
+msgid "Close"
+msgstr ""
