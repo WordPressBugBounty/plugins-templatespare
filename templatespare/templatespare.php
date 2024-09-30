@@ -62,27 +62,34 @@ if ( ! function_exists( 'templatespare_main_plugin_file' ) ) {
 }
 add_action('init','templatespare_main_plugin_file');
 
-function templatespare_activation_redirect($plugin){
 
-	if( defined('DOING_AJAX') && DOING_AJAX ) {
-        // If activation is done via AJAX, don't perform redirection here
+function templatespare_activation_redirect( $plugin ) {
+    // Check if we're in the admin and if it's not an AJAX request
+    if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
         return;
     }
 
-    if( $plugin == plugin_basename( AFTMLS_BASE_FILE ) ) {
-        $redirect_url = add_query_arg( array( 'page' => 'templatespare-main-dashboard' ), admin_url( 'admin.php' ) );
-        $redirect_url = esc_url_raw( $redirect_url ); // Sanitize the URL
-        
-        if ( wp_safe_redirect( $redirect_url ) ) {
-            exit;
-        } else {
-            // Redirect failed, handle error gracefully            
-            error_log( 'Redirect failed after plugin activation: ' . $plugin );
-        }
+    // Skip redirection if running in WordPress Playground
+    if ( isset( $_SERVER['HTTP_HOST'] ) && strpos( $_SERVER['HTTP_HOST'], 'playground' ) !== false ) {
+        return; // Skip redirection in the WordPress Playground environment
+    }
+
+    // Check if the activated plugin matches our plugin
+    if ( is_admin() && $plugin == plugin_basename( __FILE__ ) ) {
+        add_action( 'admin_init', 'templatespare_do_redirect' );
     }
 }
-
 add_action( 'activated_plugin', 'templatespare_activation_redirect' );
+
+function templatespare_do_redirect() {
+    $redirect_url = add_query_arg( array( 'page' => 'templatespare-main-dashboard' ), admin_url( 'admin.php' ) );
+    
+    // Safely redirect to the desired admin page if no headers have been sent
+    if ( ! headers_sent() ) {
+        wp_safe_redirect( $redirect_url );
+        exit;
+    }
+}
 
 
 
