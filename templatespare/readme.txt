@@ -1,9 +1,9 @@
-=== TemplateSpare: Fast WordPress Site Builder – 1000+ Starter Sites & Templates for Blogs, News, eCommerce & More. Customizer, Gutenberg & Elementor Ready. Import, Personalize, Go Live – No Coding Required ===
+=== TemplateSpare: Build Stunning WordPress Sites Fast – 1000+ News, Blog, eCommerce & Magazine Templates. One-Click Import, Fully Customizable with Gutenberg & Elementor, No Coding Needed.===
 Contributors: templatespare, afthemes
 Tags: widgets, elementor, gutenberg, templates, landing page
 Requires at least: 4.0
 Tested up to: 6.7
-Stable tag: 2.5.0
+Stable tag: 2.5.1
 License: GPLv3 or later
 
 == Description ==
@@ -30,6 +30,7 @@ Unleash your creativity! Tailor every element to your vision.
 Your website is ready in minutes – share your story with the world! 🚀🌐
 
 [youtube https://www.youtube.com/watch?v=elLCTqnQMI0]
+
 <strong>[Explore Live Demo](https://tastewp.com/new/?pre-installed-plugin-slug=templatespare)</strong> 
 
 🚀 Enjoy a hassle-free setup experience! Install the TemplateSpare plugin. Locate the import dashboard at wp-admin -> <strong>[TemplateSpare](https://templatespare.com/)</strong> after enabling the plugin, choose your desired website demo, and witness the automatic installation and activation of essential themes and plugins during the import process. 
@@ -74,9 +75,11 @@ Feed your wanderlust with the Wanderlust Travel starter site. Perfect for travel
 Enter the Gaming Galaxy with this starter site designed for gamers and gaming enthusiasts. Whether you're a streamer, content creator, or part of the gaming community, this starter site provides an immersive and visually appealing gaming experience.
 
 <strong>[More to Come](https://templatespare.com/)</strong> Stay tuned for additional sites, ensuring your options are always expanding.
+
 [youtube https://www.youtube.com/watch?v=WeHALYnDQBM]
 
 ## Celebrating the Success Stories of Our Users
+
 
 <strong>I LOVE THIS THEME!!! It’s great for websites that have lots of content!</strong>
 🌟🌟🌟🌟🌟

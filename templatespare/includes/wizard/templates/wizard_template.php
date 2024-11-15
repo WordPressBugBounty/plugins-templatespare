@@ -159,7 +159,8 @@
 
   wp_print_scripts();
   //wp_enqueue_emoji_styles();
-  wp_print_styles();
+  // wp_print_styles();
+  wp_print_styles(['templatespare-central-style', 'aftmls-block-edit-style', 'dashicons']);
 
 
   ?>
