@@ -283,6 +283,8 @@ class AFTMLS_Companion
         
         // Display final messages (success or error messages).
         if (empty($this->frontend_error_messages)) {
+            update_option('templatespare_wizard_next_step',0);
+            update_option('templatespare_wizard_category_value',null);
             $response['message'] = sprintf(
                 __('%1$sThat\'s it, all done!%2$sThe demo import has finished. Please check your page and make sure that everything has imported correctly. For more other beautiful WordPress products please visit %3$sAF themes%4$s. %5$s', 'templatespare'),
                 '<div class="notice  notice-success"><p>',

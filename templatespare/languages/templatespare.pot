@@ -2,20 +2,20 @@
 # This file is distributed under the GPLv3 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: TemplateSpare: Create a Website in Minutes 2.3.0\n"
+"Project-Id-Version: TemplateSpare: Quick & Easy WordPress Site Builder 2.5.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/templatespare\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-06-24T09:39:55+00:00\n"
+"POT-Creation-Date: 2024-11-15T13:41:28+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.6.0\n"
 "X-Domain: templatespare\n"
 
 #. Plugin Name of the plugin
-msgid "TemplateSpare: Create a Website in Minutes"
+msgid "TemplateSpare: Quick & Easy WordPress Site Builder"
 msgstr ""
 
 #. Plugin URI of the plugin
@@ -23,7 +23,7 @@ msgid "https://templatespare.com/?uri=plugin"
 msgstr ""
 
 #. Description of the plugin
-msgid "Create a Website in Minutes with Widgets, Elementor, and Gutenberg Templates! No Coding Hassle, One-Click Import for Starter Sites and Landing Pages"
+msgid "1000+ Ready-Made Demo Sites and Templates for News, Blogs, Magazines, eCommerce, and More. One-Click Import, No Coding Needed"
 msgstr ""
 
 #. Author of the plugin
@@ -68,9 +68,9 @@ msgid "This WordPress page does not have %sdirect%s write file access. This plug
 msgstr ""
 
 #: includes/companion/class-aftc-helpers.php:413
-#: includes/init.php:48
-#: includes/init.php:78
-#: includes/init.php:79
+#: includes/init.php:47
+#: includes/init.php:75
+#: includes/init.php:76
 msgid "Starter Sites"
 msgstr ""
 
@@ -143,37 +143,37 @@ msgstr ""
 msgid "No import files specified!"
 msgstr ""
 
-#: includes/companion/class-aftc-main.php:287
+#: includes/companion/class-aftc-main.php:289
 msgid "%1$sThat's it, all done!%2$sThe demo import has finished. Please check your page and make sure that everything has imported correctly. For more other beautiful WordPress products please visit %3$sAF themes%4$s. %5$s"
 msgstr ""
 
-#: includes/companion/class-aftc-main.php:297
+#: includes/companion/class-aftc-main.php:299
 msgid "%1$sThe demo import has finished, but there were some import errors.%2$sMore details about the errors can be found in this %3$s%5$slog file%6$s%4$s%7$s"
 msgstr ""
 
-#: includes/companion/class-aftc-main.php:359
+#: includes/companion/class-aftc-main.php:361
 msgid "Max execution time after content import = "
 msgstr ""
 
-#: includes/companion/class-aftc-main.php:361
+#: includes/companion/class-aftc-main.php:363
 msgid "Importing content"
 msgstr ""
 
-#: includes/companion/class-aftc-main.php:405
-#: includes/companion/class-aftc-main.php:417
+#: includes/companion/class-aftc-main.php:407
+#: includes/companion/class-aftc-main.php:419
 msgid "Importing widgets"
 msgstr ""
 
-#: includes/companion/class-aftc-main.php:441
-#: includes/companion/class-aftc-main.php:449
+#: includes/companion/class-aftc-main.php:443
+#: includes/companion/class-aftc-main.php:451
 msgid "Importing customizer settings"
 msgstr ""
 
-#: includes/companion/class-aftc-main.php:447
+#: includes/companion/class-aftc-main.php:449
 msgid "Customizer settings import finished!"
 msgstr ""
 
-#: includes/companion/class-aftc-main.php:507
+#: includes/companion/class-aftc-main.php:509
 msgid "Completed AJAX call number: "
 msgstr ""
 
@@ -356,57 +356,70 @@ msgstr ""
 msgid "Could not update comment #%d with mapped data"
 msgstr ""
 
-#: includes/init.php:52
-#: includes/init.php:111
-#: includes/init.php:112
+#: includes/init.php:51
 #: includes/layouts/class-plugin-notice.php:106
 msgid "Access All Sites"
 msgstr ""
 
-#: includes/init.php:60
+#: includes/init.php:59
 msgid "View Starter Websites"
 msgstr ""
 
-#: includes/init.php:60
+#: includes/init.php:59
 #: includes/layouts/class-plugin-notice.php:104
 msgid "Demos"
 msgstr ""
 
-#: includes/init.php:61
+#: includes/init.php:60
 msgid "View Documentation"
 msgstr ""
 
-#: includes/init.php:61
+#: includes/init.php:60
 #: includes/layouts/class-plugin-notice.php:132
 msgid "Docs"
 msgstr ""
 
-#: includes/init.php:62
+#: includes/init.php:61
 msgid "View Videos Tutorials"
 msgstr ""
 
-#: includes/init.php:62
+#: includes/init.php:61
 #: includes/layouts/class-plugin-notice.php:133
 msgid "Videos"
 msgstr ""
 
-#: includes/init.php:102
-#: includes/init.php:103
+#: includes/init.php:100
+#: includes/init.php:101
 msgid "Import Demo Site"
 msgstr ""
 
 #: includes/init.php:120
 #: includes/init.php:121
+msgid "Block Patterns"
+msgstr ""
+
+#: includes/init.php:132
+#: includes/init.php:133
+msgid "Elementor Kits"
+msgstr ""
+
+#: includes/init.php:143
+#: includes/init.php:144
+msgid "Access All Themes"
+msgstr ""
+
+#: includes/init.php:152
+#: includes/init.php:153
 msgid "Build Your Website"
 msgstr ""
 
-#: includes/init.php:129
-#: includes/init.php:130
+#: includes/init.php:163
+#: includes/init.php:164
 msgid "How It Works"
 msgstr ""
 
-#: includes/init.php:138
-#: includes/init.php:139
+#: includes/init.php:172
+#: includes/init.php:173
 msgid "Need Help?"
 msgstr ""
 
@@ -454,54 +467,84 @@ msgstr ""
 msgid "Love our one-click importer? Please give us rating on WordPress.org. Your support keeps us motivated to add more free features. Thanks! 🌟"
 msgstr ""
 
-#: includes/templatespare-kit.php:257
+#: includes/layouts/default.php:8
+#: includes/wizard/templates/wizard_template.php:7
+#: src/Components/wizard/step-1.js:12
+msgid "Welcome to Your WordPress Journey 🎉"
+msgstr ""
+
+#: includes/layouts/default.php:9
+msgid "Start Now 🚀"
+msgstr ""
+
+#: includes/layouts/default.php:11
+msgid "Getting started with WordPress doesn’t have to be hard – we’re here to make it easy! Our Quick Start Wizard will guide you through selecting the perfect design and adding powerful features to your site in just a few simple steps. Let’s get you online faster than ever."
+msgstr ""
+
+#: includes/layouts/default.php:19
+#: src/Components/wizard/step-2.js:11
+msgid "Choose Your Website Type"
+msgstr ""
+
+#: includes/layouts/default.php:20
+#: includes/layouts/default.php:41
+#: src/Components/import-steps/step-1.js:133
+msgid "Next"
+msgstr ""
+
+#: includes/layouts/default.php:21
+#: includes/layouts/default.php:42
+msgid "Previous"
+msgstr ""
+
+#: includes/layouts/default.php:22
+msgid "Select the type of site you want to create. We’ll suggest the best designs and features for you."
+msgstr ""
+
+#: includes/templatespare-kit.php:261
 msgid "No plugin specified."
 msgstr ""
 
-#: includes/templatespare-kit.php:270
+#: includes/templatespare-kit.php:274
 msgid "Sorry, you are not allowed to install plugins on this site."
 msgstr ""
 
-#: includes/templatespare-kit.php:317
+#: includes/templatespare-kit.php:320
 msgid "Unable to connect to the filesystem. Please confirm your credentials."
 msgstr ""
 
-#: includes/templatespare-kit.php:334
+#: includes/templatespare-kit.php:337
 msgid "success"
 msgstr ""
 
-#: src/Components/App.js:175
-msgid "Ready to Import Starter Sites"
+#: src/Components/App.js:182
+msgid "Create Your Dream Website with Just One Click 🚀"
 msgstr ""
 
-#: src/Components/App.js:177
-msgid "Get modern & creative websites with just one click!"
+#: src/Components/App.js:185
+msgid "You’re almost there! Choose from our Ready-to-Import Starter Sites crafted for modern, professional, and creative websites."
 msgstr ""
 
-#: src/Components/App.js:192
+#: src/Components/App.js:224
 msgid "Example: news, sport, fashion.."
 msgstr ""
 
-#: src/Components/App.js:200
+#: src/Components/App.js:258
 msgid "All Themes"
 msgstr ""
 
-#: src/Components/App.js:225
+#: src/Components/App.js:309
 msgid "All Builders"
 msgstr ""
 
-#: src/Components/App.js:228
+#: src/Components/App.js:318
 #: src/Components/import-steps/step-1.js:56
 msgid "Gutenberg"
 msgstr ""
 
-#: src/Components/App.js:231
+#: src/Components/App.js:327
 #: src/Components/import-steps/step-1.js:54
 msgid "Elementor"
-msgstr ""
-
-#: src/Components/App.js:251
-msgid "Other"
 msgstr ""
 
 #: src/Components/import-steps/step-1.js:59
@@ -514,50 +557,47 @@ msgid "Widgets"
 msgstr ""
 
 #: src/Components/import-steps/step-1.js:73
-msgid "Import"
+#: src/Components/wizard/wizard-dashboard.js:133
+msgid "Select"
 msgstr ""
 
 #: src/Components/import-steps/step-1.js:86
 msgid " - Ready in minutes"
 msgstr ""
 
-#: src/Components/import-steps/step-1.js:97
+#: src/Components/import-steps/step-1.js:98
 msgid "Demo"
 msgstr ""
 
-#: src/Components/import-steps/step-1.js:101
+#: src/Components/import-steps/step-1.js:102
 msgid "Theme"
 msgstr ""
 
-#: src/Components/import-steps/step-1.js:105
+#: src/Components/import-steps/step-1.js:106
 msgid "Builder"
 msgstr ""
 
-#: src/Components/import-steps/step-1.js:111
-msgid "Demo settings will be imported safely, no data changes."
+#: src/Components/import-steps/step-1.js:112
+msgid "Importing won’t affect your existing content or settings."
 msgstr ""
 
-#: src/Components/import-steps/step-1.js:132
-msgid "Next"
-msgstr ""
-
-#: src/Components/main.js:155
+#: src/Components/main.js:161
 msgid "No Records Found"
 msgstr ""
 
-#: src/Components/main.js:198
+#: src/Components/main.js:199
 msgid "Upgrade"
 msgstr ""
 
-#: src/Components/main.js:201
+#: src/Components/main.js:209
 msgid "All Themes Plan"
 msgstr ""
 
-#: src/Components/main.js:270
+#: src/Components/main.js:328
 msgid "Purchase"
 msgstr ""
 
-#: src/Components/main.js:288
+#: src/Components/main.js:358
 msgid "Details"
 msgstr ""
 
@@ -567,4 +607,28 @@ msgstr ""
 
 #: src/Components/preview/preview.js:20
 msgid "Close"
+msgstr ""
+
+#: src/Components/wizard/step-1.js:14
+msgid "Build your website fast, easy, and fun with AF themes! Let’s get started and make your website amazing!"
+msgstr ""
+
+#: src/Components/wizard/step-2.js:13
+msgid "Select the type of website you want to create. We’ll suggest the best designs and features for you."
+msgstr ""
+
+#: src/Components/wizard/step-3.js:16
+msgid "No category selected"
+msgstr ""
+
+#: src/Components/wizard/wizard-dashboard.js:132
+msgid "Selected"
+msgstr ""
+
+#: src/Components/wizard/wizard-dashboard.js:161
+msgid "AF themes"
+msgstr ""
+
+#: src/Components/wizard/wizard-dashboard.js:164
+msgid "EXIT WIZARD"
 msgstr ""
