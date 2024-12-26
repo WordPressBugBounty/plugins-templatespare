@@ -4,7 +4,7 @@
  * Plugin Name: TemplateSpare: Build Stunning WordPress Sites Fast
  * Plugin URI: https://templatespare.com/?uri=plugin
  * Description: 1000+ News, Blog, eCommerce & Magazine Templates. One-Click Import, Fully Customizable with Gutenberg & Elementor, No Coding Needed.
- * Version: 2.5.1
+ * Version: 2.5.2
  * Author:            TemplateSpare
  * Author URI:        https://templatespare.com/
  * Text Domain:       templatespare

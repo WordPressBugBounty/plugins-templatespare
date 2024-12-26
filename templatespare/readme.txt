@@ -1,21 +1,54 @@
-=== TemplateSpare: Build Stunning WordPress Sites Fast – 1000+ News, Blog, eCommerce & Magazine Templates. One-Click Import, Fully Customizable with Gutenberg & Elementor, No Coding Needed.===
+=== TemplateSpare – 1000+ WordPress Starter Templates for Blogs, News, eCommerce & More | 1-Click Demo Import, No-Code Site Builder ===
 Contributors: templatespare, afthemes
 Tags: widgets, elementor, gutenberg, templates, landing page
 Requires at least: 4.0
 Tested up to: 6.7
-Stable tag: 2.5.1
+Stable tag: 2.5.2
 License: GPLv3 or later
 
 == Description ==
 
-## Quickly Create Your Dream Website with 1000+ Starter Sites & Templates!
-🌈 Explore a world of creativity with ready-to-use websites and templates! From chic blogs to dynamic news platforms, engaging magazines, and professional agency websites – find your perfect online space! 🌟
+## Create stunning WordPress websites in minutes with 1000+ starter templates, 1-click demo imports, page builders and multilingual support. Perfect for bloggers, businesses, eCommerce, and more – no coding required!
 
-[Try It Now](https://tastewp.com/new/?pre-installed-plugin-slug=templatespare) | [View Starter Sites](https://afthemes.com/starter-sites/) |  [Video Tutorials](https://www.youtube.com/@wpafthemes/) | [Blog](https://afthemes.com/blog/)
+[Explore Starter Sites Now](https://afthemes.com/starter-sites/) | [Watch Tutorials to Get Started](https://www.youtube.com/@wpafthemes/) | [Read How Others Built Stunning Sites](https://afthemes.com/blog/)
 
 
-== 🌐 One Click Import: No Coding Hassle! Three Simple Steps 🌟 ==
+== 🌟 Key Features ==
 
+<strong>[1000+ Starter Sites](https://afthemes.com/starter-sites/), Templates & Patterns:</strong> Explore designs for blogs, news, businesses, and creative projects.
+<strong>1-Click Demo Import:</strong> Quickly set up your site with pages, posts, menus, categories, and widgets preconfigured.
+<strong>Multilingual Templates:</strong> Access demos in English, Spanish, French, and more for global or regional audiences.
+<strong>No Coding Required:</strong> Fully compatible with top builders like Elementor, Gutenberg, and WPBakery.
+<strong>Fast & Easy Setup:</strong> Go from zero to live site in just a few clicks.
+
+== 📌 Who Is TemplateSpare For? ==
+
+## TemplateSpare is designed for a wide range of users:
+
+<strong>Bloggers & Content Creators:</strong> Perfect for personal blogs, lifestyle sites, and portfolios.
+<strong>News Agencies & Media Outlets:</strong> Ideal for news portals, magazines, and niche reporting.
+<strong>Small Businesses & eCommerce Stores:</strong> Launch professional sites for shops, agencies, or startups.
+<strong>Developers & Freelancers:</strong> Save time with [pre-designed templates](https://afthemes.com/starter-sites/) for clients.
+<strong>Nonprofits & Educators:</strong> Share your mission or showcase your courses.
+<strong>WordPress Beginners:</strong> Effortlessly build a site without technical skills.
+
+== 🎨 Template Categories (for Every Niche) ==
+<strong>News & Media:</strong> Blogs, magazines, and editorial layouts.
+<strong>Business & Corporate:</strong> Agency, portfolio, and small business templates.
+<strong>eCommerce:</strong> WooCommerce-ready stores for fashion, electronics, or handmade goods.
+<strong>Creative & Arts:</strong> Showcases for photography, design, and creative portfolios.
+<strong>Lifestyle & Personal:</strong> Travel, food, and fashion blogging templates.
+<strong>Education & Nonprofit:</strong> Charity, school, and course-focused sites.
+<strong>Technology & Startups:</strong> Templates for tech blogs, apps, and SaaS businesses.
+<strong>Local & Regional:</strong> Focused layouts for local news or cultural blogs.
+
+== ⭐ Why Choose TemplateSpare? ==
+<strong>Trusted by 100,000+ WordPress Users worldwide.</strong>
+<strong>Rated 4.9★ for reliability, ease of use, and customer satisfaction.</strong>
+<strong>Compatible with the latest WordPress versions and plugins.</strong>
+
+
+== 🌐 One Click Import: No Coding Hassle! Three Simple Steps ==
 [youtube https://www.youtube.com/watch?v=t7LMDLRE8Ok]
 
 🖱️ Locate the import dashboard at wp-admin -> <strong>TemplateSpare</strong> after enabling the plugin. Easily access and manage your TemplateSpare settings with just a few clicks, [see it in action](https://tastewp.com/new/?pre-installed-plugin-slug=templatespare). 
@@ -252,7 +285,13 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 == Changelog ==
 
-### 2.3.0 - 24/06/2024
+### 2.5.0 - 24/12/2024
+
+Changes:
+*New starter sites added*
+*Search and filters optimization*
+
+### 2.4.0 - 24/06/2024
 
 Changes:
 *New starter sites added*
