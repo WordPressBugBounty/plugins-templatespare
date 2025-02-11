@@ -1,29 +1,61 @@
-=== TemplateSpare – 1000+ WordPress Starter Templates for Blogs, News, eCommerce & More | 1-Click Demo Import, No-Code Site Builder ===
+=== TemplateSpare – 1000+ WordPress Starter Templates & Full Site Migration Tool | 1-Click Import/Export & No-Code Builder ===
 Contributors: templatespare, afthemes
 Tags: widgets, elementor, gutenberg, templates, landing page
 Requires at least: 4.0
 Tested up to: 6.7
-Stable tag: 2.5.2
+Stable tag: 3.0.0
 License: GPLv3 or later
 
 == Description ==
 
-## Create stunning WordPress websites in minutes with 1000+ starter templates, 1-click demo imports, page builders and multilingual support. Perfect for bloggers, businesses, eCommerce, and more – no coding required!
+## Imagine this... You’re planning your new website. You’re excited at first—but then reality hits. The design takes months. You wait for the developer to tweak every pixel, find the right plugins, migrate your content, and finally launch... eventually.
 
-[Explore Starter Sites Now](https://afthemes.com/starter-sites/) | [Watch Tutorials to Get Started](https://www.youtube.com/@wpafthemes/) | [Read How Others Built Stunning Sites](https://afthemes.com/blog/)
+<strong>What if you could skip all that hassle?</strong> Build your site in just 2-3 minutes, not months.
+And not just any site—a <strong>professionally designed, responsive, accessible,</strong> and <strong>translation-ready</strong> site with demo content included.
+
+Even better? When it’s time to move your site, you won’t need to beg a developer or waste time on manual migration. TemplateSpare’s <strong>1-Click Import/Export</strong> feature takes care of everything—<strong>themes, plugins, and data</strong>.
+
+🔗[Explore Starter Sites](https://afthemes.com/starter-sites/) | 📺[Watch Tutorials](https://www.youtube.com/@wpafthemes/) | 📰[Read User Stories](https://afthemes.com/blog/)
+
+== 🌟 Why TemplateSpare Is a Game-Changer ==
+<strong>[1️⃣ 1000+ Professional Templates](https://afthemes.com/starter-sites/):</strong> Pre-designed for blogs, news, eCommerce, portfolios, and more.
+<strong>2️⃣ 3 Minutes Setup:</strong> Install, import demo content, and go live in minutes. No coding needed.
+<strong>3️⃣ 1-Click Import/Export:</strong> Migrate your site to a new server in seconds. Themes, plugins, content—everything!
+<strong>4️⃣ Accessibility Ready & Fully Responsive:</strong> Works for everyone, on every device.
+<strong>5️⃣ Translation Ready & Multilingual:</strong> Connect with audiences around the world.
+
+== 🚀 A Typical User Journey ==
+<strong>Before TemplateSpare ⏩:</strong>
+* You hire a developer.
+* You wait weeks (or months) to get a working design.
+* You struggle to migrate your site later when you change hosts.
+
+<strong>With TemplateSpare 😍:</strong>
+* <strong>Choose a template, click import, and boom—your site is live in minutes.</strong>
+* Planning to switch servers? No need for extra tools or help. Just export and import with one click.
 
 
-== 🌟 Key Features ==
+== 🌐 How It Works – One-Click Import in 3 Easy Steps ==
+[youtube https://www.youtube.com/watch?v=t7LMDLRE8Ok]
 
-<strong>[1000+ Starter Sites](https://afthemes.com/starter-sites/), Templates & Patterns:</strong> Explore designs for blogs, news, businesses, and creative projects.
-<strong>1-Click Demo Import:</strong> Quickly set up your site with pages, posts, menus, categories, and widgets preconfigured.
-<strong>Multilingual Templates:</strong> Access demos in English, Spanish, French, and more for global or regional audiences.
-<strong>No Coding Required:</strong> Fully compatible with top builders like Elementor, Gutenberg, and WPBakery.
-<strong>Fast & Easy Setup:</strong> Go from zero to live site in just a few clicks.
+🖱️ Locate the import dashboard at wp-admin -> <strong>TemplateSpare</strong> after enabling the plugin. Easily access and manage your TemplateSpare settings with just a few clicks, [see it in action](https://tastewp.com/new/?pre-installed-plugin-slug=templatespare). 
 
-== 📌 Who Is TemplateSpare For? ==
+<strong> 🌟 1. Choose a Site: </strong>
+Browse [1000+ pre-built templates](https://tastewp.com/new/?pre-installed-plugin-slug=templatespare)and pick the one you like.
 
-## TemplateSpare is designed for a wide range of users:
+<strong> 🖌️ 2. Customize & Personalize: </strong>
+Use your favorite page builder to make it truly yours.
+
+<strong> 🚀 3. Publish & Go Live: </strong>
+Your site is ready in minutes. Share your story with the world! 🌏
+
+[youtube https://www.youtube.com/watch?v=elLCTqnQMI0]
+
+<strong>[Explore Live Demo](https://tastewp.com/new/?pre-installed-plugin-slug=templatespare)</strong> 
+
+
+== 📌 Who Should Use TemplateSpare? ==
+Whether you’re a <strong>beginner</strong>, <strong>freelancer</strong>, or <strong>agency</strong>, TemplateSpare makes creating and managing WordPress sites fast, easy, and scalable.
 
 <strong>Bloggers & Content Creators:</strong> Perfect for personal blogs, lifestyle sites, and portfolios.
 <strong>News Agencies & Media Outlets:</strong> Ideal for news portals, magazines, and niche reporting.
@@ -32,39 +64,44 @@ License: GPLv3 or later
 <strong>Nonprofits & Educators:</strong> Share your mission or showcase your courses.
 <strong>WordPress Beginners:</strong> Effortlessly build a site without technical skills.
 
-== 🎨 Template Categories (for Every Niche) ==
-<strong>News & Media:</strong> Blogs, magazines, and editorial layouts.
-<strong>Business & Corporate:</strong> Agency, portfolio, and small business templates.
-<strong>eCommerce:</strong> WooCommerce-ready stores for fashion, electronics, or handmade goods.
-<strong>Creative & Arts:</strong> Showcases for photography, design, and creative portfolios.
-<strong>Lifestyle & Personal:</strong> Travel, food, and fashion blogging templates.
-<strong>Education & Nonprofit:</strong> Charity, school, and course-focused sites.
-<strong>Technology & Startups:</strong> Templates for tech blogs, apps, and SaaS businesses.
-<strong>Local & Regional:</strong> Focused layouts for local news or cultural blogs.
-
-== ⭐ Why Choose TemplateSpare? ==
-<strong>Trusted by 100,000+ WordPress Users worldwide.</strong>
-<strong>Rated 4.9★ for reliability, ease of use, and customer satisfaction.</strong>
-<strong>Compatible with the latest WordPress versions and plugins.</strong>
+## 🎨 Celebrating the Success Stories of Our Users
 
 
-== 🌐 One Click Import: No Coding Hassle! Three Simple Steps ==
-[youtube https://www.youtube.com/watch?v=t7LMDLRE8Ok]
+<strong>I LOVE THIS THEME!!! It’s great for websites that have lots of content!</strong>
+🌟🌟🌟🌟🌟
+> I’ve used various versions of this theme and highly recommend it for sites that include lots of content!
 
-🖱️ Locate the import dashboard at wp-admin -> <strong>TemplateSpare</strong> after enabling the plugin. Easily access and manage your TemplateSpare settings with just a few clicks, [see it in action](https://tastewp.com/new/?pre-installed-plugin-slug=templatespare). 
+[@perfectrepublic](https://wordpress.org/support/topic/i-love-this-theme-its-great-for-websites-that-have-lots-of-content/)
 
-<strong> 🌟 1. Choose a Site: </strong>
-Browse through [1000+ pre-built templates](https://tastewp.com/new/?pre-installed-plugin-slug=templatespare). Click to choose your favorite.
+<strong>One of the most awesome themes</strong>
+🌟🌟🌟🌟🌟
+> This theme is very hand and good to use. One should check this out and you can use the theme for your site.
 
-<strong> 🖌️ 2. Customize & Personalize: </strong>
-Unleash your creativity! Tailor every element to your vision.
+[@mandatory1958](https://wordpress.org/support/topic/one-of-the-most-awesome-themes/)
 
-<strong> 🚀 3. Publish & Go Live: </strong>
-Your website is ready in minutes – share your story with the world! 🚀🌐
 
-[youtube https://www.youtube.com/watch?v=elLCTqnQMI0]
+<strong>Amazing & Excellent replacement theme</strong>
+🌟🌟🌟🌟🌟
+> The look and feel of this theme are excellent… I recommend it for Everyone who likes a dynamic blog.
 
-<strong>[Explore Live Demo](https://tastewp.com/new/?pre-installed-plugin-slug=templatespare)</strong> 
+[@doctutorials](https://wordpress.org/support/topic/amazing-excellent-replacement-theme/)
+
+
+<strong>Great theme with free templates</strong>
+🌟🌟🌟🌟🌟
+> I like the theme because it comes with many free templates for anyone to get started.
+
+[@tsquare07](https://wordpress.org/support/topic/great-theme-with-free-templates/)
+
+<strong>So clean and modern looking </strong>
+🌟🌟🌟🌟🌟
+> I tried the free version for awhile before going premium. I love the features in the pro version, well worth the price.
+
+[@macsopinion](https://wordpress.org/support/topic/so-clean-and-modern-looking/)
+
+
+[Read More Reviews](https://wordpress.org/support/theme/covernews/reviews/?filter=5)
+
 
 🚀 Enjoy a hassle-free setup experience! Install the TemplateSpare plugin. Locate the import dashboard at wp-admin -> <strong>[TemplateSpare](https://templatespare.com/)</strong> after enabling the plugin, choose your desired website demo, and witness the automatic installation and activation of essential themes and plugins during the import process. 
 
@@ -110,44 +147,6 @@ Enter the Gaming Galaxy with this starter site designed for gamers and gaming en
 <strong>[More to Come](https://templatespare.com/)</strong> Stay tuned for additional sites, ensuring your options are always expanding.
 
 [youtube https://www.youtube.com/watch?v=WeHALYnDQBM]
-
-## Celebrating the Success Stories of Our Users
-
-
-<strong>I LOVE THIS THEME!!! It’s great for websites that have lots of content!</strong>
-🌟🌟🌟🌟🌟
-> I’ve used various versions of this theme and highly recommend it for sites that include lots of content!
-
-[@perfectrepublic](https://wordpress.org/support/topic/i-love-this-theme-its-great-for-websites-that-have-lots-of-content/)
-
-<strong>One of the most awesome themes</strong>
-🌟🌟🌟🌟🌟
-> This theme is very hand and good to use. One should check this out and you can use the theme for your site.
-
-[@mandatory1958](https://wordpress.org/support/topic/one-of-the-most-awesome-themes/)
-
-
-<strong>Amazing & Excellent replacement theme</strong>
-🌟🌟🌟🌟🌟
-> The look and feel of this theme are excellent… I recommend it for Everyone who likes a dynamic blog.
-
-[@doctutorials](https://wordpress.org/support/topic/amazing-excellent-replacement-theme/)
-
-
-<strong>Great theme with free templates</strong>
-🌟🌟🌟🌟🌟
-> I like the theme because it comes with many free templates for anyone to get started.
-
-[@tsquare07](https://wordpress.org/support/topic/great-theme-with-free-templates/)
-
-<strong>So clean and modern looking </strong>
-🌟🌟🌟🌟🌟
-> I tried the free version for awhile before going premium. I love the features in the pro version, well worth the price.
-
-[@macsopinion](https://wordpress.org/support/topic/so-clean-and-modern-looking/)
-
-
-[Read More Reviews](https://wordpress.org/support/theme/covernews/reviews/?filter=5)
 
 
 
@@ -224,33 +223,41 @@ Once the plugin is activated you will find the actual import menu **TemplateSpar
 
 == Frequently Asked Questions ==
 
-= Are all of the starter templates completely free? =
+= Can I really build a site in 2-3 minutes? =
 
-As of present, you receive over 100+ FREE ready-to-use websites. Many more premium website demos are available when you purchase one of our [All Themes Plan Bundles](https://afthemes.com/all-themes-plan/) or any individual [Premium Theme](https://afthemes.com/products/category/pro/) that you wish to import demo websites from. 
+Absolutely. Choose a template, tap '1-Click Import,' and your site is live. No coding required.
+
+= What is the 1-Click Export feature? =
+
+It's like magic. Export your entire site—themes, plugins, content, settings—with a single click. Import it anywhere, effortlessly.
+
+= Are all of the starter templates free? =
+
+You get access to over 100 free, ready-to-use websites. For more options, explore our premium website demos available through our [All Themes Plan Bundles](https://afthemes.com/all-themes-plan/) or individual [Premium Theme](https://afthemes.com/products/category/pro/).
+
+= Do I need to install other plugins before importing a website? =
+
+Just install the TemplateSpare plugin and select your desired demo. During import, the plugin will automatically install and activate any essential themes and plugins.
+
+= Can I import a website or page demo into an existing site? =
+
+For the best experience, we recommend importing demos on a fresh WordPress installation or a blank site to prevent overriding existing settings and designs.
 
 = Is TemplateSpare compatible with my theme? =
 
-All of themes for our starter websites will be downloaded immediately from [AF themes](https://afthemes.com/starter-sites/). However, in the near future, we may work on additional themes compatibility.
-
-= Is it necessary to install any other plugins before importing a website? =
-
-Simply install the TemplateSpare plugin and pick the website demo you want to import. While the site is being imported, you will reach to a process where the plugin will install and activate the essential themes and plugins.
-
-= Can I use an existing website to import a website or page demo? =
-
-To avoid resetting and overriding settings and page design, install and import a website demo on a new WordPress installation or a blank website.
+Currently, our starter websites are designed for themes from [AF themes](https://afthemes.com/starter-sites/). However, we're working to expand compatibility in the future.
 
 = I've enabled the plugin. Where is the "TemplateSpare" page? =
 
-You will find the import page in *wp-admin -> TemplateSpare*.
+Find it in your dashboard under *wp-admin -> TemplateSpare*.
 
-= Will you be adding additional website demos? =
+= Will you be adding more website demos? =
 
-Yes! Many more free website demos are being developed utilizing WordPress, Elementor, Block Editor, and Beaver Builder.
+Yes, we're continually developing new free website demos using WordPress, Elementor, Block Editor, and Beaver Builder.
 
-= What if I can't find a website that covers the subject I'm looking for? =
+= What if I can't find a website that suits my needs? =
 
-We welcome recommendations and would love to work on areas that our users are interested in. Please submit your thoughts using the [form here](https://afthemes.com/supports/).
+We value your suggestions and are eager to create demos that interest our users. Share your ideas through our [support form](https://afthemes.com/supports/).
 
 
 
@@ -258,14 +265,14 @@ We welcome recommendations and would love to work on areas that our users are in
 
 TemplateSpare uses 'AF Companion' plugin script
 https://wordpress.org/plugins/af-companion/
-(C) 2023 @afthemes
+(C) 2025 @afthemes
 Licensed under the GNU General Public License v3.0,
 https://www.gnu.org/licenses/gpl.html
 
 
 == Copyright ==
 
-TemplateSpare, Copyright 2024 AF themes
+TemplateSpare, Copyright 2025 AF themes
 
 TemplateSpare is distributed under the terms of the GNU GPL
 
@@ -284,6 +291,13 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 == Changelog ==
+
+### 3.0.0 - 11/02/2025
+
+Changes:
+*New Full-site Export functionality*
+*New Full-site Import functionality*
+*Search and filters optimization*
 
 ### 2.5.0 - 24/12/2024
 

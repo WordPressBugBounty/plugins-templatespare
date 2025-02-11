@@ -1,21 +1,21 @@
-# Copyright (C) 2024 TemplateSpare
+# Copyright (C) 2025 TemplateSpare
 # This file is distributed under the GPLv3 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: TemplateSpare: Quick & Easy WordPress Site Builder 2.5.0\n"
+"Project-Id-Version: TemplateSpare – Build Your Website in Minutes, Not Months 3.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/templatespare\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-11-15T13:41:28+00:00\n"
+"POT-Creation-Date: 2025-02-11T11:28:27+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.6.0\n"
 "X-Domain: templatespare\n"
 
 #. Plugin Name of the plugin
-msgid "TemplateSpare: Quick & Easy WordPress Site Builder"
+msgid "TemplateSpare – Build Your Website in Minutes, Not Months"
 msgstr ""
 
 #. Plugin URI of the plugin
@@ -23,10 +23,12 @@ msgid "https://templatespare.com/?uri=plugin"
 msgstr ""
 
 #. Description of the plugin
-msgid "1000+ Ready-Made Demo Sites and Templates for News, Blogs, Magazines, eCommerce, and More. One-Click Import, No Coding Needed"
+msgid "No more endless design tweaks, plugin hunts, or migration nightmares. TemplateSpare simplifies your WordPress experience with 1-click imports, 1000+ professional demos, and seamless export options—making site-building fast, easy, and fun."
 msgstr ""
 
 #. Author of the plugin
+#: includes/init.php:74
+#: includes/init.php:75
 msgid "TemplateSpare"
 msgstr ""
 
@@ -68,9 +70,9 @@ msgid "This WordPress page does not have %sdirect%s write file access. This plug
 msgstr ""
 
 #: includes/companion/class-aftc-helpers.php:413
-#: includes/init.php:47
-#: includes/init.php:75
-#: includes/init.php:76
+#: includes/init.php:46
+#: includes/init.php:98
+#: includes/init.php:99
 msgid "Starter Sites"
 msgstr ""
 
@@ -130,50 +132,50 @@ msgstr ""
 msgid "not defined!"
 msgstr ""
 
-#: includes/companion/class-aftc-main.php:198
-#: includes/companion/class-aftc-main.php:210
+#: includes/companion/class-aftc-main.php:233
+#: includes/companion/class-aftc-main.php:245
 msgid "Downloaded files"
 msgstr ""
 
-#: includes/companion/class-aftc-main.php:206
+#: includes/companion/class-aftc-main.php:241
 msgid "The import files for: %s were successfully downloaded!"
 msgstr ""
 
-#: includes/companion/class-aftc-main.php:218
+#: includes/companion/class-aftc-main.php:250
 msgid "No import files specified!"
 msgstr ""
 
-#: includes/companion/class-aftc-main.php:289
+#: includes/companion/class-aftc-main.php:321
 msgid "%1$sThat's it, all done!%2$sThe demo import has finished. Please check your page and make sure that everything has imported correctly. For more other beautiful WordPress products please visit %3$sAF themes%4$s. %5$s"
 msgstr ""
 
-#: includes/companion/class-aftc-main.php:299
+#: includes/companion/class-aftc-main.php:331
 msgid "%1$sThe demo import has finished, but there were some import errors.%2$sMore details about the errors can be found in this %3$s%5$slog file%6$s%4$s%7$s"
 msgstr ""
 
-#: includes/companion/class-aftc-main.php:361
+#: includes/companion/class-aftc-main.php:394
 msgid "Max execution time after content import = "
 msgstr ""
 
-#: includes/companion/class-aftc-main.php:363
+#: includes/companion/class-aftc-main.php:396
 msgid "Importing content"
 msgstr ""
 
-#: includes/companion/class-aftc-main.php:407
-#: includes/companion/class-aftc-main.php:419
+#: includes/companion/class-aftc-main.php:436
+#: includes/companion/class-aftc-main.php:448
 msgid "Importing widgets"
 msgstr ""
 
-#: includes/companion/class-aftc-main.php:443
-#: includes/companion/class-aftc-main.php:451
+#: includes/companion/class-aftc-main.php:472
+#: includes/companion/class-aftc-main.php:480
 msgid "Importing customizer settings"
 msgstr ""
 
-#: includes/companion/class-aftc-main.php:449
+#: includes/companion/class-aftc-main.php:478
 msgid "Customizer settings import finished!"
 msgstr ""
 
-#: includes/companion/class-aftc-main.php:509
+#: includes/companion/class-aftc-main.php:538
 msgid "Completed AJAX call number: "
 msgstr ""
 
@@ -356,71 +358,81 @@ msgstr ""
 msgid "Could not update comment #%d with mapped data"
 msgstr ""
 
-#: includes/init.php:51
+#: includes/init.php:50
 #: includes/layouts/class-plugin-notice.php:106
 msgid "Access All Sites"
 msgstr ""
 
-#: includes/init.php:59
+#: includes/init.php:58
 msgid "View Starter Websites"
 msgstr ""
 
-#: includes/init.php:59
+#: includes/init.php:58
 #: includes/layouts/class-plugin-notice.php:104
 msgid "Demos"
 msgstr ""
 
-#: includes/init.php:60
+#: includes/init.php:59
 msgid "View Documentation"
 msgstr ""
 
-#: includes/init.php:60
+#: includes/init.php:59
 #: includes/layouts/class-plugin-notice.php:132
 msgid "Docs"
 msgstr ""
 
-#: includes/init.php:61
+#: includes/init.php:60
 msgid "View Videos Tutorials"
 msgstr ""
 
-#: includes/init.php:61
+#: includes/init.php:60
 #: includes/layouts/class-plugin-notice.php:133
 msgid "Videos"
 msgstr ""
 
-#: includes/init.php:100
-#: includes/init.php:101
-msgid "Import Demo Site"
+#: includes/init.php:107
+#: includes/init.php:108
+msgid "Setup Wizard"
 msgstr ""
 
-#: includes/init.php:120
-#: includes/init.php:121
+#: includes/init.php:118
+#: includes/init.php:119
 msgid "Block Patterns"
 msgstr ""
 
-#: includes/init.php:132
 #: includes/init.php:133
+#: includes/init.php:134
 msgid "Elementor Kits"
 msgstr ""
 
-#: includes/init.php:143
 #: includes/init.php:144
-msgid "Access All Themes"
+#: includes/init.php:145
+msgid "Export Site"
 msgstr ""
 
-#: includes/init.php:152
-#: includes/init.php:153
-msgid "Build Your Website"
+#: includes/init.php:154
+#: includes/init.php:155
+msgid "Import Site"
 msgstr ""
 
-#: includes/init.php:163
-#: includes/init.php:164
-msgid "How It Works"
+#: includes/init.php:165
+#: includes/init.php:166
+msgid "Website Assistance"
 msgstr ""
 
-#: includes/init.php:172
-#: includes/init.php:173
-msgid "Need Help?"
+#: includes/init.php:174
+#: includes/init.php:175
+msgid "Browse All Themes "
+msgstr ""
+
+#: includes/init.php:184
+#: includes/init.php:185
+msgid "Documentation"
+msgstr ""
+
+#: includes/init.php:193
+#: includes/init.php:194
+msgid "Support & Contact"
 msgstr ""
 
 #: includes/layouts/class-plugin-notice.php:58
@@ -501,19 +513,162 @@ msgstr ""
 msgid "Select the type of site you want to create. We’ll suggest the best designs and features for you."
 msgstr ""
 
-#: includes/templatespare-kit.php:261
+#: includes/site-backup/backuplisting.php:68
+#: includes/site-backup/class-backup-site.php:168
+msgid "Backup created successfully!"
+msgstr ""
+
+#: includes/site-backup/backuplisting.php:73
+msgid "The following extensions are required for Downloadzip to function correctly:"
+msgstr ""
+
+#: includes/site-backup/backuplisting.php:76
+msgid "extension-zip"
+msgstr ""
+
+#: includes/site-backup/backuplisting.php:78
+msgid "Please contact your hosting company for support."
+msgstr ""
+
+#: includes/site-backup/backuplisting.php:85
+msgid "Site Export Manager"
+msgstr ""
+
+#: includes/site-backup/backuplisting.php:86
+msgid ""
+"Export your entire site, including themes, plugins, and settings, for easy migration or recovery.\n"
+"View and manage your recent exports below."
+msgstr ""
+
+#: includes/site-backup/backuplisting.php:87
+msgid "Once you generate your export file, you can use it in the "
+msgstr ""
+
+#: includes/site-backup/backuplisting.php:88
+msgid "Import Dashboard"
+msgstr ""
+
+#: includes/site-backup/backuplisting.php:89
+msgid " to restore or migrate your site."
+msgstr ""
+
+#: includes/site-backup/backuplisting.php:90
+msgid "Recent Exports"
+msgstr ""
+
+#: includes/site-backup/backuplisting.php:98
+msgid "Created"
+msgstr ""
+
+#: includes/site-backup/backuplisting.php:99
+msgid "Size"
+msgstr ""
+
+#: includes/site-backup/backuplisting.php:100
+msgid "Export Name"
+msgstr ""
+
+#: includes/site-backup/backuplisting.php:101
+msgid "Actions"
+msgstr ""
+
+#: includes/site-backup/backuplisting.php:129
+msgid "Download"
+msgstr ""
+
+#: includes/site-backup/backuplisting.php:132
+msgid "Are you sure you want to delete this folder?"
+msgstr ""
+
+#: includes/site-backup/backuplisting.php:134
+msgid "Delete"
+msgstr ""
+
+#: includes/site-backup/backuplisting.php:197
+msgid "« Prev"
+msgstr ""
+
+#: includes/site-backup/backuplisting.php:198
+msgid "Next »"
+msgstr ""
+
+#: includes/site-backup/class-backup-site.php:105
+msgid "You do not have sufficient permissions to access this page."
+msgstr ""
+
+#: includes/site-backup/class-import-zip.php:237
+msgid "The demo-content folder does not exist."
+msgstr ""
+
+#: includes/site-backup/class-import-zip.php:239
+msgid "One or more required files (demo-content.xml, demo-content.wie, demo-content.dat) are missing."
+msgstr ""
+
+#: includes/site-backup/class-import-zip.php:258
+msgid "To achieve the same demo as the one you exported, please install and activate the following themes and plugins ."
+msgstr ""
+
+#: includes/site-backup/export.php:61
+msgid "Error encoding JSON: "
+msgstr ""
+
+#: includes/site-backup/export.php:67
+msgid "Failed to write to file: "
+msgstr ""
+
+#: includes/site-backup/import-site.php:9
+msgid "Easily import and restore your site from a TemplateSpare export. Simply upload your file to replicate your site's themes, plugins, and settings on a new environment."
+msgstr ""
+
+#: includes/site-backup/import-site.php:11
+msgid "Import Your Site"
+msgstr ""
+
+#: includes/site-backup/import-site.php:34
+msgid "Importing..."
+msgstr ""
+
+#: includes/site-backup/import-site.php:36
+msgid "Site Imported is successful"
+msgstr ""
+
+#: includes/site-backup/import-site.php:37
+msgid "success..."
+msgstr ""
+
+#: includes/site-backup/import-site.php:57
+msgid "How it works"
+msgstr ""
+
+#: includes/site-backup/import-site.php:58
+msgid "For a smooth import, ensure that you are uploading a TemplateSpare export file. It should include your themes, plugins, demo data, and configuration settings."
+msgstr ""
+
+#: includes/site-backup/import-site.php:60
+msgid "Need an export file? Visit the "
+msgstr ""
+
+#: includes/site-backup/import-site.php:61
+msgid "Export Dashboard"
+msgstr ""
+
+#: includes/site-backup/import-site.php:62
+msgid "to generate one."
+msgstr ""
+
+#: includes/templatespare-kit.php:254
 msgid "No plugin specified."
 msgstr ""
 
-#: includes/templatespare-kit.php:274
+#: includes/templatespare-kit.php:267
 msgid "Sorry, you are not allowed to install plugins on this site."
 msgstr ""
 
-#: includes/templatespare-kit.php:320
+#: includes/templatespare-kit.php:314
 msgid "Unable to connect to the filesystem. Please confirm your credentials."
 msgstr ""
 
-#: includes/templatespare-kit.php:337
+#: includes/templatespare-kit.php:331
 msgid "success"
 msgstr ""
 

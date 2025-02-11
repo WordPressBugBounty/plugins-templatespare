@@ -31,7 +31,6 @@ if (!class_exists('AFTMLS_Templates_Importer')) {
     {
       $test = get_option('templatespare_wizard_category_value', false);
 
-
       add_action('admin_menu', array($this, 'templatespare_register_menu_info_page'));
       add_action('admin_enqueue_scripts', array($this, 'templatespare_dashboard_assets'));
       add_action('init', array($this, 'templatespare_load_files'));
@@ -72,8 +71,8 @@ if (!class_exists('AFTMLS_Templates_Importer')) {
 
       $this->plugin_page_setup = apply_filters('templatespare/plugin_page_setup', array(
         'parent_slug' => 'admin.php',
-        'page_title' => esc_html__('Starter Sites', 'templatespare'),
-        'menu_title' => esc_html__('Starter Sites', 'templatespare'),
+        'page_title' => esc_html__('TemplateSpare', 'templatespare'),
+        'menu_title' => esc_html__('TemplateSpare', 'templatespare'),
         'capability' => 'import',
         'menu_slug' => 'templatespare-main-dashboard',
       ));
@@ -82,29 +81,37 @@ if (!class_exists('AFTMLS_Templates_Importer')) {
 
       //$svg = file_get_contents( AFTMLS_PLUGIN_URL .'assets/images/logo.svg' );
 
+      // Main Plugin Dashboard Page
       $this->plugin_page = add_menu_page(
         $this->plugin_page_setup['page_title'],
         $this->plugin_page_setup['menu_title'],
         $this->plugin_page_setup['capability'],
         $this->plugin_page_setup['menu_slug'],
-        apply_filters('templatespare/plugin_page_display_callback_function', array($this, 'templatespare_render_page')),
+        apply_filters('templatespare/plugin_page_display_callback_function', [$this, 'templatespare_render_page']),
         'data:image/svg+xml;base64,' . base64_encode($svg_logo),
-
         60
       );
 
-      
-
+      // Submenu: Starter Sites
       add_submenu_page(
         'templatespare-main-dashboard',
-        esc_html__('Import Demo Site', 'templatespare'),
-        esc_html__('Import Demo Site', 'templatespare'),
+        esc_html__('Starter Sites', 'templatespare'),
+        esc_html__('Starter Sites', 'templatespare'),
         'import',
         'templatespare-main-dashboard'
-
       );
 
+      // Submenu: Get Started (Wizard)
+      add_submenu_page(
+        'templatespare-main-dashboard',
+        esc_html__('Setup Wizard', 'templatespare'),
+        esc_html__('Setup Wizard', 'templatespare'),
+        'manage_options',
+        'wizard-page',
+        [$this, 'templatespare_display_wizard']
+      );
 
+      // Conditional Submenu: Block Patterns (Visible only if BlockSpare plugin is active)
       if (is_plugin_active('blockspare/blockspare.php') || is_plugin_active('blockspare-pro/blockspare-pro.php')) {
         add_submenu_page(
           'templatespare-main-dashboard',
@@ -113,11 +120,14 @@ if (!class_exists('AFTMLS_Templates_Importer')) {
           'manage_options',
           'blockspare-dashboard',
           [$this, 'blockspare_demo_import_callback']
-
         );
       }
 
-      if (is_plugin_active('elementor/elementor.php')  && (is_plugin_active('elespare/elespare.php') || is_plugin_active('elespare-pro/elespare-pro.php'))) {
+      // Conditional Submenu: Elementor Kits (Visible only if Elementor and Elespare plugins are active)
+      if (
+        is_plugin_active('elementor/elementor.php') &&
+        (is_plugin_active('elespare/elespare.php') || is_plugin_active('elespare-pro/elespare-pro.php'))
+      ) {
         add_submenu_page(
           'templatespare-main-dashboard',
           esc_html__('Elementor Kits', 'templatespare'),
@@ -125,58 +135,67 @@ if (!class_exists('AFTMLS_Templates_Importer')) {
           'manage_options',
           'elespare-dashboard',
           [$this, 'elespare_demo_import_callback']
-
         );
       }
 
+      // Submenu: Export Site
       add_submenu_page(
         'templatespare-main-dashboard',
-        esc_html__('Access All Themes', 'templatespare'),
-        esc_html__('Access All Themes', 'templatespare'),
+        esc_html__('Export Site', 'templatespare'),
+        esc_html__('Export Site', 'templatespare'),
         'manage_options',
-        esc_url('https://afthemes.com/all-themes-plan/')
-
+        'templatespare-site-backup',
+        [$this, 'temmplatespareRenderBackupPage']
       );
 
+      // Submenu: Import Site
       add_submenu_page(
         'templatespare-main-dashboard',
-        esc_html__('Build Your Website', 'templatespare'),
-        esc_html__('Build Your Website', 'templatespare'),
+        esc_html__('Import Site', 'templatespare'),
+        esc_html__('Import Site', 'templatespare'),
+        'manage_options',
+        'templatespare-site-import',
+        [$this, 'temmplatespareRenderImportPage']
+      );
+
+
+      // External Link: Make Website
+      add_submenu_page(
+        'templatespare-main-dashboard',
+        esc_html__('Website Assistance', 'templatespare'),
+        esc_html__('Website Assistance', 'templatespare'),
         'manage_options',
         esc_url('https://afthemes.com/make-a-website/')
-
       );
-      
-      // remove_submenu_page('templatespare-main-dashboard', 'wizard-page');
 
+      // External Link: All Themes
       add_submenu_page(
         'templatespare-main-dashboard',
-        esc_html__('How It Works', 'templatespare'),
-        esc_html__('How It Works', 'templatespare'),
+        esc_html__('Browse All Themes ', 'templatespare'),
+        esc_html__('Browse All Themes ', 'templatespare'),
+        'manage_options',
+        esc_url('https://afthemes.com/all-themes-plan/')
+      );
+
+
+      // External Link: Documentation
+      add_submenu_page(
+        'templatespare-main-dashboard',
+        esc_html__('Documentation', 'templatespare'),
+        esc_html__('Documentation', 'templatespare'),
         'manage_options',
         esc_url('https://templatespare.com/documentation/')
-
       );
 
+      // External Link: Support
       add_submenu_page(
         'templatespare-main-dashboard',
-        esc_html__('Need Help?', 'templatespare'),
-        esc_html__('Need Help?', 'templatespare'),
+        esc_html__('Support & Contact', 'templatespare'),
+        esc_html__('Support & Contact', 'templatespare'),
         'manage_options',
         esc_url('https://afthemes.com/installation-support/')
-
       );
 
-
-      add_submenu_page(
-        'templatespare-main-dashboard', // Page title
-        esc_html__('Onboarding', 'templatespare'), // Menu title
-        esc_html__('Onboarding', 'templatespare'), // Menu title
-        'manage_options', // Capability,
-        'wizard-page',
-        [$this, 'templatespare_display_wizard'], // Callback function
-
-      );
 
       register_importer($this->plugin_page_setup['menu_slug'], $this->plugin_page_setup['page_title'], $this->plugin_page_setup['menu_title'], apply_filters('templatespare/plugin_page_display_callback_function', array($this, 'templatespare_render_page')));
     }
@@ -196,7 +215,7 @@ if (!class_exists('AFTMLS_Templates_Importer')) {
         $step = (int) get_option('templatespare_wizard_next_step', 0);
         if (!is_user_logged_in() || !current_user_can('administrator') || $step == 4) {
           return;
-        }      
+        }
         include_once AFTMLS_BASE_DIR . '/includes/wizard/templates/wizard_template.php';
         exit;
       }
@@ -326,7 +345,7 @@ if (!class_exists('AFTMLS_Templates_Importer')) {
         )
       );
 
-      if (is_admin() && $current_screen->base != 'toplevel_page_wizard-page'):
+      if (is_admin() && $current_screen->base != 'toplevel_page_wizard-page') :
         wp_enqueue_style(
           'aftmls-block-edit-style',
           AFTMLS_PLUGIN_URL . 'dist/blocks.editor.build.css',
@@ -341,6 +360,7 @@ if (!class_exists('AFTMLS_Templates_Importer')) {
       include_once AFTMLS_PLUGIN_DIR . 'includes/layouts/class-plugin-notice.php';
       require_once AFTMLS_PLUGIN_DIR . 'includes/companion/elementor-meta-handler.php';
       require_once AFTMLS_PLUGIN_DIR . 'includes/layouts/default.php';
+      require_once AFTMLS_PLUGIN_DIR . 'includes/site-backup/class-backup-site.php';
     }
 
     public function templatespare_register_plugins_routes()
@@ -365,6 +385,15 @@ if (!class_exists('AFTMLS_Templates_Importer')) {
       }
 
       return $allthemes;
+    }
+    public function temmplatespareRenderBackupPage()
+    {
+      require_once AFTMLS_PLUGIN_DIR . 'includes/site-backup/backuplisting.php';
+    }
+
+    public function temmplatespareRenderImportPage()
+    {
+      require_once AFTMLS_PLUGIN_DIR . 'includes/site-backup/import-site.php';
     }
   }
 
