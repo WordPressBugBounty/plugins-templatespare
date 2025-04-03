@@ -101,8 +101,8 @@ class TemplatesapreBackupSite
   public function templatespare_backup_load_files()
   {
     // Restrict access to administrators only
-    if (!current_user_can('manage_options')) {
-      wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'templatespare'));
+    if (!current_user_can('manage_options')) {      
+      return;
     }
     require_once AFTMLS_PLUGIN_DIR . 'includes/site-backup/class-download-backup-zip.php';
     $downloadZip = new TemplatesapreDownloadZip();

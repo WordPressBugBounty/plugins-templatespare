@@ -3,7 +3,7 @@ Contributors: templatespare, afthemes
 Tags: widgets, elementor, gutenberg, templates, landing page
 Requires at least: 4.0
 Tested up to: 6.7
-Stable tag: 3.0.0
+Stable tag: 3.0.1
 License: GPLv3 or later
 
 == Description ==
@@ -291,6 +291,13 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 == Changelog ==
+
+### 3.0.1 - 11/02/2025
+
+Changes:
+*New Full-site Export functionality*
+*New Full-site Import functionality*
+*Search and filters optimization*
 
 ### 3.0.0 - 11/02/2025
 
