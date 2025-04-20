@@ -1,9 +1,9 @@
 === TemplateSpare – 1000+ WordPress Starter Templates & Full Site Migration Tool | 1-Click Import/Export & No-Code Builder ===
 Contributors: templatespare, afthemes
-Tags: widgets, elementor, gutenberg, templates, landing page
+Tags: gutenberg import, elemetor import, demo import, theme import, widget import, customizer import, 
 Requires at least: 4.0
-Tested up to: 6.7
-Stable tag: 3.0.1
+Tested up to: 6.8
+Stable tag: 3.0.2
 License: GPLv3 or later
 
 == Description ==
