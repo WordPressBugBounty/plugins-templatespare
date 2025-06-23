@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv3 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: TemplateSpare – Build Your Website in Minutes, Not Months 3.0.0\n"
+"Project-Id-Version: TemplateSpare – Build Your Website in Minutes, Not Months 3.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/templatespare\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-02-11T11:28:27+00:00\n"
+"POT-Creation-Date: 2025-06-23T12:32:26+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.6.0\n"
 "X-Domain: templatespare\n"
@@ -36,11 +36,11 @@ msgstr ""
 msgid "https://templatespare.com/"
 msgstr ""
 
-#: includes/companion/class-aftc-customizer-importer.php:38
+#: includes/companion/class-aftc-customizer-importer.php:42
 msgid "The customizer import file is missing! File path: %s"
 msgstr ""
 
-#: includes/companion/class-aftc-customizer-importer.php:58
+#: includes/companion/class-aftc-customizer-importer.php:62
 msgid "The customizer import file is not in a correct format. Please make sure to use the correct customizer import file."
 msgstr ""
 
@@ -132,50 +132,50 @@ msgstr ""
 msgid "not defined!"
 msgstr ""
 
-#: includes/companion/class-aftc-main.php:233
 #: includes/companion/class-aftc-main.php:245
+#: includes/companion/class-aftc-main.php:257
 msgid "Downloaded files"
 msgstr ""
 
-#: includes/companion/class-aftc-main.php:241
+#: includes/companion/class-aftc-main.php:253
 msgid "The import files for: %s were successfully downloaded!"
 msgstr ""
 
-#: includes/companion/class-aftc-main.php:250
+#: includes/companion/class-aftc-main.php:262
 msgid "No import files specified!"
 msgstr ""
 
-#: includes/companion/class-aftc-main.php:321
-msgid "%1$sThat's it, all done!%2$sThe demo import has finished. Please check your page and make sure that everything has imported correctly. For more other beautiful WordPress products please visit %3$sAF themes%4$s. %5$s"
+#: includes/companion/class-aftc-main.php:348
+msgid "%1$sSetup complete! Enjoy your new design.%2$sThe demo import has finished. Please check your page and make sure that everything has imported correctly. For more other beautiful WordPress products please visit %3$sAF themes%4$s. %5$s"
 msgstr ""
 
-#: includes/companion/class-aftc-main.php:331
+#: includes/companion/class-aftc-main.php:358
 msgid "%1$sThe demo import has finished, but there were some import errors.%2$sMore details about the errors can be found in this %3$s%5$slog file%6$s%4$s%7$s"
 msgstr ""
 
-#: includes/companion/class-aftc-main.php:394
+#: includes/companion/class-aftc-main.php:421
 msgid "Max execution time after content import = "
 msgstr ""
 
-#: includes/companion/class-aftc-main.php:396
+#: includes/companion/class-aftc-main.php:423
 msgid "Importing content"
 msgstr ""
 
-#: includes/companion/class-aftc-main.php:436
-#: includes/companion/class-aftc-main.php:448
+#: includes/companion/class-aftc-main.php:463
+#: includes/companion/class-aftc-main.php:475
 msgid "Importing widgets"
 msgstr ""
 
-#: includes/companion/class-aftc-main.php:472
-#: includes/companion/class-aftc-main.php:480
+#: includes/companion/class-aftc-main.php:499
+#: includes/companion/class-aftc-main.php:507
 msgid "Importing customizer settings"
 msgstr ""
 
-#: includes/companion/class-aftc-main.php:478
+#: includes/companion/class-aftc-main.php:505
 msgid "Customizer settings import finished!"
 msgstr ""
 
-#: includes/companion/class-aftc-main.php:538
+#: includes/companion/class-aftc-main.php:565
 msgid "Completed AJAX call number: "
 msgstr ""
 
@@ -500,7 +500,7 @@ msgstr ""
 
 #: includes/layouts/default.php:20
 #: includes/layouts/default.php:41
-#: src/Components/import-steps/step-1.js:133
+#: src/Components/import-steps/step-1.js:258
 msgid "Next"
 msgstr ""
 
@@ -592,10 +592,6 @@ msgstr ""
 msgid "Next »"
 msgstr ""
 
-#: includes/site-backup/class-backup-site.php:105
-msgid "You do not have sufficient permissions to access this page."
-msgstr ""
-
 #: includes/site-backup/class-import-zip.php:237
 msgid "The demo-content folder does not exist."
 msgstr ""
@@ -624,51 +620,51 @@ msgstr ""
 msgid "Import Your Site"
 msgstr ""
 
-#: includes/site-backup/import-site.php:34
+#: includes/site-backup/import-site.php:41
 msgid "Importing..."
 msgstr ""
 
-#: includes/site-backup/import-site.php:36
+#: includes/site-backup/import-site.php:43
 msgid "Site Imported is successful"
 msgstr ""
 
-#: includes/site-backup/import-site.php:37
+#: includes/site-backup/import-site.php:44
 msgid "success..."
 msgstr ""
 
-#: includes/site-backup/import-site.php:57
+#: includes/site-backup/import-site.php:64
 msgid "How it works"
 msgstr ""
 
-#: includes/site-backup/import-site.php:58
+#: includes/site-backup/import-site.php:65
 msgid "For a smooth import, ensure that you are uploading a TemplateSpare export file. It should include your themes, plugins, demo data, and configuration settings."
 msgstr ""
 
-#: includes/site-backup/import-site.php:60
+#: includes/site-backup/import-site.php:67
 msgid "Need an export file? Visit the "
 msgstr ""
 
-#: includes/site-backup/import-site.php:61
+#: includes/site-backup/import-site.php:68
 msgid "Export Dashboard"
 msgstr ""
 
-#: includes/site-backup/import-site.php:62
+#: includes/site-backup/import-site.php:69
 msgid "to generate one."
 msgstr ""
 
-#: includes/templatespare-kit.php:254
+#: includes/templatespare-kit.php:203
 msgid "No plugin specified."
 msgstr ""
 
-#: includes/templatespare-kit.php:267
+#: includes/templatespare-kit.php:216
 msgid "Sorry, you are not allowed to install plugins on this site."
 msgstr ""
 
-#: includes/templatespare-kit.php:314
+#: includes/templatespare-kit.php:263
 msgid "Unable to connect to the filesystem. Please confirm your credentials."
 msgstr ""
 
-#: includes/templatespare-kit.php:331
+#: includes/templatespare-kit.php:280
 msgid "success"
 msgstr ""
 
@@ -693,66 +689,70 @@ msgid "All Builders"
 msgstr ""
 
 #: src/Components/App.js:318
-#: src/Components/import-steps/step-1.js:56
+#: src/Components/import-steps/step-1.js:72
 msgid "Gutenberg"
 msgstr ""
 
 #: src/Components/App.js:327
-#: src/Components/import-steps/step-1.js:54
+#: src/Components/import-steps/step-1.js:68
 msgid "Elementor"
 msgstr ""
 
-#: src/Components/import-steps/step-1.js:59
+#: src/Components/import-steps/step-1.js:76
 msgid "WooCommerce"
 msgstr ""
 
-#: src/Components/import-steps/step-1.js:62
-#: src/Components/import-steps/step-1.js:65
+#: src/Components/import-steps/step-1.js:78
+#: src/Components/import-steps/step-1.js:81
 msgid "Widgets"
 msgstr ""
 
-#: src/Components/import-steps/step-1.js:73
+#: src/Components/import-steps/step-1.js:90
 #: src/Components/wizard/wizard-dashboard.js:133
 msgid "Select"
 msgstr ""
 
-#: src/Components/import-steps/step-1.js:86
+#: src/Components/import-steps/step-1.js:104
 msgid " - Ready in minutes"
 msgstr ""
 
-#: src/Components/import-steps/step-1.js:98
+#: src/Components/import-steps/step-1.js:119
 msgid "Demo"
 msgstr ""
 
-#: src/Components/import-steps/step-1.js:102
+#: src/Components/import-steps/step-1.js:130
 msgid "Theme"
 msgstr ""
 
-#: src/Components/import-steps/step-1.js:106
+#: src/Components/import-steps/step-1.js:141
 msgid "Builder"
 msgstr ""
 
-#: src/Components/import-steps/step-1.js:112
-msgid "Importing won’t affect your existing content or settings."
+#: src/Components/import-steps/step-1.js:195
+msgid "Import Demo Content (Posts, Pages, Menus)"
 msgstr ""
 
-#: src/Components/main.js:161
+#: src/Components/import-steps/step-1.js:222
+msgid "Importing won't change your content. Design and widgets will update."
+msgstr ""
+
+#: src/Components/main.js:162
 msgid "No Records Found"
 msgstr ""
 
-#: src/Components/main.js:199
+#: src/Components/main.js:200
 msgid "Upgrade"
 msgstr ""
 
-#: src/Components/main.js:209
+#: src/Components/main.js:210
 msgid "All Themes Plan"
 msgstr ""
 
-#: src/Components/main.js:328
+#: src/Components/main.js:324
 msgid "Purchase"
 msgstr ""
 
-#: src/Components/main.js:358
+#: src/Components/main.js:353
 msgid "Details"
 msgstr ""
 

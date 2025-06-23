@@ -26,13 +26,13 @@ class TemplatesapreDownloadZip
   public function templatespareDownloadAsZip()
   {
 
-
-    if (!isset($_GET['_wpnonce']) || !wp_verify_nonce($_GET['_wpnonce'], 'download_folder_' . $_GET['download_folder'])) {
-      return;
-    }
     if (!isset($_GET['download_folder']) || empty($_GET['download_folder'])) {
       return;
     }
+    if (!isset($_GET['_wpnonce']) || !wp_verify_nonce($_GET['_wpnonce'], 'download_folder_' . $_GET['download_folder'])) {
+      return;
+    }
+
     $folder = isset($_GET['download_folder']) ? sanitize_text_field($_GET['download_folder']) : '';
 
     if (empty($folder)) {

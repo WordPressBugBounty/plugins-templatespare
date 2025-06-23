@@ -17,6 +17,13 @@ wp_enqueue_script('templatespare_fileimport_script');
         <input type="file" name="templatespare_import_file" class="templatespare_import_file" required />
         <p class="file-name" style="display: none;"></p>
       </div>
+      <!-- <div class="templatespare-check-wrap">
+        <input type="checkbox" name="templatespare_import_all_content" value="all" id="templatespare_import_all_content" checked="checked">
+        <label for="templatespare_import_all_content"><?php //echo esc_html("Import Demo Content (Posts, Pages, Menus)", "temmplatespare"); 
+                                                      ?></label>
+        <p class="templatespare-drop-zone-text"><?php //echo esc_html('Adds sample posts, pages, and menus. Your current content won\'t be changed. Design and widgets will be added either way.', 'templatespare') 
+                                                ?></p>
+      </div> -->
 
       <button type="submit" name="nbm_migrate" id="templatespare_importBtn" class="button button-primary templatespare_import_zip">
         <span class="dashicons dashicons-database-import"></span>
@@ -58,8 +65,8 @@ wp_enqueue_script('templatespare_fileimport_script');
   <p><?php esc_html_e("For a smooth import, ensure that you are uploading a TemplateSpare export file. It should include your themes, plugins, demo data, and configuration settings.", 'templatespare'); ?></p>
 
   <p><?php esc_html_e("Need an export file? Visit the ", 'templatespare'); ?>
-    <a href="<?php echo esc_url(admin_url('admin.php?page=templatespare-site-backup')); ?>"><?php esc_html_e("Export Dashboard", 'templatespare'); ?></a> 
+    <a href="<?php echo esc_url(admin_url('admin.php?page=templatespare-site-backup')); ?>"><?php esc_html_e("Export Dashboard", 'templatespare'); ?></a>
     <?php esc_html_e("to generate one.", 'templatespare'); ?>
   </p>
-  
+
 </div>

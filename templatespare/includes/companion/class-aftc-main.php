@@ -35,6 +35,8 @@ class AFTMLS_Companion
    */
   private $importer, $plugin_page, $import_files, $logger, $log_file_path, $selected_index, $selected_import_files, $microtime, $frontend_error_messages, $ajax_call_number, $selected_theme, $ischild;
 
+  private $allcontentimport;
+  private $homepage_type;
   private $plugin_page_setup = array();
 
   /**
@@ -104,6 +106,8 @@ class AFTMLS_Companion
 
 
 
+
+
     // Try to update PHP memory limit (so that it does not run out of it).
     ini_set('memory_limit', apply_filters('templatespare/import_memory_limit', '350M'));
 
@@ -113,8 +117,16 @@ class AFTMLS_Companion
     // Is this a new AJAX call to continue the previous import?
     $use_existing_importer_data = $this->get_importer_data();
 
+    $this->homepage_type = sanitize_text_field($_POST['homepageType']);
 
-
+    $this->allcontentimport = '';
+    if (isset($_POST['allcontent'])) {
+      // Sanitize and convert to strict boolean
+      $raw_allcontent = sanitize_text_field($_POST['allcontent']);
+      $this->allcontentimport = $raw_allcontent;
+    } else {
+      $this->allcontentimport = 'true';
+    }
 
     if (!$use_existing_importer_data) {
 
@@ -174,12 +186,11 @@ class AFTMLS_Companion
         $this->import_files = AFTMLS_Helpers::validate_import_file_info($data);
       } else {
 
-        //$this->selected_index = empty($templatespare_templates_kit) ? 0 : $templatespare_templates_kit;
+
         $this->selected_index = 0;
 
         $DemoName = sanitize_text_field($_POST['foldername']);
-        // $json_content = file_get_contents($templatespare_templates_kit);
-        // $jsondata = json_decode($json_content, true);
+
         // Check for JSON decode errors
         if (json_last_error() === JSON_ERROR_NONE) {
 
@@ -201,6 +212,7 @@ class AFTMLS_Companion
 
         $this->import_files = AFTMLS_Helpers::validate_import_file_info($data);
       }
+
 
 
 
@@ -259,9 +271,9 @@ class AFTMLS_Companion
 
 
 
-
-
-    $this->frontend_error_messages .= $this->import_content($this->selected_import_files['content']);
+    if ($this->allcontentimport  !== 'false') {
+      $this->frontend_error_messages .= $this->import_content($this->selected_import_files['content'], $this->allcontentimport);
+    }
 
 
 
@@ -293,7 +305,7 @@ class AFTMLS_Companion
      * 5. Import customize options.
      */
     if (!empty($this->selected_import_files['customizer']) && empty($this->frontend_error_messages)) {
-      $this->import_customizer($this->selected_import_files['customizer']);
+      $this->import_customizer($this->selected_import_files['customizer'], $this->allcontentimport);
     }
 
 
@@ -303,12 +315,27 @@ class AFTMLS_Companion
      */
 
 
-    $action = 'templatespare/after_import';
-    if ((false !== has_action($action)) && empty($this->frontend_error_messages)) {
 
-      // Run the after_import action to setup other settings.
-      $this->do_import_action($action, $this->import_files[$this->selected_index]);
+    if ($this->allcontentimport === 'true') {
+      $action = 'templatespare/after_import';
+
+      if ((false !== has_action($action)) && empty($this->frontend_error_messages)) {
+
+        // Run the after_import action to setup other settings.
+        $this->do_import_action($action, $this->import_files[$this->selected_index], $this->homepage_type);
+      }
     }
+    if ($this->allcontentimport === 'false') {
+      $action = 'templatespare/after_import_is_not_content';
+
+      if ((false !== has_action($action)) && empty($this->frontend_error_messages)) {
+
+        // Run the after_import action to setup other settings.
+        $this->do_import_action($action,  $this->import_files[$this->selected_index], $this->homepage_type);
+      }
+    }
+
+
 
 
 
@@ -318,7 +345,7 @@ class AFTMLS_Companion
       update_option('templatespare_wizard_next_step', 0);
       update_option('templatespare_wizard_category_value', null);
       $response['message'] = sprintf(
-        __('%1$sThat\'s it, all done!%2$sThe demo import has finished. Please check your page and make sure that everything has imported correctly. For more other beautiful WordPress products please visit %3$sAF themes%4$s. %5$s', 'templatespare'),
+        __('%1$sSetup complete! Enjoy your new design.%2$sThe demo import has finished. Please check your page and make sure that everything has imported correctly. For more other beautiful WordPress products please visit %3$sAF themes%4$s. %5$s', 'templatespare'),
         '<div class="updated"><p>',
         '<br>',
         '<strong><a href="https://afthemes.com/" target="_blank">',
@@ -455,12 +482,12 @@ class AFTMLS_Companion
    *
    * @param string $customizer_import_file_path path to the customizer import file.
    */
-  private function import_customizer($customizer_import_file_path)
+  private function import_customizer($customizer_import_file_path, $allcontentimport)
   {
 
 
     // Try to import the customizer settings.
-    $results = AFTMLS_Customizer_Importer::import_customizer_options($customizer_import_file_path);
+    $results = AFTMLS_Customizer_Importer::import_customizer_options($customizer_import_file_path, $allcontentimport);
 
     // Check for errors.
     if (is_wp_error($results)) {
@@ -488,11 +515,11 @@ class AFTMLS_Companion
    * @param string $action the action name to be executed.
    * @param array $selected_import with information about the selected import.
    */
-  private function do_import_action($action, $selected_import)
+  private function do_import_action($action, $selected_import, $homepagetype)
   {
 
     ob_start();
-    do_action($action, $selected_import);
+    do_action($action, $selected_import, $homepagetype);
     $message = ob_get_clean();
 
     // Add this message to log file.
@@ -527,7 +554,7 @@ class AFTMLS_Companion
       $response = array(
         'status' => 'newAJAX',
         'message' => 'Time for new AJAX request!: ' . $time,
-        'ajaxCall' => $this->ajax_call_number
+        'ajaxCall' => $this->ajax_call_number,
       );
 
       // Add any output to the log file and clear the buffers.

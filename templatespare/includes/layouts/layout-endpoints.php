@@ -115,6 +115,7 @@ if (!class_exists('AFTMLS_RestApi_Request')) {
             'preview' => $filtered_data['preview'],
             'tags' => $filtered_data['tags'],
             'mainCategory' => $filtered_data['main_category'],
+            'homepage_type' => isset($filtered_data['homepage_type']) ? $filtered_data['homepage_type'] : 'static',
             'parent' => '',
             'plugins' => isset($filtered_data['plugins']) ? $filtered_data['plugins'] : "",
             "theme_type" => ($theme == $filtered_data['slug'] && in_array('child', $filtered_data['tags'])) ? 'true' : $value['free'],

@@ -223,3 +223,34 @@ form#templatespare-upload-file {
   border-color: #4caf51;
   background: rgb(255 255 255 / 60%);
 }
+
+
+.templatespare-check-wrap {
+  display: flex;
+  /* align-items: center;
+  justify-content: center; */
+  margin-top: 30px;
+  font-size: 16px;
+}
+
+.templatespare-check-wrap p {
+  margin-top: 0;
+  font-size: 14px;
+}
+
+.templatespare-check-wrap p a {
+  color: #154de9;
+}
+
+.templatespare-check-wrap input,
+.templatespare-check-wrap label {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 14px;
+  margin-bottom: 1em;
+  cursor: pointer;
+}
+
+.templatespare-check-wrap input{
+  margin-top: 0;
+}

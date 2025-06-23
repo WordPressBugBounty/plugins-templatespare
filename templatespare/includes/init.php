@@ -340,7 +340,8 @@ if (!class_exists('AFTMLS_Templates_Importer')) {
           'selected_cat' => $selected_cats,
           'templatespare_dashbord_href' => admin_url('admin.php?page=templatespare-main-dashboard', 'admin'),
           'templatespare_wizard_href' => admin_url('admin.php?page=wizard-page', 'admin'),
-          'all_categories' => get_all_categories()
+          'all_categories' => get_all_categories(),
+          'templatesapre_url' => admin_url('admin.php?', 'admin'),
 
         )
       );

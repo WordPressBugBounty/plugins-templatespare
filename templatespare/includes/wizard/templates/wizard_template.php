@@ -14,7 +14,7 @@
   <script type="text/javascript">
     var ajaxurl = '<?php echo esc_js(admin_url('admin-ajax.php', 'relative')); ?>'
   </script>
-  
+
 </head>
 
 <body class="bg-white">
@@ -128,7 +128,7 @@
       'logo' => AFTMLS_PLUGIN_URL . 'assets/images/logo.svg',
       'aflogo' => AFTMLS_PLUGIN_URL . 'assets/images/afthemes.png',
       'cscreen' => '$hook',
-      'currentTheme' => $defined_theme,
+      'currentTheme' => $defined_theme ? $defined_theme : $theme->name,
       'selected_cat' => $selected_cats,
       'templatespare_dashbord_href' => admin_url('admin.php?page=templatespare-main-dashboard', 'admin'),
       'templatespare_wizard_href' => admin_url('admin.php?page=wizard-page', 'admin'),
@@ -165,5 +165,5 @@
 
   ?>
   <div id="templatespare-starter-container"></div>
-  
+
 </body>

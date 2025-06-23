@@ -101,7 +101,7 @@ class TemplatesapreBackupSite
   public function templatespare_backup_load_files()
   {
     // Restrict access to administrators only
-    if (!current_user_can('manage_options')) {      
+    if (!current_user_can('manage_options')) {
       return;
     }
     require_once AFTMLS_PLUGIN_DIR . 'includes/site-backup/class-download-backup-zip.php';
@@ -317,6 +317,22 @@ class TemplatesapreBackupSite
         continue;
       }
 
+      if ($pluginPath === 'sg-security') {
+        continue;
+      }
+
+      if ($pluginPath === 'siteground-email-marketing') {
+        continue;
+      }
+
+      if ($pluginPath === 'siteground-migrator') {
+        continue;
+      }
+      if ($pluginPath === 'sg-cachepress') {
+        continue;
+      }
+
+
       // Check if the plugin directory exists
       if (is_dir($sourcePluginDir)) {
         $this->templatespare_copy_directory($sourcePluginDir, $destinationPluginDir);
@@ -335,7 +351,7 @@ class TemplatesapreBackupSite
       mkdir($destination, 0755, true);
     }
 
-    $exclude = ['node_modules', '.git', '.idea', '.DS_Store', 'Thumbs.db', 'templatespare'];
+    $exclude = ['node_modules', '.git', '.idea', '.DS_Store', 'Thumbs.db', 'templatespare', 'sg-security', 'siteground-email-marketing', 'siteground-migrator', 'sg-cachepress'];
 
     if ($source === WP_PLUGIN_DIR) {
       $exclude[] = 'index.php';

@@ -3,6 +3,10 @@
 /**
  *
  */
+
+
+
+
 add_action('wp_ajax_templatespare_get_theme_status', 'templatespare_get_theme_status');
 add_action('wp_ajax_templatespare_activate_required_theme', 'templatespare_activate_required_theme');
 
@@ -33,12 +37,22 @@ function templatespare_get_theme_status()
     return;
   }
   check_ajax_referer('aftc-ajax-verification', 'security');
+
   if (isset($_POST['re_theme'])) {
 
     $themename = sanitize_text_field($_POST['re_theme']);
 
     $theme = wp_get_theme();
     $current_active_theme = str_replace(' ', '-', strtolower($theme->name));
+
+    //check if pro theme is activated 
+
+
+    if (templatespare_is_current_theme_valid_pro($current_active_theme, $themename)) {
+      return wp_send_json_success(array(
+        'status' => 'req-theme-active',
+      ), 200);
+    }
     // Theme installed and activate.
     if (strtolower($themename) == $current_active_theme) {
 
@@ -67,72 +81,7 @@ function templatespare_get_theme_status()
 function templatespare_available_themes()
 {
 
-  // return $themes = array(
-  //     'CoverNews',
-  //     'ChromeNews',
-  //     'MoreNews',
-  //     'EnterNews',
-  //     'DarkNews',
-  //     'Storeship',
-  //     'Newsium',
-  //     'Newsever',
-  //     'Shopical',
-  //     'Newsphere',
-  //     'Elegant Magazine',
-  //     'Magazine 7',
-  //     'BroadNews',
-  //     'StoreCommerce',
-  //     'Magnitude',
-  //     'Kreeti Lite',
-  //     'CoverNews Pro',
-  //     'ChromeNews Pro',
-  //     'MoreNews Pro',
-  //     'EnterNews Pro',
-  //     'DarkNews Pro',
-  //     'Storeship Pro',
-  //     'Newsium Pro',
-  //     'Newsever Pro',
-  //     'Shopical Pro',
-  //     'Newsphere Pro',
-  //     'Elegant Magazine Pro',
-  //     'Magazine 7 Plus',
-  //     'BroadNews Pro',
-  //     'StoreCommerce Pro',
-  //     'Magnitude Pro',
-  //     'Kreeti',
-  //     'Newsback',
-  //     'ChromeMag',
-  //     'SplashNews',
-  //     'EnterMag',
-  //     'NewsCover',
-  //     'FoodShop',
-  //     'CoverStory',
-  //     'Newspin',
-  //     'Magever',
-  //     'HardNews',
-  //     'Shopage',
-  //     'Magcess',
-  //     'Storement',
-  //     'NewsQuare',
-  //     'Autoshop',
-  //     'Vivacious Magazine',
-  //     'Magaziness',
-  //     'NewsWords',
-  //     'Minimal Shop',
-  //     'Daily Newscast',
-  //     'Storekeeper',
-  //     'Featured News',
-  //     'Newsport',
-  //     'Newstorial',
-  //     'CoverMag',
-  //     'Magnificent Blog',
-  //     'Beautiful Blog',
-  //     'Daily Magazine',
-  //     'Newsment',
-  //     'Sportion',
-  //     'HybridNews'
 
-  // );
   return $themes = array(
     'CoverNews',
     'ChromeNews',
@@ -332,4 +281,24 @@ function templatespare_install_require_plugins()
     }
   }
   wp_die();
+}
+
+function templatespare_is_current_theme_valid_pro($current_slug, $target_slug)
+{
+  $theme = wp_get_theme();
+  $theme_name = $theme->get('Name');
+
+  // Step 1: Check if it's a Pro or Plus theme
+  if (!preg_match('/\s+(Pro|Plus)$/i', $theme_name)) {
+    return false;
+  }
+
+  // Step 2: Remove ' Pro' or ' Plus' from end
+  $base_name = preg_replace('/\s+(Pro|Plus)$/i', '', $theme_name);
+
+  // Step 3: Slugify (e.g., 'CoverNews' -> 'covernews')
+  $base_slug = str_replace(' ', '-', strtolower($base_name));
+
+  // Step 4: Compare with provided $themename
+  return $base_slug === $target_slug;
 }

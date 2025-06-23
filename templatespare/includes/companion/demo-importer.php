@@ -1,7 +1,10 @@
 <?php
 
-function templatespare_import_navigation()
+function templatespare_import_navigation($selected_import, $homepagetype)
 {
+
+
+
   // Get front page ID
   $front_page_id = null;
   $front_page_query = new WP_Query(array(
@@ -39,21 +42,135 @@ function templatespare_import_navigation()
     $blog_page_id = $blog_page_query->posts[0]->ID;
   }
 
-  // Update options for front page and blog page
-  if ($front_page_id) {
-    update_option('show_on_front', 'page');
-    update_option('page_on_front', $front_page_id);
-  }
 
-  if ($blog_page_id) {
-    update_option('page_for_posts', $blog_page_id);
-  }
 
-  //menu setup
+  // Update options depending on homepage type
+  if ($homepagetype === 'blog') {
+    // Show latest posts
+    update_option('show_on_front', 'posts');
+  } else {
+    // Show a static page
+    if ($front_page_id) {
+      update_option('show_on_front', 'page');
+      update_option('page_on_front', $front_page_id);
+    }
+
+    if ($blog_page_id) {
+      update_option('page_for_posts', $blog_page_id);
+    }
+  }
 
   // Remove any previous menu assignments to avoid conflicts
 
   // Get all registered menu locations
+  templatespare_nav_menu_setup();
+}
+
+
+add_action('templatespare/after_import', 'templatespare_import_navigation', 10, 3);
+
+add_filter('templatespare_post_content_before_insert', 'templatespare_replace_urls', 10, 2);
+
+function templatespare_replace_urls($content, $old_base_url)
+{
+
+  $site_url = get_site_url();
+  $site_url = str_replace('/', '\/', $site_url);
+
+  $demo_site_url = str_replace('/', '\/', $old_base_url);
+  $content = json_encode($content, true);
+
+  $content = preg_replace('/\\\{1}\/sites\\\{1}\/\d+/', '', $content);
+
+  $content = str_replace($demo_site_url, $site_url, $content);
+
+  $content = json_decode($content, true);
+
+  return $content;
+}
+
+add_action('templatespare/after_import_is_not_content', 'templatespare_set_static_front_and_blog_pages', 10, 3);
+function templatespare_set_static_front_and_blog_pages($selected_import, $homepagetype)
+{
+
+  if ($homepagetype === 'block') {
+    update_option('show_on_front', 'post');
+  }
+
+  $home_slug     = sanitize_title('home');
+  $blog_slug     = sanitize_title('blog');
+  $home_template = 'tmpl-front-page.php';
+
+  // Refresh template cache
+  wp_clean_themes_cache();
+  delete_site_transient('theme_roots');
+
+  // Check if the home template exists in the theme
+  $page_templates  = wp_get_theme()->get_page_templates();
+  $template_exists = array_key_exists($home_template, $page_templates);
+
+  // Get pages by slug
+  $home_page = get_page_by_path($home_slug);
+  $blog_page = get_page_by_path($blog_slug);
+
+  // Create Home page if it doesn't exist
+  if (!$home_page instanceof WP_Post) {
+    $home_page_id = wp_insert_post(array(
+      'post_title'    => 'Home',
+      'post_name'     => $home_slug,
+      'post_status'   => 'publish',
+      'post_type'     => 'page',
+      'post_content'  => '',
+    ));
+
+    if (!is_wp_error($home_page_id) && $template_exists) {
+      update_post_meta($home_page_id, '_wp_page_template', sanitize_text_field($home_template));
+    }
+  } else {
+    $home_page_id = $home_page->ID;
+
+    // Update template if not set correctly
+    if ($template_exists) {
+      update_post_meta($home_page_id, '_wp_page_template', sanitize_text_field($home_template));
+    }
+  }
+
+  // Create Blog page if it doesn't exist
+  if (!$blog_page instanceof WP_Post) {
+    $blog_page_id = wp_insert_post(array(
+      'post_title'    => 'Blog',
+      'post_name'     => $blog_slug,
+      'post_status'   => 'publish',
+      'post_type'     => 'page',
+      'post_content'  => '',
+    ));
+  } else {
+    $blog_page_id = $blog_page->ID;
+  }
+
+
+  if ($homepagetype === 'blog') {
+    // Show latest posts
+    update_option('show_on_front', 'posts');
+  } else {
+    // Show a static page
+    if (!empty($home_page_id) && !is_wp_error($home_page_id)) {
+      update_option('show_on_front', 'page');
+      update_option('page_on_front', $home_page_id);
+    }
+
+    if (!empty($blog_page_id) && !is_wp_error($blog_page_id)) {
+      update_option('page_for_posts', $blog_page_id);
+    }
+  }
+
+
+  // templatespare_nav_menu_setup();
+}
+
+function templatespare_nav_menu_setup()
+{
+
   $registered_menus = get_registered_nav_menus();
   $nav_menus = get_terms('nav_menu', array('hide_empty' => true));
 
@@ -109,27 +226,4 @@ function templatespare_import_navigation()
       error_log("No matching menu found for location: $location");
     }
   }
-}
-
-
-add_action('templatespare/after_import', 'templatespare_import_navigation');
-
-add_filter('templatespare_post_content_before_insert', 'templatespare_replace_urls', 10, 2);
-
-function templatespare_replace_urls($content, $old_base_url)
-{
-
-  $site_url = get_site_url();
-  $site_url = str_replace('/', '\/', $site_url);
-
-  $demo_site_url = str_replace('/', '\/', $old_base_url);
-  $content = json_encode($content, true);
-
-  $content = preg_replace('/\\\{1}\/sites\\\{1}\/\d+/', '', $content);
-
-  $content = str_replace($demo_site_url, $site_url, $content);
-
-  $content = json_decode($content, true);
-
-  return $content;
 }
