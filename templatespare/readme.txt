@@ -3,7 +3,7 @@ Contributors: templatespare, afthemes
 Tags: gutenberg import, elemetor import, demo import, theme import, widget import, customizer import, 
 Requires at least: 4.0
 Tested up to: 6.8
-Stable tag: 3.1.0
+Stable tag: 3.2.0
 License: GPLv3 or later
 
 == Description ==
@@ -291,6 +291,18 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 == Changelog ==
+
+### 3.2.0 - 08/07/2025
+
+Changes:
+*New Elemntor Kits design library integerated*
+*New Block Patterns design library integerated*
+*New Links to design library integerated while importing*
+*Improved demo import reliability across different site types (Widget, Elementor, Blockspare)*
+*Fixed homepage not being correctly set after importing Elementor or Widget-based demos*
+*Resolved issue where importing a demo created multiple homepages without switching them*
+*Improved handling of existing content during demo import (no reset required)*
+*Minor performance improvements and stability fixes*
 
 ### 3.1.0 - 23/06/2025
 

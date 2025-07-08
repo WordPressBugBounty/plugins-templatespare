@@ -235,7 +235,7 @@ form#templatespare-upload-file {
 
 .templatespare-check-wrap p {
   margin-top: 0;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .templatespare-check-wrap p a {
@@ -246,7 +246,7 @@ form#templatespare-upload-file {
 .templatespare-check-wrap label {
   display: inline-block;
   vertical-align: middle;
-  font-size: 14px;
+  font-size: 16px;
   margin-bottom: 1em;
   cursor: pointer;
 }

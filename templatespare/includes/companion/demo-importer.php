@@ -5,29 +5,30 @@ function templatespare_import_navigation($selected_import, $homepagetype)
 
 
 
-  // Get front page ID
+  global $wpdb;
+
   $front_page_id = null;
-  $front_page_query = new WP_Query(array(
-    'post_type'      => 'page',
-    'post_status'    => 'publish',
-    'posts_per_page' => 1,
-    'title'          => 'Home',
-  ));
-  if ($front_page_query->have_posts()) {
-    // If a page with the title 'Home' exists, check for similar slugs
-    while ($front_page_query->have_posts()) {
-      $front_page_query->the_post();
-      if (get_post_field('post_name') === 'home') {
-        // If a page with slug 'home' exists, set its ID
-        $front_page_id = get_the_ID();
+
+  $home_pages = $wpdb->get_results($wpdb->prepare("
+      SELECT ID, post_title
+      FROM $wpdb->posts
+      WHERE post_type = 'page'
+      AND post_status = 'publish'
+      AND post_title = %s
+      ORDER BY ID DESC
+  ", 'Home'));
+
+  if ($home_pages) {
+    foreach ($home_pages as $page) {
+      if ($page->post_title === 'Home') {
+        $front_page_id = $page->ID;
         break;
       }
     }
-    // If no page with slug 'home' exists, set the ID of the first page found
+
     if (! $front_page_id) {
-      $front_page_id = $front_page_query->posts[0]->ID;
+      $front_page_id = $home_pages[0]->ID;
     }
-    wp_reset_postdata(); // Reset the query
   }
 
   // Get blog page ID
@@ -93,9 +94,7 @@ add_action('templatespare/after_import_is_not_content', 'templatespare_set_stati
 function templatespare_set_static_front_and_blog_pages($selected_import, $homepagetype)
 {
 
-  if ($homepagetype === 'block') {
-    update_option('show_on_front', 'post');
-  }
+
 
   $home_slug     = sanitize_title('home');
   $blog_slug     = sanitize_title('blog');

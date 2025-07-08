@@ -95,8 +95,8 @@ if (!class_exists('AFTMLS_Templates_Importer')) {
       // Submenu: Starter Sites
       add_submenu_page(
         'templatespare-main-dashboard',
-        esc_html__('Starter Sites', 'templatespare'),
-        esc_html__('Starter Sites', 'templatespare'),
+        esc_html__('Import Sites', 'templatespare'),
+        esc_html__('Import Sites', 'templatespare'),
         'import',
         'templatespare-main-dashboard'
       );
@@ -104,39 +104,38 @@ if (!class_exists('AFTMLS_Templates_Importer')) {
       // Submenu: Get Started (Wizard)
       add_submenu_page(
         'templatespare-main-dashboard',
-        esc_html__('Setup Wizard', 'templatespare'),
-        esc_html__('Setup Wizard', 'templatespare'),
+        esc_html__('Get Started', 'templatespare'),
+        esc_html__('Get Started', 'templatespare'),
         'manage_options',
         'wizard-page',
         [$this, 'templatespare_display_wizard']
       );
 
-      // Conditional Submenu: Block Patterns (Visible only if BlockSpare plugin is active)
-      if (is_plugin_active('blockspare/blockspare.php') || is_plugin_active('blockspare-pro/blockspare-pro.php')) {
-        add_submenu_page(
-          'templatespare-main-dashboard',
-          esc_html__('Block Patterns', 'templatespare'),
-          esc_html__('Block Patterns', 'templatespare'),
-          'manage_options',
-          'blockspare-dashboard',
-          [$this, 'blockspare_demo_import_callback']
-        );
-      }
-
       // Conditional Submenu: Elementor Kits (Visible only if Elementor and Elespare plugins are active)
-      if (
-        is_plugin_active('elementor/elementor.php') &&
-        (is_plugin_active('elespare/elespare.php') || is_plugin_active('elespare-pro/elespare-pro.php'))
-      ) {
-        add_submenu_page(
-          'templatespare-main-dashboard',
-          esc_html__('Elementor Kits', 'templatespare'),
-          esc_html__('Elementor Kits', 'templatespare'),
-          'manage_options',
-          'elespare-dashboard',
-          [$this, 'elespare_demo_import_callback']
-        );
-      }
+
+      add_submenu_page(
+        'templatespare-main-dashboard',
+        esc_html__('Elementor Kits', 'templatespare'),
+        esc_html__('Elementor Kits', 'templatespare'),
+        'manage_options',
+        'elespare-dashboard',
+        [$this, 'elespare_demo_import_callback']
+      );
+
+      // Conditional Submenu: Block Patterns (Visible only if BlockSpare plugin is active)
+
+      add_submenu_page(
+        'templatespare-main-dashboard',
+        esc_html__('Block Patterns', 'templatespare'),
+        esc_html__('Block Patterns', 'templatespare'),
+        'manage_options',
+        'blockspare-dashboard',
+        [$this, 'blockspare_demo_import_callback']
+      );
+
+
+      
+
 
       // Submenu: Export Site
       add_submenu_page(
@@ -162,39 +161,21 @@ if (!class_exists('AFTMLS_Templates_Importer')) {
       // External Link: Make Website
       add_submenu_page(
         'templatespare-main-dashboard',
-        esc_html__('Website Assistance', 'templatespare'),
-        esc_html__('Website Assistance', 'templatespare'),
+        esc_html__('Hosting', 'templatespare'),
+        esc_html__('Hosting', 'templatespare'),
         'manage_options',
-        esc_url('https://afthemes.com/make-a-website/')
+        esc_url('https://afthemes.com/hosting/')
       );
 
       // External Link: All Themes
       add_submenu_page(
         'templatespare-main-dashboard',
-        esc_html__('Browse All Themes ', 'templatespare'),
-        esc_html__('Browse All Themes ', 'templatespare'),
+        esc_html__('All Themes ', 'templatespare'),
+        esc_html__('All Themes ', 'templatespare'),
         'manage_options',
         esc_url('https://afthemes.com/all-themes-plan/')
       );
-
-
-      // External Link: Documentation
-      add_submenu_page(
-        'templatespare-main-dashboard',
-        esc_html__('Documentation', 'templatespare'),
-        esc_html__('Documentation', 'templatespare'),
-        'manage_options',
-        esc_url('https://templatespare.com/documentation/')
-      );
-
-      // External Link: Support
-      add_submenu_page(
-        'templatespare-main-dashboard',
-        esc_html__('Support & Contact', 'templatespare'),
-        esc_html__('Support & Contact', 'templatespare'),
-        'manage_options',
-        esc_url('https://afthemes.com/installation-support/')
-      );
+      
 
 
       register_importer($this->plugin_page_setup['menu_slug'], $this->plugin_page_setup['page_title'], $this->plugin_page_setup['menu_title'], apply_filters('templatespare/plugin_page_display_callback_function', array($this, 'templatespare_render_page')));
@@ -203,7 +184,7 @@ if (!class_exists('AFTMLS_Templates_Importer')) {
     public function templatespare_render_page()
     { ?>
       <div id="templatespare-template-collcetion-dashboard"></div>
-    <?php }
+      <?php }
 
     public function templatespare_display_wizard()
     {
@@ -222,14 +203,142 @@ if (!class_exists('AFTMLS_Templates_Importer')) {
     }
 
     public function blockspare_demo_import_callback()
-    { ?>
-      <div id="bs-dashboard"></div>
-    <?php }
+    {
+      wp_enqueue_script('aftmls-plugin-installl-activation-script');
+      $templatespare_blockspare_installed = templatespare_get_plugin_file('blockspare-pro');
+      $install = [];
+      $activate = [];
+      $templatespare_blockspare_verison = '';
+      $templatespare_check_blockspare = $this->templatespare_check_blockspare_free_pro_activated();
+      $templatespare_blockspare_status = 'free';
+      if (!empty($templatespare_blockspare_installed) && $templatespare_check_blockspare == 'pro') {
+        $templatespare_blockspare_status = 'pro';
+        $templatespare_blockspare_old_version = '4.1.3';
+        $templatespare_blockspare_pro_info = get_plugin_data(WP_PLUGIN_DIR . '/' . $templatespare_blockspare_installed);
+        $templatespare_blockspare_verison = $templatespare_blockspare_pro_info['Version'];
+        $templatespare_blockspare_active = is_plugin_active($templatespare_blockspare_installed);
+
+        if ($templatespare_blockspare_active == false && $templatespare_blockspare_installed != null) {
+          $activate[] = 'blockspare-pro';
+        }
+      } else {
+
+        $templatespare_blockspare_installed = templatespare_get_plugin_file('blockspare');
+        $templatespare_blockspare_old_version = '3.1.0';
+
+        if (!empty($templatespare_blockspare_installed)) {
+          $templatespare_blockspare_info = get_plugin_data(WP_PLUGIN_DIR . '/' . $templatespare_blockspare_installed);
+          $templatespare_blockspare_verison = $templatespare_blockspare_info['Version'];
+          $templatespare_blockspare_active = is_plugin_active('blockspare/blockspare.php');
+
+          if ($templatespare_blockspare_active == false && $templatespare_blockspare_installed != null) {
+            $activate = ['blockspare'];
+          }
+        } else {
+          if ($templatespare_blockspare_installed == null) {
+            $install = ['blockspare'];
+          }
+        }
+
+        $plugin_update = 'false';
+        if (!empty($templatespare_blockspare_verison) && $templatespare_blockspare_verison < $templatespare_blockspare_old_version) {
+          $plugin_update = 'true';
+        }
+        if (($templatespare_blockspare_installed && $templatespare_blockspare_active) && $plugin_update == 'false') {
+      ?>
+          <div id="bs-dashboard"></div>
+        <?php } else {
+          if (!empty($templatespare_blockspare_verison) && $templatespare_blockspare_active && $templatespare_blockspare_verison < $templatespare_blockspare_old_version) {
+            $class = admin_url('plugins.php');
+
+            $message = sprintf(
+              __('Blockspare plugin version should be more than %s.', 'templatespare'),
+              $templatespare_blockspare_old_version
+            );
+          } else {
+            $class = 'false';
+            $message = __('One-click Demo Import, Block Editor Ready, No Code Required! Built with Blockspare.', 'templatespare');
+          }
+        }
+        ?>
+        <div id="templatespare-plugins-install-activate" data-class="<?php echo $class; ?>" current-theme='blockspare'
+          install=<?php echo json_encode($install); ?> activate=<?php echo json_encode($activate); ?> data-plugin-page="blockspare-dashboard"
+          message='<?php echo $message; ?>' isPro='<?php echo esc_attr($templatespare_blockspare_status); ?>'></div>
+<?php }
+    }
 
     public function elespare_demo_import_callback()
-    { ?>
-      <div id="elespare-demo-list"></div>
-<?php }
+    {
+      wp_enqueue_script('aftmls-plugin-installl-activation-script');
+      $install = [];
+      $activate = [];
+      $templatespare_elespare_installed = templatespare_get_plugin_file('elespare-pro');
+      $templatespare_elementor_pro_installed = templatespare_get_plugin_file('elementor-pro');
+      $templatespare_elementor_installed = templatespare_get_plugin_file('elementor');
+
+      if ($templatespare_elementor_pro_installed) {
+        $activate[] = 'elementor-pro';
+      }
+      if ($templatespare_elementor_installed) {
+        $activate[] = 'elementor';
+      } else {
+        $install[] = 'elementor';
+      }
+
+      $templatespare_elespare_verison = '';
+      $templatespare_check_elespare = $this->templatespare_check_elespare_free_pro_activated();
+      $templatespare_elespare_status = 'free';
+      if (!empty($templatespare_elespare_installed) && $templatespare_check_elespare == 'pro') {
+        $templatespare_elespare_status = 'pro';
+        $templatespare_elespare_old_version = '2.5.0';
+        $templatespare_elespare_pro_info = get_plugin_data(WP_PLUGIN_DIR . '/' . $templatespare_elespare_installed);
+        $templatespare_elespare_verison = $templatespare_elespare_pro_info['Version'];
+        $templatespare_elespare_active = is_plugin_active($templatespare_elespare_installed);
+
+        if ($templatespare_elespare_active == false && $templatespare_elespare_installed != null) {
+          $activate[] = 'elespare-pro';
+        }
+      } else {
+
+        $templatespare_elespare_installed = templatespare_get_plugin_file('elespare');
+        $templatespare_elespare_old_version = '3.1.0';
+
+        if (!empty($templatespare_elespare_installed)) {
+          $templatespare_elespare_info = get_plugin_data(WP_PLUGIN_DIR . '/' . $templatespare_elespare_installed);
+          $templatespare_elespare_verison = $templatespare_elespare_info['Version'];
+          $templatespare_elespare_active = is_plugin_active('elespare/elespare.php');
+
+          if ($templatespare_elespare_active == false && $templatespare_elespare_installed != null) {
+            $activate[] = 'elespare';
+          }
+        } else {
+          if ($templatespare_elespare_installed == null) {
+            $install[] = 'elespare';
+          }
+        }
+      }
+
+      $plugin_update = 'false';
+      if (!empty($templatespare_elespare_verison) && $templatespare_elespare_verison < $templatespare_elespare_old_version) {
+        $plugin_update = 'true';
+      }
+
+      if (($templatespare_elespare_installed && $templatespare_elespare_active) && $plugin_update == 'false' && is_plugin_active($templatespare_elementor_installed)) {
+        echo '<div id="elespare-demo-list"></div>';
+      } else {
+
+        wp_enqueue_style('templatespare');
+        $message = (!empty($templatespare_elespare_verison) && $templatespare_elespare_active && $templatespare_elespare_verison < $templatespare_elespare_old_version)
+          ? sprintf(__('Elespare plugin version should be more than %s.', 'templatespare'), $templatespare_elespare_old_version)
+          : __('One-click Import, Header/Footer Builder, Multilingual Support! Powered by Elespare.', 'templatespare');
+        $class = (!empty($templatespare_elespare_verison) && $templatespare_elespare_active && $templatespare_elespare_verison < $templatespare_elespare_old_version)
+          ? admin_url('plugins.php')
+          : 'false';
+        echo '<div id="templatespare-plugins-install-activate" data-class="' . esc_attr($class) . '" current-theme="elespare" install="' . esc_attr(json_encode($install)) . '" activate="' . esc_attr(json_encode($activate)) . '" data-plugin-page="elespare-dashboard" message="' . esc_attr($message) . '" isPro="' . esc_attr($templatespare_elespare_status) . '"></div>';
+      }
+
+      // <!-- <div id="elespare-demo-list"></div> -->
+    }
 
     public function templatespare_dashboard_assets($hook)
     {
@@ -266,6 +375,31 @@ if (!class_exists('AFTMLS_Templates_Importer')) {
         ), // Dependencies, defined above.
         '1.0', // version.
         true
+      );
+
+      wp_enqueue_script(
+        'aftmls-blockspare-script', // Handle.
+        AFTMLS_PLUGIN_URL . 'dist/dashboard_script.build.js',
+        array(), // Dependencies, defined above.
+        '1.0', // version.
+        true
+      );
+
+      wp_register_script(
+        'aftmls-plugin-installl-activation-script', // Handle.
+        AFTMLS_PLUGIN_URL . 'dist/plugin_activate_script.build.js',
+        array('jquery'), // Dependencies, defined above.
+        '1.0', // version.
+        true
+      );
+
+      wp_localize_script(
+        'aftmls-plugin-installl-activation-script',
+        'afplugin',
+        array(
+          'ajax_nonce' => wp_create_nonce('aftc-ajax-verification'),
+          'apiUrl' => site_url() . '/index.php?rest_route=/',
+        )
       );
 
       $is_elementor_active = file_exists(WP_PLUGIN_DIR . '/' . 'elementor/elementor.php') ? 'true' : 'false';
@@ -314,7 +448,10 @@ if (!class_exists('AFTMLS_Templates_Importer')) {
       } else {
         $selected_cats =  $selected_cat[1];
       }
-
+      $slug  = '';
+      if (is_admin() && isset($_GET['page'])) {
+        $slug = sanitize_text_field($_GET['page']);
+      }
       wp_localize_script(
         'aftmls-dashboard-script',
         'afobDash',
@@ -342,11 +479,15 @@ if (!class_exists('AFTMLS_Templates_Importer')) {
           'templatespare_wizard_href' => admin_url('admin.php?page=wizard-page', 'admin'),
           'all_categories' => get_all_categories(),
           'templatesapre_url' => admin_url('admin.php?', 'admin'),
+          'block_patterns' => AFTMLS_PLUGIN_URL . '/assets/images/block-patterns.jpg',
+          'template_kits' => AFTMLS_PLUGIN_URL . '/assets/images/template-kits.jpg',
+          'current_page' =>  $slug
 
         )
       );
 
       if (is_admin() && $current_screen->base != 'toplevel_page_wizard-page') :
+
         wp_enqueue_style(
           'aftmls-block-edit-style',
           AFTMLS_PLUGIN_URL . 'dist/blocks.editor.build.css',
@@ -362,6 +503,7 @@ if (!class_exists('AFTMLS_Templates_Importer')) {
       require_once AFTMLS_PLUGIN_DIR . 'includes/companion/elementor-meta-handler.php';
       require_once AFTMLS_PLUGIN_DIR . 'includes/layouts/default.php';
       require_once AFTMLS_PLUGIN_DIR . 'includes/site-backup/class-backup-site.php';
+      require_once AFTMLS_PLUGIN_DIR . 'includes/dashboard/activate_install_plugins.php';
     }
 
     public function templatespare_register_plugins_routes()
@@ -395,6 +537,40 @@ if (!class_exists('AFTMLS_Templates_Importer')) {
     public function temmplatespareRenderImportPage()
     {
       require_once AFTMLS_PLUGIN_DIR . 'includes/site-backup/import-site.php';
+    }
+
+
+
+    public  function templatespare_check_blockspare_free_pro_activated()
+    {
+      $templatespare_blockspare_pro_installed = templatespare_get_plugin_file('blockspare-pro');
+      $templatespare_blockspare_free_installed = templatespare_get_plugin_file('blockspare');
+
+      if (!empty($templatespare_blockspare_free_installed) && is_plugin_active($templatespare_blockspare_free_installed)) {
+        $flag = 'free';
+      } elseif (!empty($templatespare_blockspare_pro_installed) && !is_plugin_active($templatespare_blockspare_pro_installed)) {
+        $flag = 'pro';
+      } elseif (!empty($templatespare_blockspare_pro_installed) && is_plugin_active($templatespare_blockspare_pro_installed)) {
+        $flag = 'pro';
+      } else {
+        $flag = 'free';
+      }
+      return $flag;
+    }
+    public function templatespare_check_elespare_free_pro_activated()
+    {
+      $templatespare_elespare_pro_installed = templatespare_get_plugin_file('elespare-pro');
+      $templatespare_elespare_free_installed = templatespare_get_plugin_file('elespare');
+      if (!empty($templatespare_elespare_free_installed) && is_plugin_active($templatespare_elespare_free_installed)) {
+        $flag = 'free';
+      } elseif (!empty($templatespare_elespare_pro_installed) && !is_plugin_active($templatespare_elespare_pro_installed)) {
+        $flag = 'pro';
+      } elseif (!empty($templatespare_elespare_pro_installed) && is_plugin_active($templatespare_elespare_pro_installed)) {
+        $flag = 'pro';
+      } else {
+        $flag = 'free';
+      }
+      return $flag;
     }
   }
 
