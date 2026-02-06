@@ -9,6 +9,7 @@ function  templatespare_templates_demo_list($targetSlug = '')
 
   //$upload_path = wp_get_upload_dir();
   $remote_json_url = "https://raw.githubusercontent.com/afthemes/templatespare-demo-data/master/demo-list.json";
+  //$remote_json_url = "https://raw.githubusercontent.com/afthemes/templatespare-demo-data/master/demo-list-processed.json";
   //$remote_json_url =$upload_path['baseurl']."/templatespare-demo-data/demo-list.json";
 
   $response = wp_remote_get($remote_json_url);
@@ -121,6 +122,7 @@ function templatespare_get_filtered_data($theme = '')
 function templatespare_get_tags_filtered_data($theme = '')
 {
   $all_demos = templatespare_templates_demo_list($theme);
+
   $final_demodata = array();
   $empty_array = array();
 

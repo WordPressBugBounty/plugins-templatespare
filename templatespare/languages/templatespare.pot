@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv3 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: TemplateSpare – Build Your Website in Minutes, Not Months 3.1.0\n"
+"Project-Id-Version: TemplateSpare – Build Your Website in Minutes, Not Months 3.3.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/templatespare\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-06-23T12:32:26+00:00\n"
+"POT-Creation-Date: 2025-12-10T07:20:43+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.6.0\n"
 "X-Domain: templatespare\n"
@@ -71,8 +71,6 @@ msgstr ""
 
 #: includes/companion/class-aftc-helpers.php:413
 #: includes/init.php:46
-#: includes/init.php:98
-#: includes/init.php:99
 msgid "Starter Sites"
 msgstr ""
 
@@ -358,6 +356,15 @@ msgstr ""
 msgid "Could not update comment #%d with mapped data"
 msgstr ""
 
+#: includes/dashboard/activate_install_plugins.php:13
+#: includes/templatespare-kit.php:217
+msgid "Sorry, you are not allowed to install plugins on this site."
+msgstr ""
+
+#: includes/dashboard/activate_install_plugins.php:20
+msgid "Error - unable to verify nonce, please try again."
+msgstr ""
+
 #: includes/init.php:50
 #: includes/layouts/class-plugin-notice.php:106
 msgid "Access All Sites"
@@ -390,49 +397,62 @@ msgstr ""
 msgid "Videos"
 msgstr ""
 
+#: includes/init.php:98
+#: includes/init.php:99
+msgid "Import Sites"
+msgstr ""
+
 #: includes/init.php:107
 #: includes/init.php:108
-msgid "Setup Wizard"
+#: src/Components/dashboard/blockspare.js:14
+#: src/Components/dashboard/elespare.js:17
+msgid "Get Started"
 msgstr ""
 
 #: includes/init.php:118
 #: includes/init.php:119
-msgid "Block Patterns"
-msgstr ""
-
-#: includes/init.php:133
-#: includes/init.php:134
 msgid "Elementor Kits"
 msgstr ""
 
+#: includes/init.php:129
+#: includes/init.php:130
+msgid "Block Patterns"
+msgstr ""
+
+#: includes/init.php:143
 #: includes/init.php:144
-#: includes/init.php:145
 msgid "Export Site"
 msgstr ""
 
+#: includes/init.php:153
 #: includes/init.php:154
-#: includes/init.php:155
 msgid "Import Site"
 msgstr ""
 
+#: includes/init.php:164
 #: includes/init.php:165
-#: includes/init.php:166
-msgid "Website Assistance"
+msgid "Hosting"
 msgstr ""
 
+#: includes/init.php:173
 #: includes/init.php:174
-#: includes/init.php:175
-msgid "Browse All Themes "
+msgid "All Themes "
 msgstr ""
 
-#: includes/init.php:184
-#: includes/init.php:185
-msgid "Documentation"
+#: includes/init.php:256
+msgid "Blockspare plugin version should be more than %s."
 msgstr ""
 
-#: includes/init.php:193
-#: includes/init.php:194
-msgid "Support & Contact"
+#: includes/init.php:261
+msgid "One-click Demo Import, Block Editor Ready, No Code Required! Built with Blockspare."
+msgstr ""
+
+#: includes/init.php:333
+msgid "Elespare plugin version should be more than %s."
+msgstr ""
+
+#: includes/init.php:334
+msgid "One-click Import, Header/Footer Builder, Multilingual Support! Powered by Elespare."
 msgstr ""
 
 #: includes/layouts/class-plugin-notice.php:58
@@ -480,9 +500,8 @@ msgid "Love our one-click importer? Please give us rating on WordPress.org. Your
 msgstr ""
 
 #: includes/layouts/default.php:8
-#: includes/wizard/templates/wizard_template.php:7
 #: src/Components/wizard/step-1.js:12
-msgid "Welcome to Your WordPress Journey 🎉"
+msgid "Welcome to Your WordPress Adventure 🎉"
 msgstr ""
 
 #: includes/layouts/default.php:9
@@ -490,27 +509,49 @@ msgid "Start Now 🚀"
 msgstr ""
 
 #: includes/layouts/default.php:11
-msgid "Getting started with WordPress doesn’t have to be hard – we’re here to make it easy! Our Quick Start Wizard will guide you through selecting the perfect design and adding powerful features to your site in just a few simple steps. Let’s get you online faster than ever."
-msgstr ""
-
-#: includes/layouts/default.php:19
-#: src/Components/wizard/step-2.js:11
-msgid "Choose Your Website Type"
-msgstr ""
-
-#: includes/layouts/default.php:20
-#: includes/layouts/default.php:41
-#: src/Components/import-steps/step-1.js:258
-msgid "Next"
+msgid ""
+"You're just a few clicks away from building something awesome.\n"
+"      Let’s launch your website and make magic happen!"
 msgstr ""
 
 #: includes/layouts/default.php:21
-#: includes/layouts/default.php:42
-msgid "Previous"
+#: src/Components/wizard/step-category.js:11
+msgid "What Kind of Website Are We Making Today?"
 msgstr ""
 
 #: includes/layouts/default.php:22
-msgid "Select the type of site you want to create. We’ll suggest the best designs and features for you."
+#: includes/layouts/default.php:34
+#: includes/layouts/default.php:46
+#: includes/layouts/default.php:69
+msgid "Next"
+msgstr ""
+
+#: includes/layouts/default.php:23
+#: includes/layouts/default.php:35
+#: includes/layouts/default.php:47
+#: includes/layouts/default.php:70
+msgid "Previous"
+msgstr ""
+
+#: includes/layouts/default.php:24
+#: src/Components/wizard/step-category.js:13
+msgid "Pick your website type and we’ll hand-pick the perfect designs just for you."
+msgstr ""
+
+#: includes/layouts/default.php:33
+msgid "Choose Your Building Superpower 🧰"
+msgstr ""
+
+#: includes/layouts/default.php:36
+msgid "Select your favorite page builder and we’ll show you demos made to match."
+msgstr ""
+
+#: includes/layouts/default.php:45
+msgid "Choose Your Language 🌍"
+msgstr ""
+
+#: includes/layouts/default.php:48
+msgid "Select your preferred language to continue. Let’s make your website feel like home!"
 msgstr ""
 
 #: includes/site-backup/backuplisting.php:68
@@ -652,107 +693,162 @@ msgstr ""
 msgid "to generate one."
 msgstr ""
 
-#: includes/templatespare-kit.php:203
+#: includes/templatespare-kit.php:204
 msgid "No plugin specified."
 msgstr ""
 
-#: includes/templatespare-kit.php:216
-msgid "Sorry, you are not allowed to install plugins on this site."
-msgstr ""
-
-#: includes/templatespare-kit.php:263
+#: includes/templatespare-kit.php:264
 msgid "Unable to connect to the filesystem. Please confirm your credentials."
 msgstr ""
 
-#: includes/templatespare-kit.php:280
+#: includes/templatespare-kit.php:281
 msgid "success"
 msgstr ""
 
-#: src/Components/App.js:182
+#: includes/wizard/templates/wizard_template.php:7
+msgid "Welcome to Your WordPress Journey 🎉"
+msgstr ""
+
+#: src/Components/App.js:215
 msgid "Create Your Dream Website with Just One Click 🚀"
 msgstr ""
 
-#: src/Components/App.js:185
+#: src/Components/App.js:221
 msgid "You’re almost there! Choose from our Ready-to-Import Starter Sites crafted for modern, professional, and creative websites."
 msgstr ""
 
-#: src/Components/App.js:224
+#: src/Components/App.js:258
 msgid "Example: news, sport, fashion.."
 msgstr ""
 
-#: src/Components/App.js:258
+#: src/Components/App.js:289
 msgid "All Themes"
 msgstr ""
 
-#: src/Components/App.js:309
+#: src/Components/App.js:336
+#: src/Components/wizard/step-3.js:37
 msgid "All Builders"
 msgstr ""
 
-#: src/Components/App.js:318
-#: src/Components/import-steps/step-1.js:72
+#: src/Components/App.js:344
+#: src/Components/import-steps/step-1.js:73
+#: src/Components/wizard/step-3.js:39
 msgid "Gutenberg"
 msgstr ""
 
-#: src/Components/App.js:327
-#: src/Components/import-steps/step-1.js:68
+#: src/Components/App.js:352
+#: src/Components/import-steps/step-1.js:69
+#: src/Components/wizard/step-3.js:38
 msgid "Elementor"
 msgstr ""
 
-#: src/Components/import-steps/step-1.js:76
+#: src/Components/dashboard/blockspare.js:19
+msgid "Update Blockspare Pro"
+msgstr ""
+
+#: src/Components/dashboard/blockspare.js:21
+msgid "Update Blockspare"
+msgstr ""
+
+#: src/Components/dashboard/blockspare.js:35
+msgid "Page Builder Gutenberg Blocks & Patterns"
+msgstr ""
+
+#: src/Components/dashboard/blockspare.js:38
+msgid "Add pages effortlessly with expertly crafted Gutenberg patterns and blocks for blogs, magazines, newspapers, and agency sites using the Blockspare plugin!"
+msgstr ""
+
+#: src/Components/dashboard/elespare.js:22
+msgid "Update Elespare Pro"
+msgstr ""
+
+#: src/Components/dashboard/elespare.js:24
+msgid "Update Elespare"
+msgstr ""
+
+#: src/Components/dashboard/elespare.js:37
+msgid "Page Builder Elementor Widgets"
+msgstr ""
+
+#: src/Components/dashboard/elespare.js:40
+msgid "Add pages effortlessly with expertly crafted Elementor widgets for blogs, magazines, newspapers, and agency sites using the Elespare plugin!"
+msgstr ""
+
+#: src/Components/import-steps/step-1.js:77
 msgid "WooCommerce"
 msgstr ""
 
-#: src/Components/import-steps/step-1.js:78
-#: src/Components/import-steps/step-1.js:81
+#: src/Components/import-steps/step-1.js:79
+#: src/Components/import-steps/step-1.js:82
 msgid "Widgets"
 msgstr ""
 
-#: src/Components/import-steps/step-1.js:90
-#: src/Components/wizard/wizard-dashboard.js:133
+#: src/Components/import-steps/step-1.js:106
+#: src/Components/wizard/wizard-dashboard.js:165
 msgid "Select"
 msgstr ""
 
-#: src/Components/import-steps/step-1.js:104
+#: src/Components/import-steps/step-1.js:120
 msgid " - Ready in minutes"
 msgstr ""
 
-#: src/Components/import-steps/step-1.js:119
+#: src/Components/import-steps/step-1.js:135
 msgid "Demo"
 msgstr ""
 
-#: src/Components/import-steps/step-1.js:130
+#: src/Components/import-steps/step-1.js:146
 msgid "Theme"
 msgstr ""
 
-#: src/Components/import-steps/step-1.js:141
+#: src/Components/import-steps/step-1.js:157
 msgid "Builder"
 msgstr ""
 
-#: src/Components/import-steps/step-1.js:195
-msgid "Import Demo Content (Posts, Pages, Menus)"
+#: src/Components/import-steps/step-1.js:164
+msgid "Posts, pages, and menus will be imported. Want just the design? Use the templates available here!"
 msgstr ""
 
-#: src/Components/import-steps/step-1.js:222
-msgid "Importing won't change your content. Design and widgets will update."
+#: src/Components/import-steps/step-1.js:171
+msgid " Explore Now"
 msgstr ""
 
-#: src/Components/main.js:162
+#: src/Components/import-steps/step-1.js:227
+msgid "Add Demo Content (Posts, Pages, Menus)"
+msgstr ""
+
+#: src/Components/import-steps/step-1.js:254
+msgid "Importing won't delete your existing content. Design and widgets will update."
+msgstr ""
+
+#: src/Components/import-steps/step-1.js:290
+msgid "Import"
+msgstr ""
+
+#: src/Components/main.js:180
 msgid "No Records Found"
 msgstr ""
 
-#: src/Components/main.js:200
+#: src/Components/main.js:222
 msgid "Upgrade"
 msgstr ""
 
-#: src/Components/main.js:210
+#: src/Components/main.js:232
 msgid "All Themes Plan"
 msgstr ""
 
-#: src/Components/main.js:324
+#: src/Components/main.js:292
+msgid "Pro"
+msgstr ""
+
+#: src/Components/main.js:293
+msgid "Free"
+msgstr ""
+
+#: src/Components/main.js:352
 msgid "Purchase"
 msgstr ""
 
-#: src/Components/main.js:353
+#: src/Components/main.js:381
 msgid "Details"
 msgstr ""
 
@@ -765,25 +861,25 @@ msgid "Close"
 msgstr ""
 
 #: src/Components/wizard/step-1.js:14
-msgid "Build your website fast, easy, and fun with AF themes! Let’s get started and make your website amazing!"
+msgid "You're just a few clicks away from building something awesome. Let’s launch your website and make magic happen!"
 msgstr ""
 
-#: src/Components/wizard/step-2.js:13
-msgid "Select the type of website you want to create. We’ll suggest the best designs and features for you."
-msgstr ""
-
-#: src/Components/wizard/step-3.js:16
+#: src/Components/wizard/step-4.js:19
 msgid "No category selected"
 msgstr ""
 
-#: src/Components/wizard/wizard-dashboard.js:132
+#: src/Components/wizard/wizard-dashboard.js:164
 msgid "Selected"
 msgstr ""
 
-#: src/Components/wizard/wizard-dashboard.js:161
+#: src/Components/wizard/wizard-dashboard.js:209
 msgid "AF themes"
 msgstr ""
 
-#: src/Components/wizard/wizard-dashboard.js:164
+#: src/Components/wizard/wizard-dashboard.js:244
 msgid "EXIT WIZARD"
+msgstr ""
+
+#: src/Components/wizard/wizard-dashboard.js:289
+msgid "Skip"
 msgstr ""

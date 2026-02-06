@@ -86,6 +86,7 @@ function templatespare_available_themes()
     'CoverNews',
     'ChromeNews',
     'MoreNews',
+    'ReviewNews',
     'Newsphere',
     'EnterNews',
     'DarkNews',

@@ -231,7 +231,7 @@ jQuery(document).ready(function ($) {
         var childTheme = kit.data('verify-child');
 
         var allcontent = kit.data('checked');
-        console.log(allcontent);
+
         $.ajax({
           type: 'POST',
           url: ajaxurl,

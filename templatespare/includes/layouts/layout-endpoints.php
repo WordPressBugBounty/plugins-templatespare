@@ -42,6 +42,11 @@ if (!class_exists('AFTMLS_RestApi_Request')) {
         'callback' => array($this, 'save_wizard_step'),
         'permission_callback' => array($this, 'check_permissions'),
       ));
+      register_rest_route('templatespare/v1', '/steps', array(
+        'methods' => 'POST',
+        'callback' => array($this, 'save_jump_wizard_step'),
+        'permission_callback' => array($this, 'check_permissions'),
+      ));
     }
     public function check_permissions($request)
     {
@@ -51,9 +56,11 @@ if (!class_exists('AFTMLS_RestApi_Request')) {
     // Get wizard steps
     public function get_wizard_steps(WP_REST_Request $request)
     {
-      $step = (int) get_option('templatespare_wizard_next_step', 0);
+      $step = (int) get_option('templatespare_wizard_next_step', true);
+
       $id = ($step) ? $step : 0;
       $category = get_option('templatespare_wizard_category_value', true);
+
 
       $saved_category = '';
       if (is_array($category) && isset($category[1])) {
@@ -82,6 +89,26 @@ if (!class_exists('AFTMLS_RestApi_Request')) {
       update_option('templatespare_wizard_next_step', $step);
       update_option('templatespare_wizard_category_value', $category);
       return new WP_REST_Response(array('step' => $step, 'cat' => $category), 200);
+    }
+
+    public function save_jump_wizard_step(WP_REST_Request $request)
+    {
+      $step = $request->get_param('step');
+      $category = get_option('templatespare_wizard_category_value', true);
+
+
+      $saved_category = '';
+      if (is_array($category) && isset($category[1])) {
+        $saved_category = $category;
+      }
+
+      // Debugging
+      error_log('Step (before casting): ' . $step);
+      $step = (int) $step;
+      error_log('Step (after casting): ' . $step);
+      update_option('templatespare_wizard_next_step', $step);
+      update_option('templatespare_wizard_category_value', $saved_category);
+      return new WP_REST_Response(array('step' => $step, 'cat' => $saved_category), 200);
     }
 
     public function templatespare_get_single_demo_list_items(\WP_REST_Request $request)
@@ -115,6 +142,7 @@ if (!class_exists('AFTMLS_RestApi_Request')) {
             'preview' => $filtered_data['preview'],
             'tags' => $filtered_data['tags'],
             'mainCategory' => $filtered_data['main_category'],
+            'mainCategories' => $filtered_data['main_categories'],
             'homepage_type' => isset($filtered_data['homepage_type']) ? $filtered_data['homepage_type'] : 'static',
             'parent' => '',
             'plugins' => isset($filtered_data['plugins']) ? $filtered_data['plugins'] : "",

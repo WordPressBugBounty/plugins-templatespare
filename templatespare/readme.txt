@@ -2,8 +2,8 @@
 Contributors: templatespare, afthemes
 Tags: gutenberg import, elemetor import, demo import, theme import, widget import, customizer import, 
 Requires at least: 4.0
-Tested up to: 6.8
-Stable tag: 3.2.0.1
+Tested up to: 6.9
+Stable tag: 3.3.0
 License: GPLv3 or later
 
 == Description ==
@@ -291,6 +291,36 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 == Changelog ==
+
+### 3.2.0 - 08/07/2025
+
+Changes:
+* New: Added more setup wizard steps and improved multi-step onboarding flow.
+* New: Added builder selection options and reordered steps for better UX.
+* New: Added full language listing, language filter, and language flags.
+* New: Added extra filters including "skip" in import sites filter.
+* New: Added Freemius integration.
+* New: ReviewNews added in wizard.
+* Update: Displayed language flag images from local assets.
+* Update: Improved language step design, hover effects, image placement, and flag sizes.
+* Update: Updated language names to native forms.
+* Update: Updated step texts and made steps clickable.
+* Update: Improved wizard page responsiveness and design reviews.
+* Update: Updated all categories and language designs.
+* Update: Updated text for classic → "All Builders".
+* Update: Moved WordPress builder option to first.
+* Update: Made builder texts dynamic.
+* Update: Improved timeline design, step 3 and step 4 layouts.
+* Fix: Fixed language dropdown issues (multiple commits).
+* Fix: Fixed search results when filtering by language.
+* Fix: Fixed hide/show behavior when language changes.
+* Fix: Fixed URL issues for plugin wizard and dashboard.
+* Fix: Removed unused code and cleaned initial setup.
+* Fix: Removed default builder logic.
+* Fix: Removed unwanted files.
+* Misc: Export CSS updates.
+* Misc: General code cleanup.
+
 
 ### 3.2.0 - 08/07/2025
 

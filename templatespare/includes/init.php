@@ -134,7 +134,7 @@ if (!class_exists('AFTMLS_Templates_Importer')) {
       );
 
 
-      
+
 
 
       // Submenu: Export Site
@@ -175,7 +175,7 @@ if (!class_exists('AFTMLS_Templates_Importer')) {
         'manage_options',
         esc_url('https://afthemes.com/all-themes-plan/')
       );
-      
+
 
 
       register_importer($this->plugin_page_setup['menu_slug'], $this->plugin_page_setup['page_title'], $this->plugin_page_setup['menu_title'], apply_filters('templatespare/plugin_page_display_callback_function', array($this, 'templatespare_render_page')));
@@ -194,7 +194,8 @@ if (!class_exists('AFTMLS_Templates_Importer')) {
       if ($screen == 'wizard-page') {
 
         $step = (int) get_option('templatespare_wizard_next_step', 0);
-        if (!is_user_logged_in() || !current_user_can('administrator') || $step == 4) {
+
+        if (!is_user_logged_in() || !current_user_can('administrator') || $step == 5) {
           return;
         }
         include_once AFTMLS_BASE_DIR . '/includes/wizard/templates/wizard_template.php';
@@ -245,9 +246,11 @@ if (!class_exists('AFTMLS_Templates_Importer')) {
           $plugin_update = 'true';
         }
         if (($templatespare_blockspare_installed && $templatespare_blockspare_active) && $plugin_update == 'false') {
+
       ?>
           <div id="bs-dashboard"></div>
         <?php } else {
+
           if (!empty($templatespare_blockspare_verison) && $templatespare_blockspare_active && $templatespare_blockspare_verison < $templatespare_blockspare_old_version) {
             $class = admin_url('plugins.php');
 
@@ -258,12 +261,14 @@ if (!class_exists('AFTMLS_Templates_Importer')) {
           } else {
             $class = 'false';
             $message = __('One-click Demo Import, Block Editor Ready, No Code Required! Built with Blockspare.', 'templatespare');
-          }
-        }
+          } ?>
+          <div id="templatespare-plugins-install-activate" data-class="<?php echo $class; ?>" current-theme='blockspare'
+            install=<?php echo json_encode($install); ?> activate=<?php echo json_encode($activate); ?> data-plugin-page="blockspare-dashboard"
+            message='<?php echo $message; ?>' isPro='<?php echo esc_attr($templatespare_blockspare_status); ?>'></div>
+
+        <?php }
         ?>
-        <div id="templatespare-plugins-install-activate" data-class="<?php echo $class; ?>" current-theme='blockspare'
-          install=<?php echo json_encode($install); ?> activate=<?php echo json_encode($activate); ?> data-plugin-page="blockspare-dashboard"
-          message='<?php echo $message; ?>' isPro='<?php echo esc_attr($templatespare_blockspare_status); ?>'></div>
+
 <?php }
     }
 
@@ -373,7 +378,7 @@ if (!class_exists('AFTMLS_Templates_Importer')) {
           'jquery',
           'updates',
         ), // Dependencies, defined above.
-        '1.0', // version.
+        '1.2', // version.
         true
       );
 
@@ -452,6 +457,7 @@ if (!class_exists('AFTMLS_Templates_Importer')) {
       if (is_admin() && isset($_GET['page'])) {
         $slug = sanitize_text_field($_GET['page']);
       }
+      $demo_languages = templatespare_get_all_lang_list();
       wp_localize_script(
         'aftmls-dashboard-script',
         'afobDash',
@@ -469,6 +475,8 @@ if (!class_exists('AFTMLS_Templates_Importer')) {
           'configList' => json_encode($listConfig),
           'themes' => $theme->name,
           'allThems' => wp_get_themes(),
+          'templatespareData' => $demo_languages,
+
           'isPro' => $is_pro,
           'logo' => AFTMLS_PLUGIN_URL . 'assets/images/logo.svg',
           'aflogo' => AFTMLS_PLUGIN_URL . 'assets/images/afthemes.png',

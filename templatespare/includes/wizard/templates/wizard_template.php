@@ -106,7 +106,11 @@
 
 
   $theme_index = 'all';
-
+  $demo_languages = templatespare_get_all_lang_list();
+  $slug  = '';
+  if (is_admin() && isset($_GET['page'])) {
+    $slug = sanitize_text_field($_GET['page']);
+  }
   wp_localize_script(
     'aftmls-dashboard-script',
     'afobDash',
@@ -128,11 +132,15 @@
       'logo' => AFTMLS_PLUGIN_URL . 'assets/images/logo.svg',
       'aflogo' => AFTMLS_PLUGIN_URL . 'assets/images/afthemes.png',
       'cscreen' => '$hook',
+      'siteUrl' => site_url(),
+      'templatespareData' => $demo_languages,
+      'templatesapre_url' => admin_url('admin.php?', 'admin'),
       'currentTheme' => $defined_theme ? $defined_theme : $theme->name,
       'selected_cat' => $selected_cats,
       'templatespare_dashbord_href' => admin_url('admin.php?page=templatespare-main-dashboard', 'admin'),
       'templatespare_wizard_href' => admin_url('admin.php?page=wizard-page', 'admin'),
-      'all_categories' => get_all_categories()
+      'all_categories' => get_all_categories(),
+      'current_page' =>  $slug
 
     )
   );

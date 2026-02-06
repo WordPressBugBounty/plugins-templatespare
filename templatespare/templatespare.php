@@ -4,7 +4,7 @@
  * Plugin Name: TemplateSpare – Build Your Website in Minutes, Not Months
  * Plugin URI: https://templatespare.com/?uri=plugin
  * Description: No more endless design tweaks, plugin hunts, or migration nightmares. TemplateSpare simplifies your WordPress experience with 1-click imports, 1000+ professional demos, and seamless export options—making site-building fast, easy, and fun.
- * Version: 3.2.0.1
+ * Version: 3.3.0
  * Author:            TemplateSpare
  * Author URI:        https://templatespare.com/
  * Text Domain:       templatespare
@@ -70,18 +70,6 @@ function templatespare_activation_redirect($plugin)
     // If activation is done via AJAX, don't perform redirection here
     return;
   }
-
-  // if ($plugin == plugin_basename(AFTMLS_BASE_FILE)) {
-  //   $redirect_url = add_query_arg(array('page' => 'wizard-page'), admin_url('admin.php'));
-  //   $redirect_url = esc_url_raw($redirect_url); // Sanitize the URL
-
-  //   if (wp_safe_redirect($redirect_url)) {
-  //     exit;
-  //   } else {
-  //     // Redirect failed, handle error gracefully
-  //     error_log('Redirect failed after plugin activation: ' . $plugin);
-  //   }
-  // }
 }
 
 add_action('activated_plugin', 'templatespare_activation_redirect');

@@ -5,26 +5,54 @@ function templatespare_get_default_text($saved_category = '')
   $steps = array(
     array(
       'type' => 'intro',
-      'title' => __('Welcome to Your WordPress Journey 🎉', 'templatespare'),
+      'title' => __('Welcome to Your WordPress Adventure 🎉', 'templatespare'),
       'button_next_text' => __('Start Now 🚀', 'templatespare'),
       'button_prev_text' => '',
-      'subtitle' => __('Getting started with WordPress doesn’t have to be hard – we’re here to make it easy! Our Quick Start Wizard will guide you through selecting the perfect design and adding powerful features to your site in just a few simple steps. Let’s get you online faster than ever.', 'templatespare'),
+      'subtitle' => __('You\'re just a few clicks away from building something awesome.
+      Let’s launch your website and make magic happen!', 'templatespare'),
       'completed' => false,
       'items' => array(),
       'do_install' => false,
       'non_ai_flow_skip' => false,
+      'skippable' => false, // <- important!
     ),
     array(
       'type' => 'category',
-      'title' => __('Choose Your Website Type', 'templatespare'),
+      'title' => __('What Kind of Website Are We Making Today?', 'templatespare'),
       'button_next_text' => __('Next', 'templatespare'),
       'button_prev_text' => __('Previous', 'templatespare'),
-      'subtitle' => __('Select the type of site you want to create. We’ll suggest the best designs and features for you.', 'templatespare'),
+      'subtitle' => __('Pick your website type and we’ll hand-pick the perfect designs just for you.', 'templatespare'),
       'completed' => false,
       'items' => get_all_categories(),
       'do_install' => false,
       'non_ai_flow_skip' => false,
+      'skippable' => true, // <- important!
     ),
+    array(
+      'type' => 'builder',
+      'title' => __('Choose Your Building Superpower 🧰', 'templatespare'),
+      'button_next_text' => __('Next', 'templatespare'),
+      'button_prev_text' => __('Previous', 'templatespare'),
+      'subtitle' => __("Select your favorite page builder and we’ll show you demos made to match.", 'templatespare'),
+      'completed' => false,
+      'items' => array(),
+      'do_install' => false,
+      'non_ai_flow_skip' => false,
+      'skippable' => true, // <- important!
+    ),
+    array(
+      'type' => 'website_intro',
+      'title' => __('Choose Your Language 🌍', 'templatespare'),
+      'button_next_text' => __('Next', 'templatespare'),
+      'button_prev_text' => __('Previous', 'templatespare'),
+      'subtitle' => __('Select your preferred language to continue. Let’s make your website feel like home!', 'templatespare'),
+      'completed' => false,
+      'items' => array(),
+      'do_install' => false,
+      'non_ai_flow_skip' => false,
+      'skippable' => true, // <- important!
+    ),
+
     // array(
     //   'type' => 'plugins',
     //   'title' => __('Recommended useful functionality for your site!', 'templatespare'),
@@ -44,9 +72,11 @@ function templatespare_get_default_text($saved_category = '')
       'items' => get_option('templatespare_wizard_category_value', false),
       'do_install' => false,
       'non_ai_flow_skip' => false,
+      'skippable' => false, // <- important!
     ),
 
     // Add more steps as needed
+
   );
 
   return $steps;
@@ -140,6 +170,7 @@ function get_all_categories()
   return $final_demotags;
 }
 
+
 function get_all_demo()
 {
   $all_demos = array();
@@ -191,4 +222,75 @@ function get_require_plugins($cat)
   }
 
   return $plugins_list;
+}
+
+function templatespare_get_all_lang_list()
+{
+
+
+  $remote_json_url = "https://raw.githubusercontent.com/afthemes/templatespare-demo-data/master/demo-list.json";
+  // Get remote JSON
+  $response = wp_remote_get($remote_json_url);
+
+  // Check for WP errors
+  if (is_wp_error($response)) {
+    return; // or handle error
+  }
+
+  // Extract body
+  $body = wp_remote_retrieve_body($response);
+
+  // Decode JSON
+  $data = json_decode($body, true);
+
+  // Now safely access keys
+  $demodata = templatespare_templates_demo_list('all');
+  //var_dump($demodata);
+
+  // Map of language slugs to flag URLs
+  $flag_map = [
+    'english' => ['label' => 'English', 'flag' => 'us.svg'],
+    'french'  => ['label' => 'Français', 'flag' => 'fr.svg'],
+    'german'  => ['label' => 'Deutsch', 'flag' => 'de.svg'],
+    'nepali'  => ['label' => 'नेपाली', 'flag' => 'np.svg'],
+    'arabic'  => ['label' => 'العربية', 'flag' => 'sa.svg'],
+    'indian'  => ['label' => 'हिन्दी', 'flag' => 'in.svg'],
+    'spanish' => ['label' => 'Español', 'flag' => 'es.svg'],
+    'russian' => ['label' => 'Русский', 'flag' => 'ru.svg'],
+    'japanese' => ['label' => '日本語', 'flag' => 'jp.svg'],
+    'china'   => ['label' => '简体中文', 'flag' => 'cn.svg'],
+    'turkish' => ['label' => 'Türkçe', 'flag' => 'tr.svg'],
+  ];
+  $result = [];
+  $result[] = [
+    'value' => 'english',
+    'label' => $flag_map['english']['label'],
+    'flag'  => $flag_map['english']['flag'],
+  ];
+
+  foreach ($demodata as $items) {
+    foreach ($items['demodata'] as $item) {
+      if (isset($item['tags']) && is_array($item['tags'])) {
+        foreach ($item['tags'] as $tag) {
+          $tag_lower = strtolower($tag);
+
+          // Only add tag if it exists in the flag map
+          if (isset($flag_map[$tag_lower])) {
+            $result[] = [
+              'value' => $tag_lower,
+              'label' => $flag_map[$tag_lower]['label'],
+              'flag'  => $flag_map[$tag_lower]['flag'],
+
+            ];
+          }
+        }
+      }
+    }
+  }
+
+  // Remove duplicates
+  $result = array_values(array_unique($result, SORT_REGULAR));
+
+
+  return $result;
 }
