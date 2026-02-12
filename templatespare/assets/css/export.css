@@ -207,7 +207,7 @@ body.templatespare_page_templatespare-site-import.wp-core-ui button:focus,
 .templatespare-import-kit-popup-wrap .progress-bar-container {
   max-width: 768px;
   margin: 0 auto;
-  height: 3px;
+  height: 4px;
 }
 
 form#templatespare-upload-file {
@@ -233,12 +233,13 @@ form#templatespare-upload-file {
   display: flex;
   /* align-items: center;
   justify-content: center; */
-  margin-top: 30px;
+  margin-top: 10px;
   font-size: 16px;
 }
 
 .templatespare-check-wrap p {
   margin-top: 0;
+  margin-bottom: 0;
   font-size: 16px;
 }
 
@@ -251,7 +252,7 @@ form#templatespare-upload-file {
   display: inline-block;
   vertical-align: middle;
   font-size: 16px;
-  margin-bottom: 1em;
+  /* margin-bottom: 1em; */
   cursor: pointer;
 }
 

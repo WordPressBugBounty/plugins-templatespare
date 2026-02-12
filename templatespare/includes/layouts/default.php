@@ -258,7 +258,7 @@ function templatespare_get_all_lang_list()
     'spanish' => ['label' => 'Español', 'flag' => 'es.svg'],
     'russian' => ['label' => 'Русский', 'flag' => 'ru.svg'],
     'japanese' => ['label' => '日本語', 'flag' => 'jp.svg'],
-    'china'   => ['label' => '简体中文', 'flag' => 'cn.svg'],
+    'chinese'   => ['label' => '简体中文', 'flag' => 'cn.svg'],
     'turkish' => ['label' => 'Türkçe', 'flag' => 'tr.svg'],
   ];
   $result = [];

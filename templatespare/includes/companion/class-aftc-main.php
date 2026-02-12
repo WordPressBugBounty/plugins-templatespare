@@ -14,7 +14,7 @@ require AFTMLS_PLUGIN_DIR . 'includes/companion/class-aftc-widget-importer.php';
 require AFTMLS_PLUGIN_DIR . 'includes/companion/class-aftc-customizer-importer.php';
 require AFTMLS_PLUGIN_DIR . 'includes/companion/class-aftc-logger.php';
 require AFTMLS_PLUGIN_DIR . 'includes/companion/demo-importer.php';
-
+require AFTMLS_PLUGIN_DIR . 'includes/companion/importer/demo-custom-image.php';
 
 
 /**
@@ -151,6 +151,18 @@ class AFTMLS_Companion
       $templatespare_templates_kit = sanitize_text_field($_POST['templatespare_templates_kit']);
 
       $manual = '';
+
+      if (isset($_POST['images']) && is_array($_POST['images'])) {
+        // Sanitize each URL
+        $sanitized_images = array_map('esc_url_raw', $_POST['images']);
+        $sanitized_is_content = sanitize_text_field($_POST['useInContent']);
+        $sanitized_is_feayured = sanitize_text_field($_POST['useInFeatured']);
+
+        // Save into WordPress options
+        update_option('templatespare_custom_post_images', $sanitized_images);
+        update_option('templatespare_use_images_in_content', $sanitized_is_content);
+        update_option('templatespare_use_images_in_featued', $sanitized_is_feayured);
+      }
 
       if (isset($_POST['impotype'])) {
         $manual = sanitize_text_field($_POST['impotype']);
@@ -365,6 +377,75 @@ class AFTMLS_Companion
         '</p></div>'
       );
     }
+    $images = get_option('templatespare_custom_post_images', []);
+
+    if (!empty($images) && is_array($images)) {
+
+      $upload_dir = wp_upload_dir();
+      $temp_dir   = $upload_dir['basedir'] . '/tmplsp-img/';
+      $temp_url   = $upload_dir['baseurl'] . '/tmplsp-img/';
+
+      $updated_images = [];
+
+      foreach ($images as $url) {
+
+        // Skip invalid or non-string values
+        if (empty($url) || !is_string($url)) {
+          continue;
+        }
+
+        // Convert URL → File path
+        $filepath = str_replace($upload_dir['baseurl'], $upload_dir['basedir'], $url);
+
+        // Only delete files inside /tmplsp-img/
+        if (strpos($filepath, $temp_dir) === 0 && file_exists($filepath)) {
+          unlink($filepath); // ✅ Delete file
+        } else {
+          // Keep the image in the array if not in /tmplsp-img/
+          $updated_images[] = $url;
+        }
+      }
+
+      // Update the option with only remaining images
+      update_option('templatespare_custom_post_images', $updated_images);
+    }
+    delete_option('templatespare_custom_post_images');
+    delete_option('templatespare_use_images_in_content');
+    delete_option('templatespare_use_images_in_featued');
+    delete_option('templatespare_image_upload_cache');
+    delete_option('templatespare_uploaded_image_ids');
+
+    // ---------------------------------------------
+    // DELETE DOWNLOADED TEMP IMPORT FILES
+    // ---------------------------------------------
+    if (!empty($this->selected_import_files) && is_array($this->selected_import_files)) {
+      foreach ($this->selected_import_files as $file) {
+        if (is_string($file) && file_exists($file)) {
+          @unlink($file);  // delete .xml .wie .dat
+        }
+      }
+    }
+
+
+    // Optional: delete log file if no errors
+    if (empty($this->frontend_error_messages) && !empty($this->log_file_path)) {
+
+      // Get the attachment ID from the file URL
+      $attach_id = attachment_url_to_postid(AFTMLS_Helpers::get_log_url($this->log_file_path));
+
+      if ($attach_id) {
+        // Delete the attachment from Media Library AND file
+        wp_delete_attachment($attach_id, true); // true = delete physical file too
+      } elseif (file_exists($this->log_file_path)) {
+        // Fallback: delete file if not in Media Library
+        @unlink($this->log_file_path);
+      }
+    }
+
+    if ($this->allcontentimport === 'true') {
+      update_option('site_icon', 0);
+    }
+
 
 
     wp_send_json($response);

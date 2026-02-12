@@ -3,7 +3,7 @@ Contributors: templatespare, afthemes
 Tags: gutenberg import, elemetor import, demo import, theme import, widget import, customizer import, 
 Requires at least: 4.0
 Tested up to: 6.9
-Stable tag: 3.3.0
+Stable tag: 4.0.0
 License: GPLv3 or later
 
 == Description ==
@@ -265,14 +265,14 @@ We value your suggestions and are eager to create demos that interest our users.
 
 TemplateSpare uses 'AF Companion' plugin script
 https://wordpress.org/plugins/af-companion/
-(C) 2025 @afthemes
+(C) 2026 @afthemes
 Licensed under the GNU General Public License v3.0,
 https://www.gnu.org/licenses/gpl.html
 
 
 == Copyright ==
 
-TemplateSpare, Copyright 2025 AF themes
+TemplateSpare, Copyright 2026 AF themes
 
 TemplateSpare is distributed under the terms of the GNU GPL
 
@@ -291,6 +291,46 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 == Changelog ==
+
+### 4.0.0 - 12/02/2026
+
+Changes:
+* New: Added custom image upload option during demo import.
+* New: Added featured image upload and processing support.
+* New: Added featured image enable/disable toggle.
+* New: Added image search integration using Pixabay.
+* New: Added image search by category and language.
+* New: Added configurable maximum image upload size (up to 2MB).
+* New: Added image keyword support for Pixabay API.
+* New: Added translation-ready texts across the wizard and image workflow.
+* New: Added wizard popup and improved import popup layout.
+* Update: Replaced Elementor demo images with custom or uploaded images.
+* Update: Updated import button visibility and enable/disable behavior.
+* Update: Updated plugin activation flow and image usage in content.
+* Update: Updated texts, labels, and helper messages across the wizard.
+* Update: Made file size texts dynamic and improved toggle visibility logic.
+* Update: Improved wizard UI, spacing, and overall design.
+* Update: Improved image search styling and layout.
+* Update: Updated featured image return value handling.
+* Update: Updated favicon replacement logic.
+* Fix: Fixed image upload issues in content (multiple commits).
+* Fix: Fixed image duplication during demo import.
+* Fix: Fixed image search and filter issues.
+* Fix: Fixed image fetch errors from Pixabay API.
+* Fix: Fixed Elementor SVG image upload issues.
+* Fix: Fixed default behavior and edge-case import bugs.
+* Fix: Fixed favicon replacement issues (including JPG handling).
+* Fix: Fixed content checkbox and import button visibility issues.
+* Fix: Fixed permission checks using current_user_can.
+* Misc: Excluded unsupported PNG and WebP images where required.
+* Misc: Ignored PNG images during Elementor demo imports.
+* Misc: Prevented multiple image uploads during Elementor imports.
+* Misc: Skipped favicon replacement in Gutenberg editor.
+* Misc: Removed unused, test, and legacy files.
+* Misc: Removed unused initialization code from custom image upload.
+* Misc: Removed deprecated inputs from image search.
+* Misc: General code cleanup and performance improvements.
+
 
 ### 3.2.0 - 08/07/2025
 

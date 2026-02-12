@@ -47,16 +47,38 @@ if (!class_exists('AFTMLS_RestApi_Request')) {
         'callback' => array($this, 'save_jump_wizard_step'),
         'permission_callback' => array($this, 'check_permissions'),
       ));
+
+
+      register_rest_route('templatespare/v1', '/temp-upload', array(
+        'methods' => 'POST',
+        'callback' => array($this, 'upload_images_in'),
+        'permission_callback' => array($this, 'check_permissions'),
+      ));
+      register_rest_route('templatespare/v1', '/temp-delete', array(
+        'methods' => 'POST',
+        'callback' => array($this, 'delete_images_in'),
+        'permission_callback' => array($this, 'check_permissions'),
+      ));
     }
     public function check_permissions($request)
     {
-      return current_user_can('manage_options');
+      // 1. Check if user has capability
+      if (! current_user_can('import')) {
+        return false;
+      }
+
+      // 2. Check nonce
+      $nonce = $request->get_header('X-WP-Nonce');
+      if (! wp_verify_nonce($nonce, 'wp_rest')) {
+        return false;
+      }
+      return true;
     }
 
     // Get wizard steps
     public function get_wizard_steps(WP_REST_Request $request)
     {
-      $step = (int) get_option('templatespare_wizard_next_step', true);
+      $step = (int) get_option('templatespare_wizard_next_step');
 
       $id = ($step) ? $step : 0;
       $category = get_option('templatespare_wizard_category_value', true);
@@ -143,6 +165,7 @@ if (!class_exists('AFTMLS_RestApi_Request')) {
             'tags' => $filtered_data['tags'],
             'mainCategory' => $filtered_data['main_category'],
             'mainCategories' => $filtered_data['main_categories'],
+            'imageKeywords' => $filtered_data['image_keywords'],
             'homepage_type' => isset($filtered_data['homepage_type']) ? $filtered_data['homepage_type'] : 'static',
             'parent' => '',
             'plugins' => isset($filtered_data['plugins']) ? $filtered_data['plugins'] : "",
@@ -187,6 +210,85 @@ if (!class_exists('AFTMLS_RestApi_Request')) {
       $numberoftheme = count(array_values($all_demos[$parent]['demodata']));
 
       return $numberoftheme;
+    }
+
+
+    //upload image 
+    public function upload_images_in()
+    {
+      if (empty($_FILES['file'])) {
+        return new WP_Error('no_file', 'No file uploaded', array('status' => 400));
+      }
+
+      $uploaded_urls = '';
+      $upload_dir = wp_upload_dir();
+      $temp_dir   = $upload_dir['basedir'] . '/tmplsp-img/';
+      $temp_url   = $upload_dir['baseurl'] . '/tmplsp-img/';
+
+      if (!file_exists($temp_dir)) {
+        wp_mkdir_p($temp_dir);
+      }
+
+      // Normalize $_FILES array for multiple uploads
+      $files = [];
+      if (is_array($_FILES['file']['name'])) {
+        foreach ($_FILES['file']['name'] as $key => $name) {
+          $files[] = [
+            'name' => $name,
+            'type' => $_FILES['file']['type'][$key],
+            'tmp_name' => $_FILES['file']['tmp_name'][$key],
+            'error' => $_FILES['file']['error'][$key],
+            'size' => $_FILES['file']['size'][$key],
+          ];
+        }
+      } else {
+        $files[] = $_FILES['file']; // single file
+      }
+
+      // Process each file
+      foreach ($files as $file) {
+        if ($file['error'] !== UPLOAD_ERR_OK) {
+          continue;
+        }
+
+        // ✅ Allow only images
+        if (!preg_match('/image\\/(jpeg|png|gif|webp)/', $file['type'])) {
+          continue;
+        }
+
+        $filename = time() . '-' . sanitize_file_name($file['name']);
+        $filepath = $temp_dir . $filename;
+
+        // ✅ Skip if file already exists
+        if (file_exists($filepath)) {
+          $uploaded_urls[] = $temp_url . $filename;
+          continue;
+        }
+        if (move_uploaded_file($file['tmp_name'], $filepath)) {
+          $uploaded_urls = $temp_url . $filename;
+        }
+      }
+
+      return array(
+        'url' => $uploaded_urls
+      );
+    }
+
+    public function delete_images_in($request)
+    {
+      $params = $request->get_json_params();
+      $url = $params['url'] ?? '';
+
+      if (!$url) return array('deleted' => false);
+
+      $upload_dir = wp_upload_dir();
+      $filepath = str_replace($upload_dir['baseurl'], $upload_dir['basedir'], $url);
+
+      if (file_exists($filepath)) {
+        unlink($filepath);
+      }
+
+      return array('deleted' => true);
     }
   }
 }

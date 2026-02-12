@@ -26,7 +26,14 @@
     'templatespare-central-style',
     AFTMLS_PLUGIN_URL . 'assets/css/wizard.css',
     array(),
-    '1.0',
+    '4.0',
+    'all'
+  );
+  wp_enqueue_style(
+    'templatespare_export_style',
+    AFTMLS_PLUGIN_URL . 'assets/css/export.css',
+    [],
+    '4.0',
     'all'
   );
 
@@ -168,7 +175,7 @@
   wp_print_scripts();
   //wp_enqueue_emoji_styles();
   // wp_print_styles();
-  wp_print_styles(['templatespare-central-style', 'aftmls-block-edit-style', 'dashicons']);
+  wp_print_styles(['templatespare-central-style', 'templatespare_export_style', 'aftmls-block-edit-style', 'dashicons']);
 
 
   ?>

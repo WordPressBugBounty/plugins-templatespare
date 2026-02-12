@@ -184,7 +184,18 @@ function templatespare_install_require_plugins()
   $plugin_path = array();
 
   foreach ($sanitinzed_plugins as $plugin):
-    if (file_exists(WP_PLUGIN_DIR . '/' . $plugin . '/' . $plugin . '.php')) {
+
+    if ($plugin === 'essential-addons-for-elementor-lite') {
+      $plugin_file = $plugin . '/essential_adons_elementor.php';
+    } else if ($plugin === 'visualcomposer') {
+      $plugin_file = $plugin . '/plugin-wordpress.php';
+    } else {
+      $plugin_file = $plugin . '/' . $plugin . '.php';
+    }
+
+
+
+    if (file_exists(WP_PLUGIN_DIR . '/' . $plugin_file)) {
       $plugin_data = get_plugin_data(WP_PLUGIN_DIR . '/' . $plugin);
 
       $status['plugin'] = $plugin;
@@ -192,7 +203,7 @@ function templatespare_install_require_plugins()
 
       if (current_user_can('activate_plugin', $plugin) && is_plugin_inactive($plugin)) {
 
-        $plugin_path[] = $plugin . '/' . $plugin . '.php';
+        $plugin_path[] =  $plugin_file;
       }
     } else {
 
@@ -275,6 +286,8 @@ function templatespare_install_require_plugins()
       $plugin_path[] = $install_status['file'];
     }
   endforeach;
+
+
   if (!empty($plugin_path)) {
     $activatePlugins = activate_plugins($plugin_path, '', false, true);
     if ($activatePlugins) {

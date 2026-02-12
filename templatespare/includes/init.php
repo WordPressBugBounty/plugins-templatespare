@@ -476,7 +476,7 @@ if (!class_exists('AFTMLS_Templates_Importer')) {
           'themes' => $theme->name,
           'allThems' => wp_get_themes(),
           'templatespareData' => $demo_languages,
-
+          'siteUrl' => site_url(),
           'isPro' => $is_pro,
           'logo' => AFTMLS_PLUGIN_URL . 'assets/images/logo.svg',
           'aflogo' => AFTMLS_PLUGIN_URL . 'assets/images/afthemes.png',
