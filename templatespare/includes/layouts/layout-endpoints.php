@@ -165,7 +165,7 @@ if (!class_exists('AFTMLS_RestApi_Request')) {
             'tags' => $filtered_data['tags'],
             'mainCategory' => $filtered_data['main_category'],
             'mainCategories' => $filtered_data['main_categories'],
-            'imageKeywords' => $filtered_data['image_keywords'],
+            'imageKeywords' => isset($filtered_data['image_keywords']) ? $filtered_data['image_keywords'] : '',
             'homepage_type' => isset($filtered_data['homepage_type']) ? $filtered_data['homepage_type'] : 'static',
             'parent' => '',
             'plugins' => isset($filtered_data['plugins']) ? $filtered_data['plugins'] : "",
