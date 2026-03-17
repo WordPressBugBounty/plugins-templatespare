@@ -63,7 +63,7 @@ if (!class_exists('AFTMLS_RestApi_Request')) {
       register_rest_route('templatespare/v1', '/get-recommended-demo', array(
         'methods' => 'GET',
         'callback' => array($this, 'get_recommended_demo'),
-        //'permission_callback' => array($this, 'check_permissions'),
+        'permission_callback' => array($this, 'check_permissions'),
       ));
     }
     public function check_permissions($request)
