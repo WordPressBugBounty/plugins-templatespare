@@ -100,6 +100,7 @@ function templatespare_available_themes()
     'Storeship',
     'StoreCommerce',
     'Kreeti',
+    'NewSpare'
   );
 }
 
@@ -125,6 +126,7 @@ function templatespare_available_pro_themes()
     'Magnitude Pro',
     'Kreeti',
     'ReviewNews Pro',
+    'NewSpare'
 
   );
 }

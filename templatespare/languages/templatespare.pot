@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-02-12T04:45:55+00:00\n"
+"POT-Creation-Date: 2026-03-17T05:26:06+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.6.0\n"
 "X-Domain: templatespare\n"
@@ -130,50 +130,50 @@ msgstr ""
 msgid "not defined!"
 msgstr ""
 
-#: includes/companion/class-aftc-main.php:257
-#: includes/companion/class-aftc-main.php:269
+#: includes/companion/class-aftc-main.php:369
+#: includes/companion/class-aftc-main.php:381
 msgid "Downloaded files"
 msgstr ""
 
-#: includes/companion/class-aftc-main.php:265
+#: includes/companion/class-aftc-main.php:377
 msgid "The import files for: %s were successfully downloaded!"
 msgstr ""
 
-#: includes/companion/class-aftc-main.php:274
+#: includes/companion/class-aftc-main.php:386
 msgid "No import files specified!"
 msgstr ""
 
-#: includes/companion/class-aftc-main.php:360
+#: includes/companion/class-aftc-main.php:481
 msgid "%1$sSetup complete! Enjoy your new design.%2$sThe demo import has finished. Please check your page and make sure that everything has imported correctly. For more other beautiful WordPress products please visit %3$sAF themes%4$s. %5$s"
 msgstr ""
 
-#: includes/companion/class-aftc-main.php:370
+#: includes/companion/class-aftc-main.php:491
 msgid "%1$sThe demo import has finished, but there were some import errors.%2$sMore details about the errors can be found in this %3$s%5$slog file%6$s%4$s%7$s"
 msgstr ""
 
-#: includes/companion/class-aftc-main.php:502
+#: includes/companion/class-aftc-main.php:623
 msgid "Max execution time after content import = "
 msgstr ""
 
-#: includes/companion/class-aftc-main.php:504
+#: includes/companion/class-aftc-main.php:625
 msgid "Importing content"
 msgstr ""
 
-#: includes/companion/class-aftc-main.php:544
-#: includes/companion/class-aftc-main.php:556
+#: includes/companion/class-aftc-main.php:665
+#: includes/companion/class-aftc-main.php:677
 msgid "Importing widgets"
 msgstr ""
 
-#: includes/companion/class-aftc-main.php:580
-#: includes/companion/class-aftc-main.php:588
+#: includes/companion/class-aftc-main.php:701
+#: includes/companion/class-aftc-main.php:709
 msgid "Importing customizer settings"
 msgstr ""
 
-#: includes/companion/class-aftc-main.php:586
+#: includes/companion/class-aftc-main.php:707
 msgid "Customizer settings import finished!"
 msgstr ""
 
-#: includes/companion/class-aftc-main.php:646
+#: includes/companion/class-aftc-main.php:767
 msgid "Completed AJAX call number: "
 msgstr ""
 
@@ -357,7 +357,7 @@ msgid "Could not update comment #%d with mapped data"
 msgstr ""
 
 #: includes/dashboard/activate_install_plugins.php:13
-#: includes/templatespare-kit.php:228
+#: includes/templatespare-kit.php:230
 msgid "Sorry, you are not allowed to install plugins on this site."
 msgstr ""
 
@@ -411,47 +411,52 @@ msgstr ""
 
 #: includes/init.php:118
 #: includes/init.php:119
+msgid "Recommended Demos"
+msgstr ""
+
+#: includes/init.php:130
+#: includes/init.php:131
 msgid "Elementor Kits"
 msgstr ""
 
-#: includes/init.php:129
-#: includes/init.php:130
+#: includes/init.php:141
+#: includes/init.php:142
 msgid "Block Patterns"
 msgstr ""
 
-#: includes/init.php:143
-#: includes/init.php:144
+#: includes/init.php:155
+#: includes/init.php:156
 msgid "Export Site"
 msgstr ""
 
-#: includes/init.php:153
-#: includes/init.php:154
+#: includes/init.php:165
+#: includes/init.php:166
 msgid "Import Site"
 msgstr ""
 
-#: includes/init.php:164
-#: includes/init.php:165
+#: includes/init.php:176
+#: includes/init.php:177
 msgid "Hosting"
 msgstr ""
 
-#: includes/init.php:173
-#: includes/init.php:174
+#: includes/init.php:185
+#: includes/init.php:186
 msgid "All Themes "
 msgstr ""
 
-#: includes/init.php:258
+#: includes/init.php:270
 msgid "Blockspare plugin version should be more than %s."
 msgstr ""
 
-#: includes/init.php:263
+#: includes/init.php:275
 msgid "One-click Demo Import, Block Editor Ready, No Code Required! Built with Blockspare."
 msgstr ""
 
-#: includes/init.php:337
+#: includes/init.php:349
 msgid "Elespare plugin version should be more than %s."
 msgstr ""
 
-#: includes/init.php:338
+#: includes/init.php:350
 msgid "One-click Import, Header/Footer Builder, Multilingual Support! Powered by Elespare."
 msgstr ""
 
@@ -690,15 +695,15 @@ msgstr ""
 msgid "to generate one."
 msgstr ""
 
-#: includes/templatespare-kit.php:215
+#: includes/templatespare-kit.php:217
 msgid "No plugin specified."
 msgstr ""
 
-#: includes/templatespare-kit.php:275
+#: includes/templatespare-kit.php:277
 msgid "Unable to connect to the filesystem. Please confirm your credentials."
 msgstr ""
 
-#: includes/templatespare-kit.php:294
+#: includes/templatespare-kit.php:296
 msgid "success"
 msgstr ""
 
@@ -728,13 +733,13 @@ msgid "All Builders"
 msgstr ""
 
 #: src/Components/App.js:356
-#: src/Components/import-steps/step-1.js:205
+#: src/Components/import-steps/step-1.js:207
 #: src/Components/wizard/step-3.js:45
 msgid "Gutenberg"
 msgstr ""
 
 #: src/Components/App.js:364
-#: src/Components/import-steps/step-1.js:201
+#: src/Components/import-steps/step-1.js:203
 #: src/Components/wizard/step-3.js:44
 msgid "Elementor"
 msgstr ""
@@ -771,112 +776,114 @@ msgstr ""
 msgid "Add pages effortlessly with expertly crafted Elementor widgets for blogs, magazines, newspapers, and agency sites using the Elespare plugin!"
 msgstr ""
 
-#: src/Components/import-steps/imageSelect.js:324
+#: src/Components/fse-classic/classic.js:28
+#: src/Components/fse-classic/fse.js:32
+msgid "Purchase"
+msgstr ""
+
+#: src/Components/fse-classic/classic.js:65
+#: src/Components/fse-classic/fse.js:69
+msgid "Details"
+msgstr ""
+
+#: src/Components/import-steps/imageSelect.js:325
 msgid "Stock Images"
 msgstr ""
 
-#: src/Components/import-steps/imageSelect.js:329
+#: src/Components/import-steps/imageSelect.js:330
 msgid "Upload"
 msgstr ""
 
-#: src/Components/import-steps/imageSelect.js:334
+#: src/Components/import-steps/imageSelect.js:335
 #: src/Components/wizard/wizard-dashboard.js:170
 msgid "Selected"
 msgstr ""
 
-#: src/Components/import-steps/step-1.js:209
+#: src/Components/import-steps/step-1.js:211
 msgid "WooCommerce"
 msgstr ""
 
-#: src/Components/import-steps/step-1.js:211
-#: src/Components/import-steps/step-1.js:214
+#: src/Components/import-steps/step-1.js:213
+#: src/Components/import-steps/step-1.js:216
 msgid "Widgets"
 msgstr ""
 
-#: src/Components/import-steps/step-1.js:238
+#: src/Components/import-steps/step-1.js:240
 #: src/Components/wizard/wizard-dashboard.js:171
 msgid "Select"
 msgstr ""
 
-#: src/Components/import-steps/step-1.js:253
+#: src/Components/import-steps/step-1.js:255
 msgid " - Ready in minutes"
 msgstr ""
 
-#: src/Components/import-steps/step-1.js:268
+#: src/Components/import-steps/step-1.js:270
 msgid "Demo"
 msgstr ""
 
-#: src/Components/import-steps/step-1.js:279
+#: src/Components/import-steps/step-1.js:281
 msgid "Theme"
 msgstr ""
 
-#: src/Components/import-steps/step-1.js:290
+#: src/Components/import-steps/step-1.js:292
 msgid "Builder"
 msgstr ""
 
-#: src/Components/import-steps/step-1.js:297
+#: src/Components/import-steps/step-1.js:299
 msgid "Includes posts, pages, and menus. Prefer design only?"
 msgstr ""
 
-#: src/Components/import-steps/step-1.js:304
+#: src/Components/import-steps/step-1.js:306
 msgid " Browse templates"
 msgstr ""
 
-#: src/Components/import-steps/step-1.js:352
+#: src/Components/import-steps/step-1.js:354
 msgid "Temporary theme switch"
 msgstr ""
 
 #. translators: 1: current theme, 2: new theme name (child or main)
-#: src/Components/import-steps/step-1.js:359
+#: src/Components/import-steps/step-1.js:361
 msgid "Your theme (%1$s) will be switched to %2$s during import. You can switch back anytime."
 msgstr ""
 
-#: src/Components/import-steps/step-1.js:377
+#: src/Components/import-steps/step-1.js:379
 msgid "Your content is safe"
 msgstr ""
 
-#: src/Components/import-steps/step-1.js:381
+#: src/Components/import-steps/step-1.js:383
 msgid "Your existing content will not be deleted. Only design and layout settings will change."
 msgstr ""
 
-#: src/Components/import-steps/step-1.js:406
+#: src/Components/import-steps/step-1.js:408
 msgid "Inlcude Demo Content"
 msgstr ""
 
-#: src/Components/import-steps/step-1.js:427
+#: src/Components/import-steps/step-1.js:429
 msgid "Use your own images (optional)"
 msgstr ""
 
-#: src/Components/import-steps/step-1.js:538
+#: src/Components/import-steps/step-1.js:546
 msgid "Import"
 msgstr ""
 
-#: src/Components/main.js:181
+#: src/Components/main.js:184
 msgid "No Records Found"
 msgstr ""
 
-#: src/Components/main.js:223
+#: src/Components/main.js:228
 msgid "Upgrade"
 msgstr ""
 
-#: src/Components/main.js:233
+#: src/Components/main.js:238
 msgid "All Themes Plan"
 msgstr ""
 
-#: src/Components/main.js:293
+#: src/Components/main.js:300
 msgid "Pro"
 msgstr ""
 
-#: src/Components/main.js:294
+#: src/Components/main.js:301
 msgid "Free"
-msgstr ""
-
-#: src/Components/main.js:353
-msgid "Purchase"
-msgstr ""
-
-#: src/Components/main.js:385
-msgid "Details"
 msgstr ""
 
 #: src/Components/preview/preview.js:17

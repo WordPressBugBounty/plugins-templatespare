@@ -59,6 +59,12 @@ if (!class_exists('AFTMLS_RestApi_Request')) {
         'callback' => array($this, 'delete_images_in'),
         'permission_callback' => array($this, 'check_permissions'),
       ));
+
+      register_rest_route('templatespare/v1', '/get-recommended-demo', array(
+        'methods' => 'GET',
+        'callback' => array($this, 'get_recommended_demo'),
+        //'permission_callback' => array($this, 'check_permissions'),
+      ));
     }
     public function check_permissions($request)
     {
@@ -146,6 +152,7 @@ if (!class_exists('AFTMLS_RestApi_Request')) {
     public function templatespare_ajax_render_demo_lists($slug, $theme)
     {
 
+
       $all_demos = templatespare_templates_demo_list($theme);
 
       $themecheck = explode('-', $theme);
@@ -154,6 +161,7 @@ if (!class_exists('AFTMLS_RestApi_Request')) {
 
       foreach ($all_demos as $value) {
         foreach ($value['demodata'] as $filtered_data) {
+
           $empty_array = array(
             'data' => $value['data'],
             'free' => $value['free'],
@@ -171,6 +179,8 @@ if (!class_exists('AFTMLS_RestApi_Request')) {
             'plugins' => isset($filtered_data['plugins']) ? $filtered_data['plugins'] : "",
             "theme_type" => ($theme == $filtered_data['slug'] && in_array('child', $filtered_data['tags'])) ? 'true' : $value['free'],
             'installed_themes' => $this->templatespare_installed_themes(),
+            'is_builder_pro' => isset($filtered_data['is_builder_pro']) ? $filtered_data['is_builder_pro'] : '',
+            'is_fse' => $value['themeType']
 
           );
 
@@ -289,6 +299,41 @@ if (!class_exists('AFTMLS_RestApi_Request')) {
       }
 
       return array('deleted' => true);
+    }
+
+    public function get_recommended_demo(WP_REST_Request $request)
+    {
+      $demo_lists = templatespare_templates_demo_list('all');
+
+      $parentNode = array();
+
+
+      foreach ($demo_lists as $value) {
+        foreach ($value['demodata'] as $filtered_data) {
+          $empty_array = array(
+            'data' => $value['data'],
+            'free' => $value['free'],
+            'premium' => $value['premium'],
+            'slug' => $filtered_data['slug'],
+            'theme' => $filtered_data['theme'],
+            'name' => $filtered_data['name'],
+            'preview' => $filtered_data['preview'],
+            'tags' => $filtered_data['tags'],
+            'mainCategory' => $filtered_data['main_category'],
+            'mainCategories' => $filtered_data['main_categories'],
+            'homepage_type' => isset($filtered_data['homepage_type']) ? $filtered_data['homepage_type'] : 'static',
+            'parent' => '',
+            'plugins' => isset($filtered_data['plugins']) ? $filtered_data['plugins'] : "",
+            //"theme_type" => ($theme == $filtered_data['slug'] && in_array('child', $filtered_data['tags'])) ? 'true' : $value['free'],
+            'installed_themes' => $this->templatespare_installed_themes(),
+
+          );
+
+          array_push($parentNode, $empty_array);
+        }
+      }
+
+      return $parentNode;
     }
   }
 }

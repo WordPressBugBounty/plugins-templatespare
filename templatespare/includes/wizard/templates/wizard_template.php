@@ -26,14 +26,14 @@
     'templatespare-central-style',
     AFTMLS_PLUGIN_URL . 'assets/css/wizard.css',
     array(),
-    '4.0',
+    '1.0',
     'all'
   );
   wp_enqueue_style(
     'templatespare_export_style',
     AFTMLS_PLUGIN_URL . 'assets/css/export.css',
     [],
-    '4.0',
+    '1.0',
     'all'
   );
 

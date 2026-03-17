@@ -1,9 +1,9 @@
-=== TemplateSpare – 1000+ WordPress Starter Templates & Full Site Migration Tool | 1-Click Import/Export & No-Code Builder ===
+=== TemplateSpare - 1000+ WordPress Starter Templates & Full Site Migration Tool | 1-Click Import/Export & No-Code Builder ===
 Contributors: templatespare, afthemes
-Tags: gutenberg import, elemetor import, demo import, theme import, widget import, customizer import, 
+Tags: page builder, editor, landing page, drag-and-drop, elementor
 Requires at least: 4.0
 Tested up to: 6.9
-Stable tag: 4.0.1
+Stable tag: 4.1.0
 License: GPLv3 or later
 
 == Description ==
@@ -26,13 +26,15 @@ Even better? When it’s time to move your site, you won’t need to beg a devel
 
 == 🚀 A Typical User Journey ==
 <strong>Before TemplateSpare ⏩:</strong>
-* You hire a developer.
-* You wait weeks (or months) to get a working design.
-* You struggle to migrate your site later when you change hosts.
+
+- You hire a developer.
+- You wait weeks (or months) to get a working design.
+- You struggle to migrate your site later when you change hosts.
 
 <strong>With TemplateSpare 😍:</strong>
-* <strong>Choose a template, click import, and boom—your site is live in minutes.</strong>
-* Planning to switch servers? No need for extra tools or help. Just export and import with one click.
+
+- <strong>Choose a template, click import, and boom—your site is live in minutes.</strong>
+- Planning to switch servers? No need for extra tools or help. Just export and import with one click.
 
 
 == 🌐 How It Works – One-Click Import in 3 Easy Steps ==

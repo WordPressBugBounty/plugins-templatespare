@@ -111,6 +111,18 @@ if (!class_exists('AFTMLS_Templates_Importer')) {
         [$this, 'templatespare_display_wizard']
       );
 
+      $saved_demos = $this->templatespareget_user_meta_demo_import();
+      if (!empty($saved_demos) && is_array($saved_demos)) {
+        add_submenu_page(
+          'templatespare-main-dashboard',
+          esc_html__('Recommended Demos', 'templatespare'),
+          esc_html__('Recommended Demos', 'templatespare'),
+          'manage_options',
+          'recommended-page',
+          [$this, 'templatespare_display_recommended']
+        );
+      }
+
       // Conditional Submenu: Elementor Kits (Visible only if Elementor and Elespare plugins are active)
 
       add_submenu_page(
@@ -269,7 +281,7 @@ if (!class_exists('AFTMLS_Templates_Importer')) {
         <?php }
         ?>
 
-<?php }
+      <?php }
     }
 
     public function elespare_demo_import_callback()
@@ -390,6 +402,14 @@ if (!class_exists('AFTMLS_Templates_Importer')) {
         true
       );
 
+      wp_enqueue_script(
+        'aftmls-dashboard-recommended-script', // Handle.
+        AFTMLS_PLUGIN_URL . 'dist/dashboard_recommended.build.js',
+        array('aftmls-dashboard-script'), // Dependencies, defined above.
+        '1.0', // version.
+        true
+      );
+
       wp_register_script(
         'aftmls-plugin-installl-activation-script', // Handle.
         AFTMLS_PLUGIN_URL . 'dist/plugin_activate_script.build.js',
@@ -414,6 +434,8 @@ if (!class_exists('AFTMLS_Templates_Importer')) {
       $theme = wp_get_theme();
       $listConfig = templatespare_get_filtered_data();
       $is_pro = templatespare_cheeck_pro_themes();
+      $is_blockspare_pro_exists = templatespare_check_blockspare_pro();
+
 
       $installed_themes = $this->templatespare_get_all_install_themes();
       $templatesapre_active_theme = wp_get_theme();
@@ -458,6 +480,54 @@ if (!class_exists('AFTMLS_Templates_Importer')) {
         $slug = sanitize_text_field($_GET['page']);
       }
       $demo_languages = templatespare_get_all_lang_list();
+      $flag_map = [
+        'english'  => ['label' => 'English', 'flag' => 'us.svg'],
+        'french'   => ['label' => 'Français', 'flag' => 'fr.svg'],
+        'german'   => ['label' => 'Deutsch', 'flag' => 'de.svg'],
+        'nepali'   => ['label' => 'नेपाली', 'flag' => 'np.svg'],
+        'arabic'   => ['label' => 'العربية', 'flag' => 'sa.svg'],
+        'indian'   => ['label' => 'हिन्दी', 'flag' => 'in.svg'],
+        'spanish'  => ['label' => 'Español', 'flag' => 'es.svg'],
+        'russian'  => ['label' => 'Русский', 'flag' => 'ru.svg'],
+        'japanese' => ['label' => '日本語', 'flag' => 'jp.svg'],
+        'chinese'  => ['label' => '简体中文', 'flag' => 'cn.svg'],
+        'turkish'  => ['label' => 'Türkçe', 'flag' => 'tr.svg'],
+      ];
+
+      // Get user saved demos
+      $user_id = get_current_user_id();
+      $saved_demos = $this->templatespareget_user_meta_demo_import(); //get_user_meta($user_id, 'templatespare_demo_tags_urls', true) ?: [];
+
+      $ignore_tags = ['free', 'pro', 'child'];
+      $language_tags = array_keys($flag_map);
+
+      $tag_counts = [];
+      $used_languages = [];
+      // Count tags and detect languages
+      foreach ($saved_demos as $demo) {
+        if (!empty($demo['tags']) && is_array($demo['tags'])) {
+          foreach (array_unique($demo['tags']) as $tag) {
+            if (in_array($tag, $ignore_tags, true)) continue;
+
+            $tag_counts[$tag] = ($tag_counts[$tag] ?? 0) + 1;
+
+            if (in_array($tag, $language_tags, true)) {
+              $used_languages[$tag] = true;
+            }
+          }
+        }
+      }
+
+      // Sort by popularity and take top 3
+      arsort($tag_counts);
+      $top_tags = array_slice(array_keys($tag_counts), 0, 3);
+
+      // Always include detected languages
+      foreach (array_keys($used_languages) as $lang) {
+        if (!in_array($lang, $top_tags, true)) {
+          $top_tags[] = $lang;
+        }
+      }
       wp_localize_script(
         'aftmls-dashboard-script',
         'afobDash',
@@ -489,7 +559,10 @@ if (!class_exists('AFTMLS_Templates_Importer')) {
           'templatesapre_url' => admin_url('admin.php?', 'admin'),
           'block_patterns' => AFTMLS_PLUGIN_URL . '/assets/images/block-patterns.jpg',
           'template_kits' => AFTMLS_PLUGIN_URL . '/assets/images/template-kits.jpg',
-          'current_page' =>  $slug
+          'current_page' =>  $slug,
+          'topTags' => $top_tags,
+          'is_blockspare_pro' => isset($filtered_data['is_blockspare_pro']) ? $filtered_data['is_blockspare_pro'] : '',
+          'is_blockspare_pro_exists' => $is_blockspare_pro_exists
 
         )
       );
@@ -579,6 +652,19 @@ if (!class_exists('AFTMLS_Templates_Importer')) {
         $flag = 'free';
       }
       return $flag;
+    }
+    public function templatespare_display_recommended()
+    {
+
+      ?>
+      <div id="templatespare-template-recommended-collcetion-dashboard"></div>
+<?php }
+
+    public function templatespareget_user_meta_demo_import()
+    {
+      $user_id = get_current_user_id();
+      $saved_demos = get_user_meta($user_id, 'templatespare_demo_tags_urls', true) ?: [];
+      return $saved_demos;
     }
   }
 

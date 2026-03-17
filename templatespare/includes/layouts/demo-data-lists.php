@@ -7,10 +7,12 @@ function  templatespare_templates_demo_list($targetSlug = '')
 
   ob_start();
 
+
+
   //$upload_path = wp_get_upload_dir();
   $remote_json_url = "https://raw.githubusercontent.com/afthemes/templatespare-demo-data/master/demo-list.json";
   //$remote_json_url = "https://raw.githubusercontent.com/afthemes/templatespare-demo-data/master/demo-list-processed.json";
-  //$remote_json_url =$upload_path['baseurl']."/templatespare-demo-data/demo-list.json";
+  //$remote_json_url = $upload_path['baseurl'] . "/demo-list.json";
 
   $response = wp_remote_get($remote_json_url);
 
@@ -31,34 +33,50 @@ function  templatespare_templates_demo_list($targetSlug = '')
   $matchedData = [];
   if ($targetSlug == 'all') {
 
+
     foreach ($all_demos['democontent'] as $key => $res) {
+
       $matchedData[$key]['data'] = $res['data'];
       $matchedData[$key]['free'] = $res['free'];
       $matchedData[$key]['premium'] = $res['premium'];
       $matchedData[$key]['demodata'] = $res['demodata'];
+      $matchedData[$key]['themeType'] = isset($res['themeType']) ? $res['themeType'] : '';
     }
+
+
 
 
     return $matchedData;
   } else {
+
+
     foreach ($all_demos as $res) {
       $data = $res[$targetSlug]['demodata'];
       $free = $res[$targetSlug]['free'];
       $premium = $res[$targetSlug]['premium'];
 
       $child =  isset($res[$targetSlug]['child']) ? $res[$targetSlug]['child'] : "";
+      $themeType =  isset($res[$targetSlug]['themeType']) ? $res[$targetSlug]['themeType'] : '';
+
 
 
       $matchedData[$targetSlug]['free'] = ($free == '') ? $targetSlug : $free;
       $matchedData[$targetSlug]['premium'] = ($premium == '') ? $targetSlug : $premium;
       $matchedData[$targetSlug]['demodata'] = $res[$targetSlug]['demodata'];
       $matchedData[$targetSlug]['data'] = $res[$targetSlug]['data'];
+      $matchedData[$targetSlug]['themeType'] = $themeType;
+
+
+
+
       if (!empty($free)) {
+
         $child =  isset($res[$free]['child']) ? $res[$free]['child'] : "";
         $matchedData[$free]['free'] = $free;
         $matchedData[$free]['premium'] = $premium;
         $matchedData[$free]['demodata'] = isset($res[$free]['demodata']) ? $res[$free]['demodata'] : [];
         $matchedData[$free]['data'] = isset($res[$free]['data']) ? $res[$free]['data'] : [];
+        $matchedData[$free]['themeType'] = $themeType;
       }
       if (!empty($child)) {
         foreach ($child as $child_theme) {
@@ -67,6 +85,7 @@ function  templatespare_templates_demo_list($targetSlug = '')
           $matchedData[$child_theme]['free'] = $child_themes['free'];
           $matchedData[$child_theme]['premium'] = $child_themes['premium'];
           $matchedData[$child_theme]['demodata'] = $child_themes['demodata'];
+          $matchedData[$child_theme]['themeType'] = $themeType;
         }
       }
       if (!empty($premium)) {
@@ -74,9 +93,9 @@ function  templatespare_templates_demo_list($targetSlug = '')
         $matchedData[$premium]['free'] = ($free == '') ? $targetSlug : $free;
         $matchedData[$premium]['premium'] = $premium;
         $matchedData[$premium]['demodata'] = $res[$premium]['demodata'];
+        $matchedData[$premium]['themeType'] = $themeType;
       }
     }
-
 
 
     return $matchedData;
@@ -236,4 +255,13 @@ function templatespare_cheeck_pro_themes()
   }
 
   return $pro_theme_lists;
+}
+
+function templatespare_check_blockspare_pro()
+{
+  if (file_exists(WP_PLUGIN_DIR . '/blockspare-pro/blockspare.php')) {
+    return true;
+  }
+
+  return false;
 }
