@@ -245,7 +245,7 @@ function templatespare_get_all_lang_list()
 
   // Now safely access keys
   $demodata = templatespare_templates_demo_list('all');
-  //var_dump($demodata);
+
 
   // Map of language slugs to flag URLs
   $flag_map = [

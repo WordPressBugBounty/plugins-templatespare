@@ -21,19 +21,22 @@
   <?php
 
   $data = new AFTMLS_Templates_Importer();
+  $aftmls_file_modified_time = filemtime(AFTMLS_PLUGIN_DIR . 'assets/css/wizard.css');
 
+  // Append the modified time as a timestamp to the version.
+  $aftmls_version_with_timestamp = '1.0.' . $aftmls_file_modified_time;
   wp_enqueue_style(
     'templatespare-central-style',
     AFTMLS_PLUGIN_URL . 'assets/css/wizard.css',
     array(),
-    '1.0',
+    $aftmls_version_with_timestamp,
     'all'
   );
   wp_enqueue_style(
     'templatespare_export_style',
     AFTMLS_PLUGIN_URL . 'assets/css/export.css',
     [],
-    '1.0',
+    $aftmls_version_with_timestamp,
     'all'
   );
 
@@ -67,15 +70,20 @@
       'jquery',
       'updates',
     ), // Dependencies, defined above.
-    '1.0', // version.
+    $aftmls_version_with_timestamp, // version.
     true
   );
 
   if (is_admin()):
+    $aftmls_file_modified_time = filemtime(AFTMLS_PLUGIN_DIR . 'dist/blocks.editor.build.css');
+
+    // Append the modified time as a timestamp to the version.
+    $aftmls_version_with_timestamp = '2.0.' . $aftmls_file_modified_time;
     wp_enqueue_style(
       'aftmls-block-edit-style',
       AFTMLS_PLUGIN_URL . 'dist/blocks.editor.build.css',
-      array('wp-edit-blocks')
+      array('wp-edit-blocks'),
+      $aftmls_file_modified_time
     );
   endif;
 

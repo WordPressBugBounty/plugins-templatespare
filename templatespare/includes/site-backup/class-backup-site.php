@@ -28,20 +28,25 @@ class TemplatesapreBackupSite
 
   public function templatespare_add_backup_menus_sctipt()
   {
+    $aftmls_file_modified_time = filemtime(AFTMLS_PLUGIN_DIR . 'assets/css/export.css');
+
+    // Append the modified time as a timestamp to the version.
+    $aftmls_version_with_timestamp = '1.0.' . $aftmls_file_modified_time;
+
 
     wp_enqueue_style(
       'templatespare_export_style',
       AFTMLS_PLUGIN_URL . 'assets/css/export.css',
       [],
-      '1.0',
-      'all'
+      $aftmls_version_with_timestamp,
+      true
     );
 
     wp_enqueue_script(
       'templatespare_backup_script',
       AFTMLS_PLUGIN_URL . 'dist/migrate_script.build.js',
       ['aftmls-backend-script'],
-      '1.0',
+      $aftmls_version_with_timestamp,
       true
     );
     //
@@ -49,7 +54,7 @@ class TemplatesapreBackupSite
       'templatespare_fileimport_script',
       AFTMLS_PLUGIN_URL . 'dist/fileUpload_script.build.js',
       ['aftmls-backend-script', 'jquery'],
-      '1.0',
+      $aftmls_version_with_timestamp,
       true
     );
 

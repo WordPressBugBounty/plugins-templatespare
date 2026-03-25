@@ -390,7 +390,7 @@ if (!class_exists('AFTMLS_Templates_Importer')) {
           'jquery',
           'updates',
         ), // Dependencies, defined above.
-        '1.2', // version.
+        $aftmls_version_with_timestamp, // version.
         true
       );
 
@@ -398,7 +398,7 @@ if (!class_exists('AFTMLS_Templates_Importer')) {
         'aftmls-blockspare-script', // Handle.
         AFTMLS_PLUGIN_URL . 'dist/dashboard_script.build.js',
         array(), // Dependencies, defined above.
-        '1.0', // version.
+        $aftmls_version_with_timestamp, // version.
         true
       );
 
@@ -406,7 +406,7 @@ if (!class_exists('AFTMLS_Templates_Importer')) {
         'aftmls-dashboard-recommended-script', // Handle.
         AFTMLS_PLUGIN_URL . 'dist/dashboard_recommended.build.js',
         array('aftmls-dashboard-script'), // Dependencies, defined above.
-        '1.0', // version.
+        $aftmls_version_with_timestamp, // version.
         true
       );
 
@@ -414,7 +414,7 @@ if (!class_exists('AFTMLS_Templates_Importer')) {
         'aftmls-plugin-installl-activation-script', // Handle.
         AFTMLS_PLUGIN_URL . 'dist/plugin_activate_script.build.js',
         array('jquery'), // Dependencies, defined above.
-        '1.0', // version.
+        $aftmls_version_with_timestamp, // version.
         true
       );
 
@@ -569,10 +569,16 @@ if (!class_exists('AFTMLS_Templates_Importer')) {
 
       if (is_admin() && $current_screen->base != 'toplevel_page_wizard-page') :
 
+        $aftmls_file_modified_time = filemtime(AFTMLS_PLUGIN_DIR . 'dist/blocks.editor.build.css');
+
+        // Append the modified time as a timestamp to the version.
+        $aftmls_version_with_timestamp = '2.0.' . $aftmls_file_modified_time;
         wp_enqueue_style(
           'aftmls-block-edit-style',
           AFTMLS_PLUGIN_URL . 'dist/blocks.editor.build.css',
-          array('wp-edit-blocks')
+          array('wp-edit-blocks'),
+          $aftmls_version_with_timestamp
+
         );
       endif;
     }
