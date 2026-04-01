@@ -20,7 +20,7 @@ if ( ! function_exists( 'templatespare_fs' ) ) {
                 'has_paid_plans'      => true,
                 'menu'                => array(
                     'slug'           => 'templatespare-main-dashboard',
-                    'first-path'     => 'admin.php?page=wizard-page',
+                    'first-path'     => 'admin.php?page=templatespare-main-dashboard',
                     'support'        => false,
                 ),
             ) );

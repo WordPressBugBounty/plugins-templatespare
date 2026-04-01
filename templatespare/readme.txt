@@ -3,7 +3,7 @@ Contributors: templatespare, afthemes
 Tags: page builder, editor, landing page, drag-and-drop, elementor
 Requires at least: 4.0
 Tested up to: 6.9
-Stable tag: 4.1.2
+Stable tag: 4.1.3
 License: GPLv3 or later
 
 == Description ==
