@@ -91,7 +91,7 @@ if (!class_exists('AFTMLS_RestApi_Request')) {
 
 
       $saved_category = '';
-      if (is_array($category) && isset($category[1])) {
+      if (is_array($category) && isset($category)) {
         $saved_category = $category;
       }
       $plugins = '';
@@ -126,7 +126,7 @@ if (!class_exists('AFTMLS_RestApi_Request')) {
 
 
       $saved_category = '';
-      if (is_array($category) && isset($category[1])) {
+      if (is_array($category) && isset($category)) {
         $saved_category = $category;
       }
 
@@ -223,64 +223,80 @@ if (!class_exists('AFTMLS_RestApi_Request')) {
     }
 
 
-    //upload image 
+    // Safe Custom Upload Directory Filter Callback
+    public function templatespare_custom_upload_dir($uploads)
+    {
+        $uploads['path']   = $uploads['basedir'] . '/tmplsp-img';
+        $uploads['url']    = $uploads['baseurl'] . '/tmplsp-img';
+        $uploads['subdir'] = '/tmplsp-img';
+        return $uploads;
+    }
+
+
+    // Secure upload image implementation
     public function upload_images_in()
     {
       if (empty($_FILES['file'])) {
         return new WP_Error('no_file', 'No file uploaded', array('status' => 400));
       }
 
-      $uploaded_urls = '';
-      $upload_dir = wp_upload_dir();
-      $temp_dir   = $upload_dir['basedir'] . '/tmplsp-img/';
-      $temp_url   = $upload_dir['baseurl'] . '/tmplsp-img/';
-
-      if (!file_exists($temp_dir)) {
-        wp_mkdir_p($temp_dir);
+      // Ensure WordPress file API functions are available
+      if (!function_exists('wp_handle_upload')) {
+        require_once ABSPATH . 'wp-admin/includes/file.php';
       }
 
-      // Normalize $_FILES array for multiple uploads
+      $uploaded_urls = array();
+
+      // Normalize $_FILES array for multiple or single uploads
       $files = [];
       if (is_array($_FILES['file']['name'])) {
         foreach ($_FILES['file']['name'] as $key => $name) {
           $files[] = [
-            'name' => $name,
-            'type' => $_FILES['file']['type'][$key],
+            'name'     => $name,
+            'type'     => $_FILES['file']['type'][$key],
             'tmp_name' => $_FILES['file']['tmp_name'][$key],
-            'error' => $_FILES['file']['error'][$key],
-            'size' => $_FILES['file']['size'][$key],
+            'error'    => $_FILES['file']['error'][$key],
+            'size'     => $_FILES['file']['size'][$key],
           ];
         }
       } else {
-        $files[] = $_FILES['file']; // single file
+        $files[] = $_FILES['file'];
       }
 
-      // Process each file
+      // Configuration overrides for wp_handle_upload
+      $upload_overrides = array(
+        'test_form' => false, 
+        'mimes'     => array(
+            'jpg|jpeg|jpe' => 'image/jpeg',
+            'png'          => 'image/png',
+            'gif'          => 'image/gif',
+            'webp'         => 'image/webp',
+        ),
+      );
+
+      // Add dynamic hook to drop files explicitly in the /tmplsp-img/ directory safely
+      add_filter('upload_dir', array($this, 'templatespare_custom_upload_dir'));
+
+      // Process each file securely
       foreach ($files as $file) {
         if ($file['error'] !== UPLOAD_ERR_OK) {
           continue;
         }
 
-        // ✅ Allow only images
-        if (!preg_match('/image\\/(jpeg|png|gif|webp)/', $file['type'])) {
-          continue;
-        }
+        // Pass file array through native validation handling
+        $movefile = wp_handle_upload($file, $upload_overrides);
 
-        $filename = time() . '-' . sanitize_file_name($file['name']);
-        $filepath = $temp_dir . $filename;
-
-        // ✅ Skip if file already exists
-        if (file_exists($filepath)) {
-          $uploaded_urls[] = $temp_url . $filename;
-          continue;
-        }
-        if (move_uploaded_file($file['tmp_name'], $filepath)) {
-          $uploaded_urls = $temp_url . $filename;
+        if ($movefile && !isset($movefile['error'])) {
+            $uploaded_urls[] = $movefile['url'];
         }
       }
 
+      // Clean up the upload path directory modifier right away
+      remove_filter('upload_dir', array($this, 'templatespare_custom_upload_dir'));
+
+      // Return string if single file handled, or full array to maintain compatibility
       return array(
-        'url' => $uploaded_urls
+        'url' => (count($uploaded_urls) === 1) ? $uploaded_urls : $uploaded_urls
       );
     }
 
