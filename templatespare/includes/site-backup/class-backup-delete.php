@@ -26,6 +26,9 @@ class TemplatesapredeleteBackup
 
   public function templatespare_delete_backup_folder()
   {
+    if (!current_user_can('manage_options')) {
+      wp_die(__('You do not have sufficient permissions to access this page.'));
+    }
     if (!isset($_GET['delete_folder']) || empty($_GET['delete_folder'])) {
       return;
     }
