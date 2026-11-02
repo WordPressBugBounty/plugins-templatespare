@@ -72,6 +72,7 @@ class AFTMLS_Companion
     add_action('after_setup_theme', array($this, 'setup_plugin_with_filter_data'));
     //
     add_action('plugins_loaded', array($this, 'load_textdomain'));
+    
   }
 
 
@@ -261,6 +262,12 @@ class AFTMLS_Companion
         $existing
       );
 
+      // 🧹 FLUSH RECOMMENDATION CACHE HERE INSTANTLY
+      delete_transient('templatespare_smart_recommended_demos_v2');
+      delete_transient('templatespare_site_intelligence_cache');
+
+      
+
       if (!empty($is_builder_pro)) {
 
         //$this->is_builder_pro = sanitize_text_field($_POST['is_builder_pro']); // folder
@@ -270,9 +277,6 @@ class AFTMLS_Companion
 
         activate_plugins($plugin_path, '', false, true);
       }
-
-
-
 
       if (isset($_POST['impotype'])) {
         $manual = sanitize_text_field($_POST['impotype']);

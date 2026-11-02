@@ -1,5 +1,7 @@
 <?php
-
+if (!defined('ABSPATH')) {
+  exit;
+}
 function templatespare_import_navigation($selected_import, $homepagetype)
 {
 

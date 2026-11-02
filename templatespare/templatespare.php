@@ -1,22 +1,20 @@
 <?php
 
 /**
- * Plugin Name: TemplateSpare – Build Your Website in Minutes, Not Months
- * Plugin URI: https://templatespare.com/?uri=plugin
- * Description: No more endless design tweaks, plugin hunts, or migration nightmares. TemplateSpare simplifies your WordPress experience with 1-click imports, 1000+ professional demos, and seamless export options—making site-building fast, easy, and fun.
- * Version: 4.3.1
- * Author:            TemplateSpare
- * Author URI:        https://templatespare.com/
+ * Plugin Name:       TemplateSpare – No-Code Demo Importer & Site Migration
+ * Plugin URI:        https://templatespare.com/?uri=plugin
+ * Description:       Build & migrate news, magazine, blog, and eCommerce sites in minutes. TemplateSpare delivers 1000+ professional starter templates, 1-click demo imports, and seamless site migration tools for Elementor, Gutenberg & AF themes.
+ * Version:           4.3.2
+ * Author:            AF themes
+ * Author URI:        https://afthemes.com/
  * Text Domain:       templatespare
  * License:           GPLv3 or later
- * License URI:       https://www.gnu.org/licenses/gpl.html
+ * License URI:       https://www.gnu.org/licenses/gpl-3.0.html
  */
 
-/**
- * Exit if accessed directly
- */
-if (!defined('ABSPATH')) {
-  exit;
+// Exit if accessed directly.
+if ( ! defined( 'ABSOLUTE_PATH' ) && ! defined( 'ABSPATH' ) ) {
+    exit;
 }
 
 defined('AFTMLS_BASE_FILE') or define('AFTMLS_BASE_FILE', __FILE__);
@@ -73,3 +71,10 @@ function templatespare_activation_redirect($plugin)
 }
 
 add_action('activated_plugin', 'templatespare_activation_redirect');
+
+// Place this inside templatespare.php (outside of any class)
+function templatespare_flush_cache_on_theme_switch() {
+    delete_transient('templatespare_smart_recommended_demos_v2');
+    delete_transient('templatespare_site_intelligence_cache');
+}
+add_action('switch_theme', 'templatespare_flush_cache_on_theme_switch');

@@ -1,199 +1,214 @@
-=== TemplateSpare - 1000+ WordPress Starter Templates & Full Site Migration Tool | 1-Click Import/Export & No-Code Builder ===
+=== TemplateSpare – No-Code Starter Templates, Demo Importer & Site Migration for News, Magazine & Blog ===
 Contributors: templatespare, afthemes
-Tags: page builder, editor, landing page, drag-and-drop, elementor
-Requires at least: 4.0
+Tags: starter templates, demo importer, site migration, 1-click import, blog templates,  news magazine, elementor, gutenberg
+Requires at least: 5.6
 Tested up to: 7.1
-Stable tag: 4.3.1
+Requires PHP: 7.4
+Stable tag: 4.3.2
 License: GPLv3 or later
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
+
+1000+ news, magazine & blog starter templates, 1-click demo importer & site migration tool by AF Themes for Elementor, Gutenberg & WooCommerce.
 
 == Description ==
 
-## Imagine this... You’re planning your new website. You’re excited at first—but then reality hits. The design takes months. You wait for the developer to tweak every pixel, find the right plugins, migrate your content, and finally launch... eventually.
+## Build & Migrate WordPress News, Magazine, Blog & eCommerce Sites in 3 Minutes 🚀
+Are you tired of waiting weeks for custom website designs, wrestling with complex page builders, or struggling with manual database migrations? **TemplateSpare** is the ultimate **No-Code Starter Templates Importer** and **Full Site Migration Tool** built specifically for publishers, news agencies, digital magazines, lifestyle bloggers, online stores, and digital agencies.
 
-<strong>What if you could skip all that hassle?</strong> Build your site in just 2-3 minutes, not months.
-And not just any site—a <strong>professionally designed, responsive, accessible,</strong> and <strong>translation-ready</strong> site with demo content included.
+As the central starter site engine powering the **[AF Themes](https://afthemes.com/)** software ecosystem, TemplateSpare enables you to deploy 1000+ pre-designed, mobile-responsive, and SEO-optimized starter templates with a single click.
 
-Even better? When it’s time to move your site, you won’t need to beg a developer or waste time on manual migration. TemplateSpare’s <strong>1-Click Import/Export</strong> feature takes care of everything—<strong>themes, plugins, and data</strong>.
+Whether you craft websites using **[EleSpare](https://wordpress.org/plugins/elespare/)** (Elementor addons), **[BlockSpare](https://wordpress.org/plugins/blockspare/)** (Gutenberg AI site builder), **[WP Post Author](https://wordpress.org/plugins/wp-post-author/)**, or **WooCommerce**, TemplateSpare installs all required themes, companion plugins, custom post grids, and demo media automatically!
 
-🔗[Explore Starter Sites](https://afthemes.com/starter-sites/) | 📺[Watch Tutorials](https://www.youtube.com/@wpafthemes/) | 📰[Read User Stories](https://afthemes.com/blog/)
+🔗 [Explore 1000+ Starter Sites](https://afthemes.com/starter-sites/) | 📰 [Elementor Templates](https://afthemes.com/plugins/elespare/) | 📰 [Gutenberg Block Templates](https://blockspare.com/) | 📺 [Watch Step-by-Step Tutorials](https://www.youtube.com/@wpafthemes/)
 
-== 🌟 Why TemplateSpare Is a Game-Changer ==
-<strong>[1️⃣ 1000+ Professional Templates](https://afthemes.com/starter-sites/):</strong> Pre-designed for blogs, news, eCommerce, portfolios, and more.
-<strong>2️⃣ 3 Minutes Setup:</strong> Install, import demo content, and go live in minutes. No coding needed.
-<strong>3️⃣ 1-Click Import/Export:</strong> Migrate your site to a new server in seconds. Themes, plugins, content—everything!
-<strong>4️⃣ Accessibility Ready & Fully Responsive:</strong> Works for everyone, on every device.
-<strong>5️⃣ Translation Ready & Multilingual:</strong> Connect with audiences around the world.
+---
 
-== 🚀 A Typical User Journey ==
-<strong>Before TemplateSpare ⏩:</strong>
+== 🌟 Why TemplateSpare & AF Themes Are Trusted by 100,000+ Websites Worldwide ==
 
-- You hire a developer.
-- You wait weeks (or months) to get a working design.
-- You struggle to migrate your site later when you change hosts.
+At **AF Themes**, we are passionate about helping creators build stunning, high-performance WordPress websites effortlessly 🌟. With over a decade of hands-on open-source experience, our themes and plugins power more than **100,000+ WordPress websites globally**. 
 
-<strong>With TemplateSpare 😍:</strong>
+From flagship news and blogging themes like **[CoverNews](https://afthemes.com/products/covernews/)**, **[MoreNews](https://afthemes.com/products/morenews/)**, **[ChromeNews](https://afthemes.com/products/chromenews/)**, and **[Shopical](https://afthemes.com/products/shopical/)** to publishing plugins like **[WP Post Author](https://wordpress.org/plugins/wp-post-author/)**, **[EleSpare](https://wordpress.org/plugins/elespare/)**, and **[BlockSpare](https://wordpress.org/plugins/blockspare/)**, our solutions meet the latest Web Standards 🌍:
 
-- <strong>Choose a template, click import, and boom—your site is live in minutes.</strong>
-- Planning to switch servers? No need for extra tools or help. Just export and import with one click.
+* <strong>[1000+ Specialized Starter Templates](https://afthemes.com/starter-sites/):</strong> Purpose-built for digital news portals, editorial magazines, lifestyle blogs, WooCommerce shops, creative portfolios, and corporate agencies.
+* <strong>1-Click Demo Import Engine:</strong> Automatically configures essential themes, required free/pro plugins, navigation menus, post layouts, and starter content in under 3 minutes.
+* <strong>All-in-One Site Migration Tool:</strong> Export and import your complete WordPress website—themes, active plugins, media uploads, and database tables—to new hosting servers or domains seamlessly.
+* <strong>No-Code Page Building Freedom:</strong> Fully compatible with native Gutenberg blocks, Elementor page builder, and WordPress Customizer settings.
+* <strong>Core Web Vitals & Speed Optimized:</strong> Every template kit is engineered for ultra-fast loading, lightweight code architecture, and high Google search visibility.
+* <strong>Accessibility & Multilingual Ready:</strong> Native support for global Web Accessibility guidelines, full translation readiness, and RTL layout capability.
 
+---
 
-== 🌐 How It Works – One-Click Import in 3 Easy Steps ==
+== 🚀 Transform Your Publishing Workflow: Before vs. After ==
+
+<strong>Traditional WordPress Development ⏩:</strong>
+- Hiring expensive agencies or purchasing complex multi-plugin stacks.
+- Spending weeks manually configuring post grids, header builders, news tickers, and archive pages.
+- Struggling with broken database links and missing media files during manual site migration.
+
+<strong>Building with TemplateSpare & AF Themes 😍:</strong>
+- <strong>Instant 1-Click Launch:</strong> Pick a professionally designed news, magazine, or blog starter site, hit import, and go live in minutes.
+- <strong>Zero Technical Friction:</strong> Switch hosting providers or back up client staging sites effortlessly using built-in 1-click export/import tools.
+
+---
+
+== 🌐 How It Works: 1-Click Site Import in 3 Easy Steps ==
 [youtube https://www.youtube.com/watch?v=t7LMDLRE8Ok]
 
-🖱️ Locate the import dashboard at wp-admin -> <strong>TemplateSpare</strong> after enabling the plugin. Easily access and manage your TemplateSpare settings with just a few clicks, [see it in action](https://tastewp.com/new/?pre-installed-plugin-slug=templatespare). 
-
-<strong> 🌟 1. Choose a Site: </strong>
-Browse [1000+ pre-built templates](https://tastewp.com/new/?pre-installed-plugin-slug=templatespare)and pick the one you like.
-
-<strong> 🖌️ 2. Customize & Personalize: </strong>
-Use your favorite page builder to make it truly yours.
-
-<strong> 🚀 3. Publish & Go Live: </strong>
-Your site is ready in minutes. Share your story with the world! 🌏
+1. **Access Dashboard:** Activate TemplateSpare and navigate to **wp-admin -> TemplateSpare** inside your WordPress dashboard. You can also [test TemplateSpare live on TasteWP](https://tastewp.com/new/?pre-installed-plugin-slug=templatespare).
+2. **Select Your Template:** Browse our library of [1000+ pre-built starter sites](https://afthemes.com/starter-sites/) filtered by niche (News, Magazine, Blog, Store, Business).
+3. **Import & Go Live:** Click **Import Demo**. TemplateSpare automatically installs necessary ecosystem plugins, imports content, and publishes your live site instantly!
 
 [youtube https://www.youtube.com/watch?v=elLCTqnQMI0]
 
-<strong>[Explore Live Demo](https://tastewp.com/new/?pre-installed-plugin-slug=templatespare)</strong> 
+<strong>[Try TemplateSpare Live Demo](https://tastewp.com/new/?pre-installed-plugin-slug=templatespare)</strong>
 
+---
 
-== 📌 Who Should Use TemplateSpare? ==
-Whether you’re a <strong>beginner</strong>, <strong>freelancer</strong>, or <strong>agency</strong>, TemplateSpare makes creating and managing WordPress sites fast, easy, and scalable.
+== 📌 Who Is TemplateSpare Built For? ==
 
-<strong>Bloggers & Content Creators:</strong> Perfect for personal blogs, lifestyle sites, and portfolios.
-<strong>News Agencies & Media Outlets:</strong> Ideal for news portals, magazines, and niche reporting.
-<strong>Small Businesses & eCommerce Stores:</strong> Launch professional sites for shops, agencies, or startups.
-<strong>Developers & Freelancers:</strong> Save time with [pre-designed templates](https://afthemes.com/starter-sites/) for clients.
-<strong>Nonprofits & Educators:</strong> Share your mission or showcase your courses.
-<strong>WordPress Beginners:</strong> Effortlessly build a site without technical skills.
+Whether you are a beginner starting your first blog or a professional web agency managing dozens of client portals, TemplateSpare is designed for you 🛠️:
 
-## 🎨 Celebrating the Success Stories of Our Users
+* <strong>Digital Newsrooms & Media Publishers:</strong> Deploy content-heavy news portals and magazines featuring breaking news tickers, hero sliders, and dynamic post grids.
+* <strong>Bloggers & Content Creators:</strong> Launch aesthetic personal blogs, recipe journals, travel diaries, and lifestyle portals effortlessly.
+* <strong>eCommerce Entrepreneurs:</strong> Build fast, conversion-focused online shops integrated with WooCommerce using Shopical and StoreCommerce starter sites.
+* <strong>Developers & Freelancers:</strong> Accelerate client website delivery 10x using [AF Themes Starter Sites](https://afthemes.com/starter-sites/) as ready-made development frameworks.
+* <strong>WordPress Beginners:</strong> Build a complete, modern website without writing a single line of code or CSS.
 
+---
 
-<strong>I LOVE THIS THEME!!! It’s great for websites that have lots of content!</strong>
-🌟🌟🌟🌟🌟
-> I’ve used various versions of this theme and highly recommend it for sites that include lots of content!
+## 🎨 Featured Live Starter Demos Included with TemplateSpare
 
-[@perfectrepublic](https://wordpress.org/support/topic/i-love-this-theme-its-great-for-websites-that-have-lots-of-content/)
+TemplateSpare configures required themes and companion plugins automatically during the import process. Click below to preview our top starter site designs live:
 
-<strong>One of the most awesome themes</strong>
-🌟🌟🌟🌟🌟
-> This theme is very hand and good to use. One should check this out and you can use the theme for your site.
+- **[General Newspaper Starter Demo](https://demos.afthemes.com/covernews/)**  
+  Versatile, clean publishing layout built on *CoverNews*. Ideal for multi-author blogs and broad news coverage.
 
-[@mandatory1958](https://wordpress.org/support/topic/one-of-the-most-awesome-themes/)
+- **[Sporty Journals Starter Demo](https://demos.afthemes.com/covernews/sport/)**  
+  High-energy editorial design for sports news, athletic coverage, and fitness blogs.
 
+- **[Fashion Magazine Starter Demo](https://demos.afthemes.com/chromenews/fashion/)**  
+  Modern, image-focused layout tailored for fashion bloggers, trend magazines, and style brands.
 
-<strong>Amazing & Excellent replacement theme</strong>
-🌟🌟🌟🌟🌟
-> The look and feel of this theme are excellent… I recommend it for Everyone who likes a dynamic blog.
+- **[Recipes Blog Starter Demo](https://demos.afthemes.com/chromenews/recipe/)**  
+  Culinary magazine template featuring custom food photography grids and clear recipe layouts.
 
-[@doctutorials](https://wordpress.org/support/topic/amazing-excellent-replacement-theme/)
+- **[Classic News Starter Demo](https://demos.afthemes.com/morenews/)**  
+  Timeless, sophisticated editorial design built on *MoreNews* for traditional newsrooms and journals.
 
+- **[Masonry Blog Starter Demo](https://demos.afthemes.com/chromenews-pro/masonry/)**  
+  Unconventional masonry collage design perfect for creative storytellers, photographers, and artists.
 
-<strong>Great theme with free templates</strong>
-🌟🌟🌟🌟🌟
-> I like the theme because it comes with many free templates for anyone to get started.
+- **[Dark News Starter Demo](https://demos.afthemes.com/darknews/)**  
+  Sleek dark-mode aesthetic engineered for tech portals, gaming news, and modern editorial platforms.
 
-[@tsquare07](https://wordpress.org/support/topic/great-theme-with-free-templates/)
+- **[Health News Starter Demo](https://demos.afthemes.com/chromenews-pro/covid-19/)**  
+  Resource-rich informational layout designed for health organizations, medical updates, and community news.
 
-<strong>So clean and modern looking </strong>
-🌟🌟🌟🌟🌟
-> I tried the free version for awhile before going premium. I love the features in the pro version, well worth the price.
+- **[Gadget Magazine Starter Demo](https://demos.afthemes.com/covernews-pro/gadgets/)**  
+  Tech review magazine template optimized for gadget news, hardware specs, and software updates.
 
-[@macsopinion](https://wordpress.org/support/topic/so-clean-and-modern-looking/)
+- **[Real Estates Magazine Starter Demo](https://demos.afthemes.com/morenews/real-estate/)**  
+  Property showcase starter kit for realtors, real estate brokers, and architectural magazines.
 
+- **[Automobile News Starter Demo](https://demos.afthemes.com/chromenews/automobile/)**  
+  Dynamic, automotive-focused template designed for car reviews, motorsport blogs, and vehicle news.
 
-[Read More Reviews](https://wordpress.org/support/theme/covernews/reviews/?filter=5)
+- **[Travel Blog Starter Demo](https://demos.afthemes.com/newsphere-pro/travel/)**  
+  Immersive travel magazine layout engineered for travel writers, tour agencies, and adventure journals.
 
+- **[Gaming News Starter Demo](https://demos.afthemes.com/chromenews-pro/gaming/)**  
+  High-contrast, immersive editorial template built for esports news, gaming bloggers, and streaming hubs.
 
-🚀 Enjoy a hassle-free setup experience! Install the TemplateSpare plugin. Locate the import dashboard at wp-admin -> <strong>[TemplateSpare](https://templatespare.com/)</strong> after enabling the plugin, choose your desired website demo, and witness the automatic installation and activation of essential themes and plugins during the import process. 
-
-* [General Newspaper](https://demos.afthemes.com/covernews/)
-Perfect for any website type, the General Site offers a clean and versatile design. Whether you're a blogger, business owner, or creative professional, this starter site provides a solid foundation for your online presence.
-
-* [Sporty Journals](https://demos.afthemes.com/covernews/sport/)
-Capture the spirit of athleticism with the Sporty Vibes starter site. Ideal for sports blogs, fitness enthusiasts, or sports-related businesses, this starter site brings dynamic energy and a sporty aesthetic to your website.
-
-* [Fashion Magazine](https://demos.afthemes.com/chromenews/fashion/)
-Make a stylish statement with the Fashion Forward starter site. Tailored for fashion bloggers, clothing brands, or anyone in the fashion industry, this starter site exudes elegance and modern flair.
-
-* [Recipes Blog](https://demos.afthemes.com/chromenews/recipe/)
-Calling all foodies! The Delicious Recipes starter site is a culinary delight. Perfect for food bloggers, chefs, or anyone sharing their love for cooking, this starter site showcases mouth-watering visuals and a user-friendly recipe layout.
-
-* [Classic News](https://demos.afthemes.com/morenews/)
-For those who appreciate simplicity and sophistication, the Timeless Classic starter site is the perfect choice. Ideal for traditional businesses, professional portfolios, or anyone who values a classic aesthetic.
-
-* [Masonry Blog](https://demos.afthemes.com/chromenews-pro/masonry/)
-Bring creativity to the forefront with the Masonry Magic starter site. This starter site is great for artists, photographers, or anyone who wants to showcase their work in a visually stunning and unconventional layout.
-
-* [Dark News](https://demos.afthemes.com/darknews/)
-Embrace the dark side with the Elegantly Dark starter site. Perfect for those who prefer a sleek and mysterious aesthetic, this starter site is ideal for fashion, photography, or any website looking to stand out with a bold and elegant design.
-
-* [Health News](https://demos.afthemes.com/chromenews-pro/covid-19/)
-Promote awareness and solidarity with the Health Awareness starter site. Whether you're a health organization, community group, or business, this starter site provides a platform to share information and resources related to the pandemic.
-
-* [Gadget Magazine](https://demos.afthemes.com/covernews-pro/gadgets/)
-Tech enthusiasts rejoice! The Gadget Guru starter site is tailored for those passionate about gadgets and technology. Perfect for tech blogs, reviews, or any website focused on the latest innovations in the tech world.
-
-* [Real Estates Magazine](https://demos.afthemes.com/morenews/real-estate/)
-Elevate your real estate business with the Real Estates Showcase starter site. This starter site is designed to showcase properties in a visually appealing manner, making it a perfect choice for real estate agencies, property developers, or individual realtors.
-
-* [Automobile News](https://demos.afthemes.com/chromenews/automobile/)
-Hit the road with the Automobile Adventures starter site. Ideal for car enthusiasts, automotive blogs, or anyone in the automobile industry, this starter site provides a sleek and dynamic platform to showcase vehicles and automotive content.
-
-* [Travel Blog](https://demos.afthemes.com/newsphere-pro/travel/)
-Feed your wanderlust with the Wanderlust Travel starter site. Perfect for travel bloggers, agencies, or anyone sharing their travel experiences, this starter site captures the essence of exploration and adventure.
-
-* [Gaming News](https://demos.afthemes.com/chromenews-pro/gaming/)
-Enter the Gaming Galaxy with this starter site designed for gamers and gaming enthusiasts. Whether you're a streamer, content creator, or part of the gaming community, this starter site provides an immersive and visually appealing gaming experience.
-
-<strong>[More to Come](https://templatespare.com/)</strong> Stay tuned for additional sites, ensuring your options are always expanding.
+**[Discover 1000+ More Starter Sites](https://templatespare.com/)** – Updated regularly with new niche template kits.
 
 [youtube https://www.youtube.com/watch?v=WeHALYnDQBM]
 
+---
 
+## 🤝 Driven by Community: The Go With WP Program
 
-## 🔥 Welcome in for other amazing products from AF themes
->The most flexible WordPress themes and plugins crafted for the future web.
+We are proud to run the **Go with WP Community Program** 🤝, an initiative bringing WordPress enthusiasts together through podcasts 🎙️, technical training sessions 🏫, and global WordCamp participation 🌏. 
 
-## Get the our outstanding free themes
-**🔔 Check all of our [Free](https://afthemes.com/products/category/free/) themes**
-👉 [CoverNews](https://afthemes.com/products/covernews/)
-👉 [ChromeNews](https://afthemes.com/products/chromenews/)
-👉 [MoreNews](https://afthemes.com/products/morenews/)
-👉 [EnterNews](https://afthemes.com/products/enternews/)
-👉 [DarkNews](https://afthemes.com/products/darknews/)
-👉 [Newsium](https://afthemes.com/products/newsium/)
-👉 [Newsever](https://afthemes.com/products/newsever/)
-👉 [Newsphere](https://afthemes.com/products/newsphere/)
-👉 [BroadNews](https://afthemes.com/products/broadnews/)
-👉 [Shopical](https://afthemes.com/products/shopical/)
-👉 [StoreCommerce](https://afthemes.com/products/storecommerce/)
-👉 [Elegant Magazine](https://afthemes.com/products/elegant-magazine/)
-👉 [And More..](https://afthemes.com/products/category/free/)
+This program inspires growth and innovation, connecting local talent with global tech opportunities while promoting open-source collaboration, accessibility standards, and digital publishing education 💡.
 
-**🔔 Check all of our [Premium](https://afthemes.com/products/category/pro/) themes**
-👉 [CoverNews Pro](https://afthemes.com/products/covernews-pro/)
-👉 [ChromeNews Pro](https://afthemes.com/products/chromenews-pro/)
-👉 [MoreNews Pro](https://afthemes.com/products/morenews-pro/)
-👉 [EnterNews Pro](https://afthemes.com/products/enternews-pro/)
-👉 [DarkNews Pro](https://afthemes.com/products/darknews-pro/)
-👉 [Newsium Pro](https://afthemes.com/products/newsium-pro/)
-👉 [Newsever Pro](https://afthemes.com/products/newsever-pro/)
-👉 [Newsphere Pro](https://afthemes.com/products/newsphere-pro/)
-👉 [BroadNews Pro](https://afthemes.com/products/broadnews-pro/)
-👉 [Shopical Pro](https://afthemes.com/products/shopical-pro/)
-👉 [StoreCommerce Pro](https://afthemes.com/products/storecommerce-pro/)
-👉 [Elegant Magazine Pro](https://afthemes.com/products/elegant-magazine-pro/)
-👉 [And More..](https://afthemes.com/products/category/pro/)
+---
 
-**🔔 Check all of our [plugins](https://afthemes.com/plugins/)**
-👉 [Blockspare](https://blockspare.com/)
-👉 [Elespare](https://blockspare.com/)
-👉 [WP Post Author](https://afthemes.com/plugins/wp-post-author/)
-👉 [Latest Posts Block](https://afthemes.com/plugins/)
-👉 [Magic Content Box](https://afthemes.com/plugins/)
-👉 [Pricing Table Block](https://afthemes.com/plugins/)
-👉 [Team and Testimonial Block](https://afthemes.com/plugins/)
+## 💬 Real Reviews from Our Global User Community
+
+> <strong>"I LOVE THIS THEME!!! It’s great for websites that have lots of content!"</strong>  
+> ⭐⭐⭐⭐⭐  
+> *"I’ve used various versions of this theme and highly recommend it for sites that include lots of content!"*  
+> — [@perfectrepublic](https://wordpress.org/support/topic/i-love-this-theme-its-great-for-websites-that-have-lots-of-content/)
+
+> <strong>"One of the most awesome themes"</strong>  
+> ⭐⭐⭐⭐⭐  
+> *"This theme is very handy and good to use. One should check this out and you can use the theme for your site."*  
+> — [@mandatory1958](https://wordpress.org/support/topic/one-of-the-most-awesome-themes/)
+
+> <strong>"Amazing & Excellent replacement theme"</strong>  
+> ⭐⭐⭐⭐⭐  
+> *"The look and feel of this theme are excellent… I recommend it for Everyone who likes a dynamic blog."*  
+> — [@doctutorials](https://wordpress.org/support/topic/amazing-excellent-replacement-theme/)
+
+> <strong>"Great theme with free templates"</strong>  
+> ⭐⭐⭐⭐⭐  
+> *"I like the theme because it comes with many free templates for anyone to get started."*  
+> — [@tsquare07](https://wordpress.org/support/topic/great-theme-with-free-templates/)
+
+> <strong>"So clean and modern looking"</strong>  
+> ⭐⭐⭐⭐⭐  
+> *"I tried the free version for a while before going premium. I love the features in the pro version, well worth the price."*  
+> — [@macsopinion](https://wordpress.org/support/topic/so-clean-and-modern-looking/)
+
+[Read All 5-Star Reviews on WordPress.org](https://wordpress.org/support/theme/covernews/reviews/?filter=5)
+
+---
+
+## 🔥 Explore the AF Themes WordPress Publishing Suite
+
+Join the AF Themes family today 🏡 and explore how we’re shaping the future of digital publishing—one theme, one community, and one success story at a time! 🚀✨
+
+### 🔔 Free WordPress Themes by AF Themes
+* 👉 [**CoverNews:**](https://afthemes.com/products/covernews/) Clean, elegant free theme for online blogs and news portals.
+* 👉 [**ChromeNews:**](https://afthemes.com/products/chromenews/) Modern, fast news & magazine WordPress theme.
+* 👉 [**MoreNews:**](https://afthemes.com/products/morenews/) Feature-rich, highly customizable editorial theme.
+* 👉 [**Newsphere:**](https://afthemes.com/products/newsphere/) Responsive magazine theme built for high readability.
+* 👉 [**ReviewNews:**](https://afthemes.com/products/reviewnews/) Specialized publishing theme for reviews and blog content.
+* 👉 [**NewSpare:**](https://afthemes.com/products/newspare/) Minimalist, lightweight news & magazine layout.
+* 👉 [**Elegant Magazine:**](https://afthemes.com/products/elegant-magazine/) Sophisticated design for editorial writers & publishers.
+* 👉 [**EnterNews:**](https://afthemes.com/products/enternews/) High-octane media & entertainment news theme.
+* 👉 [**DarkNews:**](https://afthemes.com/products/darknews/) Sleek dark-mode magazine theme for modern publishing.
+* 👉 [**Newsium:**](https://afthemes.com/products/newsium/) Fast, clean layout tailored for digital newsrooms.
+* 👉 [**Newsever:**](https://afthemes.com/products/newsever/) Dynamic publishing theme for blogs and media outlets.
+* 👉 [**BroadNews:**](https://afthemes.com/products/broadnews/) Broad-appeal editorial and blogging WordPress theme.
+* 👉 [**Shopical:**](https://afthemes.com/products/shopical/) Modern, responsive WooCommerce storefront theme.
+* 👉 [**StoreCommerce:**](https://afthemes.com/products/storecommerce/) Comprehensive eCommerce theme for online shops.
+* 👉 [**Storeship:**](https://afthemes.com/products/storeship/) High-converting WooCommerce store layout.
+* 👉 [**Browse All Free Themes...**](https://afthemes.com/products/category/free/)
+
+### 🔔 Premium WordPress Themes (Pro Versions)
+* 👉 [**CoverNews Pro:**](https://afthemes.com/products/covernews-pro/) Ultimate news & magazine builder with 30+ pro layouts & AI tools.
+* 👉 [**ChromeNews Pro:**](https://afthemes.com/products/chromenews-pro/) Advanced publishing features, header/footer builders & pro demo kits.
+* 👉 [**MoreNews Pro:**](https://afthemes.com/products/morenews-pro/) Unlimited color schemes, dark mode toggle, and premium archive blocks.
+* 👉 [**Newsphere Pro:**](https://afthemes.com/products/newsphere-pro/) Advanced monetization areas, breaking news ticker, and extended widgets.
+* 👉 [**ReviewNews Pro:**](https://afthemes.com/products/reviewmews-pro/) Complete review score system, custom ratings & pro magazine layouts.
+* 👉 [**DarkNews Pro:**](https://afthemes.com/products/darknews-pro/) Premium dark theme with advanced advertisement management & custom typography.
+* 👉 [**Elegant Magazine Pro:**](https://afthemes.com/products/elegant-magazine-pro/) Premium editorial design suite with dedicated author & category controls.
+* 👉 [**Newsium Pro:**](https://afthemes.com/products/newsium-pro/) High-performance news theme optimized for Google News & Core Web Vitals.
+* 👉 [**Newsever Pro:**](https://afthemes.com/products/newsever-pro/) Advanced layout variations, custom mega-menus, and priority support.
+* 👉 [**EnterNews Pro:**](https://afthemes.com/products/enternews-pro/) Entertainment publishing suite with video post format support & custom sliders.
+* 👉 [**BroadNews Pro:**](https://afthemes.com/products/broadnews-pro/) Multi-author publishing platform with advanced theme customizer controls.
+* 👉 [**Shopical Pro:**](https://afthemes.com/products/shopical-pro/) Premium WooCommerce layout options, AJAX search, and quick view features.
+* 👉 [**StoreCommerce Pro:**](https://afthemes.com/products/storecommerce-pro/) Full eCommerce suite with multi-vendor support & custom checkout styles.
+* 👉 [**Storeship Pro:**](https://afthemes.com/products/storehsip-pro/) Advanced store customizer controls, product carousels, and conversion tools.
+* 👉 [**Browse All Pro Themes...**](https://afthemes.com/products/category/pro/)
+
+### 🔔 Ecosystem Plugins & Publishing Tools by AF Themes
+* 👉 [**AF Companion:**](https://wordpress.org/plugins/af-companion/) Starter Sites, Speed Booster & Growth Suite for Professional Publishing.
+* 👉 [**AF Translate:**](https://wordpress.org/plugins/af-translate/) AI Translation Editor, PO Editor & POT Generator for WordPress.
+* 👉 [**EleSpare:**](https://wordpress.org/plugins/elespare/) News, Magazine, and Blog Addons for Elementor with Header/Footer Builder.
+* 👉 [**BlockSpare:**](https://wordpress.org/plugins/blockspare/) AI-Powered Gutenberg Block Addons & Site Builder for News and Magazines.
+* 👉 [**WP Post Author:**](https://wordpress.org/plugins/wp-post-author/) Author Box, Multi-Authors, Guest Authors, and Post Rating System.
 
 == Screenshots ==
 1. Build Your Blog, News, Magazine, and Agency Websites with Expert-Designed Templates

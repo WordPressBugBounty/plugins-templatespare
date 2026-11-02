@@ -38,8 +38,7 @@ class TemplatesapreBackupSite
       'templatespare_export_style',
       AFTMLS_PLUGIN_URL . 'assets/css/export.css',
       [],
-      $aftmls_version_with_timestamp,
-      true
+      $aftmls_version_with_timestamp
     );
 
     wp_enqueue_script(
@@ -179,7 +178,10 @@ class TemplatesapreBackupSite
   public function get_folder_details()
   {
 
-
+    if (!current_user_can('manage_options')) {
+      wp_send_json_error(['message' => 'Unauthorized user.'], 403);
+      exit;
+    }
     global $wp_filesystem;
     $backupDir = wp_upload_dir()['basedir'] . '/templatespare-backup/';
 

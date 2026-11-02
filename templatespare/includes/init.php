@@ -92,103 +92,143 @@ if (!class_exists('AFTMLS_Templates_Importer')) {
         60
       );
 
-      // Submenu: Starter Sites
+      // 1. Primary Dashboard: Starter Sites
       add_submenu_page(
         'templatespare-main-dashboard',
-        esc_html__('Import Sites', 'templatespare'),
-        esc_html__('Import Sites', 'templatespare'),
+        esc_html__('Starter Sites', 'templatespare'),
+        esc_html__('Starter Sites', 'templatespare'),
         'import',
-        'templatespare-main-dashboard'
+        'templatespare-main-dashboard' // Uses top-level menu callback automatically
       );
 
-      // Submenu: Get Started (Wizard)
+      // 2. Onboarding: Guided Setup Wizard
+      $badge_free = __('Wizard', 'templatespare'); // Dynamic count variable    
       add_submenu_page(
         'templatespare-main-dashboard',
-        esc_html__('Get Started', 'templatespare'),
-        esc_html__('Get Started', 'templatespare'),
+        esc_html__('Setup Wizard', 'templatespare'),
+        sprintf(
+          __('Get Started %s', 'templatespare'),
+          '<span class="update-plugins count-' . esc_attr($badge_free) . '"><span class="plugin-count">' . esc_html($badge_free) . '</span></span>'
+        ),
         'manage_options',
         'wizard-page',
         [$this, 'templatespare_display_wizard']
       );
 
-      $saved_demos = $this->templatespareget_user_meta_demo_import();
-      if (!empty($saved_demos) && is_array($saved_demos)) {
+      // 3. Smart Recommendations (Only shown if valid import history exists)
+      if (method_exists($this, 'templatespareget_user_meta_demo_import')) {
+        $raw_saved_demos = $this->templatespareget_user_meta_demo_import();
+        // var_dump($raw_saved_demos);
+        $saved_demos     = is_array($raw_saved_demos) ? array_filter($raw_saved_demos) : array();
+
+        if (! empty($saved_demos) && method_exists($this, 'templatespare_display_recommended')) {
+
+
+          $badge_free = __('Demos', 'templatespare'); // Dynamic count variable         
+
+          add_submenu_page(
+            'templatespare-main-dashboard',
+            esc_html__('Recommended Demos for You', 'templatespare'),
+            sprintf(
+              __('For You %s', 'templatespare'),
+              '<span class="update-plugins count-' . esc_attr($badge_free) . '"><span class="plugin-count">' . esc_html($badge_free) . '</span></span>'
+            ),
+            'manage_options',
+            'recommended-page',
+            [$this, 'templatespare_display_recommended']
+          );
+        }
+      }
+
+      // 4. Elementor Kits (Conditional)
+      if (method_exists($this, 'elespare_demo_import_callback')) {
         add_submenu_page(
           'templatespare-main-dashboard',
-          esc_html__('Recommended Demos', 'templatespare'),
-          esc_html__('Recommended Demos', 'templatespare'),
+          esc_html__('Elementor Templates', 'templatespare'),
+          esc_html__('Elementor Templates', 'templatespare'),
           'manage_options',
-          'recommended-page',
-          [$this, 'templatespare_display_recommended']
+          'elespare-dashboard',
+          [$this, 'elespare_demo_import_callback']
         );
       }
 
-      // Conditional Submenu: Elementor Kits (Visible only if Elementor and Elespare plugins are active)
+      // 5. Gutenberg Templates (Conditional)
+      if (method_exists($this, 'blockspare_demo_import_callback')) {
+        add_submenu_page(
+          'templatespare-main-dashboard',
+          esc_html__('Gutenberg Patterns', 'templatespare'),
+          esc_html__('Gutenberg Patterns', 'templatespare'),
+          'manage_options',
+          'blockspare-dashboard',
+          [$this, 'blockspare_demo_import_callback']
+        );
+      }
+
+      // 6. Migration Utility: Export Site Backup
+      if (method_exists($this, 'temmplatespareRenderBackupPage')) {
+        add_submenu_page(
+          'templatespare-main-dashboard',
+          esc_html__('Export Site', 'templatespare'),
+          esc_html__('Export Site', 'templatespare'),
+          'manage_options',
+          'templatespare-site-backup',
+          [$this, 'temmplatespareRenderBackupPage']
+        );
+      }
+
+      // 7. Migration Utility: Import / Restore Site
+      if (method_exists($this, 'temmplatespareRenderImportPage')) {
+        add_submenu_page(
+          'templatespare-main-dashboard',
+          esc_html__('Import / Restore Site', 'templatespare'),
+          esc_html__('Import / Restore', 'templatespare'),
+          'manage_options',
+          'templatespare-site-import',
+          [$this, 'temmplatespareRenderImportPage']
+        );
+      }
+
+      // 8. Ecosystem Link: Premium Themes
+      add_submenu_page(
+        'templatespare-main-dashboard',
+        esc_html__('Premium Themes', 'templatespare'),
+        esc_html__('Premium Themes ↗', 'templatespare'),
+        'manage_options',
+        'templatespare-premium-themes',
+        function () {
+          wp_redirect('https://afthemes.com/all-themes-plan/');
+          exit;
+        }
+      );
+
+      // // 9. Ecosystem Link: Free Themes
+      // add_submenu_page(
+      //   'templatespare-main-dashboard',
+      //   esc_html__('Free Themes', 'templatespare'),
+      //   esc_html__('Free Themes ↗', 'templatespare'),
+      //   'manage_options',
+      //   'templatespare-free-themes',
+      //   function () {
+      //     wp_redirect('https://afthemes.com/free-wordpress-themes/');
+      //     exit;
+      //   }
+      // );
+
+      // Register the Themes submenu page inside your admin_menu action
+
+      $badge_themes = __('Free', 'templatespare');
 
       add_submenu_page(
         'templatespare-main-dashboard',
-        esc_html__('Elementor Kits', 'templatespare'),
-        esc_html__('Elementor Kits', 'templatespare'),
+        esc_html__('Recommended Themes', 'templatespare'),
+        sprintf(
+          __('Themes %s', 'templatespare'),
+          '<span class="update-plugins count-' . esc_attr($badge_themes) . '"><span class="plugin-count">' . esc_html($badge_themes) . '</span></span>'
+        ),
         'manage_options',
-        'elespare-dashboard',
-        [$this, 'elespare_demo_import_callback']
+        'templatespare-recommended-themes',
+        [$this, 'templatespare_display_recommended_themes']
       );
-
-      // Conditional Submenu: Block Patterns (Visible only if BlockSpare plugin is active)
-
-      add_submenu_page(
-        'templatespare-main-dashboard',
-        esc_html__('Block Patterns', 'templatespare'),
-        esc_html__('Block Patterns', 'templatespare'),
-        'manage_options',
-        'blockspare-dashboard',
-        [$this, 'blockspare_demo_import_callback']
-      );
-
-
-
-
-
-      // Submenu: Export Site
-      add_submenu_page(
-        'templatespare-main-dashboard',
-        esc_html__('Export Site', 'templatespare'),
-        esc_html__('Export Site', 'templatespare'),
-        'manage_options',
-        'templatespare-site-backup',
-        [$this, 'temmplatespareRenderBackupPage']
-      );
-
-      // Submenu: Import Site
-      add_submenu_page(
-        'templatespare-main-dashboard',
-        esc_html__('Import Site', 'templatespare'),
-        esc_html__('Import Site', 'templatespare'),
-        'manage_options',
-        'templatespare-site-import',
-        [$this, 'temmplatespareRenderImportPage']
-      );
-
-
-      // External Link: Make Website
-      add_submenu_page(
-        'templatespare-main-dashboard',
-        esc_html__('Hosting', 'templatespare'),
-        esc_html__('Hosting', 'templatespare'),
-        'manage_options',
-        esc_url('https://afthemes.com/hosting/')
-      );
-
-      // External Link: All Themes
-      add_submenu_page(
-        'templatespare-main-dashboard',
-        esc_html__('All Themes ', 'templatespare'),
-        esc_html__('All Themes ', 'templatespare'),
-        'manage_options',
-        esc_url('https://afthemes.com/all-themes-plan/')
-      );
-
-
 
       register_importer($this->plugin_page_setup['menu_slug'], $this->plugin_page_setup['page_title'], $this->plugin_page_setup['menu_title'], apply_filters('templatespare/plugin_page_display_callback_function', array($this, 'templatespare_render_page')));
     }
@@ -260,7 +300,7 @@ if (!class_exists('AFTMLS_Templates_Importer')) {
         if (($templatespare_blockspare_installed && $templatespare_blockspare_active) && $plugin_update == 'false') {
 
       ?>
-          <div id="bs-dashboard"></div>
+          <div id="bs-starter-sites"></div>
         <?php } else {
 
           if (!empty($templatespare_blockspare_verison) && $templatespare_blockspare_active && $templatespare_blockspare_verison < $templatespare_blockspare_old_version) {
@@ -457,8 +497,8 @@ if (!class_exists('AFTMLS_Templates_Importer')) {
 
           $theme_index = AFT_THEME_NAME;
           $defined_theme = $theme->name;
-        } else
-                if (str_contains($templatesapre_active_theme['Author'], "AF themes")) {
+        } else  if (str_contains($templatesapre_active_theme['Author'], "AF themes") || str_contains($templatesapre_active_theme['Author'], "BlockSpare") || str_contains($templatesapre_active_theme['Author'], "EleSpare")) {
+
 
           $theme_index = $theme_index;
           $defined_theme = $theme->name;
@@ -664,7 +704,7 @@ if (!class_exists('AFTMLS_Templates_Importer')) {
 
       ?>
       <div id="templatespare-template-recommended-collcetion-dashboard"></div>
-<?php }
+    <?php }
 
     public function templatespareget_user_meta_demo_import()
     {
@@ -672,7 +712,164 @@ if (!class_exists('AFTMLS_Templates_Importer')) {
       $saved_demos = get_user_meta($user_id, 'templatespare_demo_tags_urls', true) ?: [];
       return $saved_demos;
     }
+    /**
+     * Render the Recommended Themes showcase dashboard via pure PHP.
+     */
+    public function templatespare_display_recommended_themes()
+    {
+      $admin_theme_install_url = admin_url('theme-install.php?search=');
+      // Ensure TEMPLATESPARE_PLUGIN_URL is defined in your plugin, pointing to your plugin root URL
+      $static_img = trailingslashit(AFTMLS_PLUGIN_URL) . 'assets/images/themes/';
+
+      $themes = [
+    [
+        'slug'         => 'covernews',
+        'filename'     => 'CoverNews',
+        'title'        => __('CoverNews', 'templatespare'),
+        'description'  => __('A content-rich news and magazine theme. Fully integrated with TemplateSpare starter sites, Elementor kits, and BlockSpare patterns for seamless 1-click demo import.', 'templatespare'),
+        'badge'        => __('News Portals & Editorial Sites', 'templatespare'),
+        'download_url' => 'https://afthemes.com/products/covernews/',
+    ],
+    [
+        'slug'         => 'chromenews',
+        'filename'     => 'ChromeNews',
+        'title'        => __('ChromeNews', 'templatespare'),
+        'description'  => __('Designed for modern online newspapers with widgetized homepages and customizer controls. Easily import pre-built site demos via TemplateSpare.', 'templatespare'),
+        'badge'        => __('Newspaper & Digital Media', 'templatespare'),
+        'download_url' => 'https://afthemes.com/products/chromenews/',
+    ],
+    [
+        'slug'         => 'morenews',
+        'filename'     => 'MoreNews',
+        'title'        => __('MoreNews', 'templatespare'),
+        'description'  => __('Versatile magazine theme featuring light/dark modes and WooCommerce support. Combine with TemplateSpare site templates for instant publication launches.', 'templatespare'),
+        'badge'        => __('Modern Magazines & WooCommerce', 'templatespare'),
+        'download_url' => 'https://afthemes.com/products/morenews/',
+    ],
+    [
+        'slug'         => 'darknews',
+        'filename'     => 'DarkNews',
+        'title'        => __('DarkNews', 'templatespare'),
+        'description'  => __('A high-impact dark editorial theme. Import dark-mode starter kits and post grids powered by Elementor, EleSpare, and Gutenberg block patterns.', 'templatespare'),
+        'badge'        => __('Dark-Style News & Media', 'templatespare'),
+        'download_url' => 'https://afthemes.com/products/darknews/',
+    ],
+    [
+        'slug'         => 'newsphere',
+        'filename'     => 'Newsphere',
+        'title'        => __('Newsphere', 'templatespare'),
+        'description'  => __('Fast, performance-tuned news theme. Features 1-click TemplateSpare starter site imports, full customizer styling, and WooCommerce compatibility.', 'templatespare'),
+        'badge'        => __('Fast News & Multi-Niche Demos', 'templatespare'),
+        'download_url' => 'https://afthemes.com/products/newsphere/',
+    ],
+    [
+        'slug'         => 'elegant-magazine',
+        'filename'     => 'Elegant-Magazine',
+        'title'        => __('Elegant Magazine', 'templatespare'),
+        'description'  => __('Typography-focused magazine theme for editorial bloggers. Use TemplateSpare to import complete template kits and widgetized section layouts.', 'templatespare'),
+        'badge'        => __('Editorial Blogs & Magazines', 'templatespare'),
+        'download_url' => 'https://afthemes.com/products/elegant-magazine/',
+    ],
+    [
+        'slug'         => 'enternews',
+        'filename'     => 'EnterNews',
+        'title'        => __('EnterNews', 'templatespare'),
+        'description'  => __('Clean newspaper theme for digital publishers. Build engaging homepages quickly by importing pre-designed TemplateSpare starter demos.', 'templatespare'),
+        'badge'        => __('Digital Newspaper Kits', 'templatespare'),
+        'download_url' => 'https://afthemes.com/products/enternews/',
+    ],
+    [
+        'slug'         => 'newsever',
+        'filename'     => 'Newsever',
+        'title'        => __('Newsever', 'templatespare'),
+        'description'  => __('Global news theme with full RTL support and custom color controls. Ready for 1-click import using TemplateSpare demo migration tools.', 'templatespare'),
+        'badge'        => __('Global News & RTL Publishing', 'templatespare'),
+        'download_url' => 'https://afthemes.com/products/newsever/',
+    ],
+    [
+        'slug'         => 'newsium',
+        'filename'     => 'Newsium',
+        'title'        => __('Newsium', 'templatespare'),
+        'description'  => __('Content-dense publishing theme for news portals and review sites. Extends effortlessly with BlockSpare blocks and EleSpare Elementor kits.', 'templatespare'),
+        'badge'        => __('News & Review Portal Kits', 'templatespare'),
+        'download_url' => 'https://afthemes.com/products/newsium/',
+    ],
+    [
+        'slug'         => 'newspare',
+        'filename'     => 'NewSpare',
+        'title'        => __('NewSpare', 'templatespare'),
+        'description'  => __('Native Full Site Editing (FSE) block theme for Gutenberg. Build headers, footers, and archive layouts using BlockSpare news, blog and magazine block patterns.', 'templatespare'),
+        'badge'        => __('Gutenberg & Full Site Editing (FSE)', 'templatespare'),
+        'download_url' => 'https://afthemes.com/products/newspare/',
+    ],
+    [
+        'slug'         => 'reviewnews',
+        'filename'     => 'ReviewNews',
+        'title'        => __('ReviewNews', 'templatespare'),
+        'description'  => __('Engineered for product reviews and affiliate news. Import complete review website demos instantly using TemplateSpare site importer.', 'templatespare'),
+        'badge'        => __('Affiliate & Product Reviews', 'templatespare'),
+        'download_url' => 'https://afthemes.com/products/reviewnews/',
+    ],
+    [
+        'slug'         => 'broadnews',
+        'filename'     => 'BroadNews',
+        'title'        => __('BroadNews', 'templatespare'),
+        'description'  => __('Wide-container editorial theme built for high-density publishing. Compatible with custom widgets, BlockSpare layouts, and Elementor kits.', 'templatespare'),
+        'badge'        => __('High-Density Editorial Layouts', 'templatespare'),
+        'download_url' => 'https://afthemes.com/products/broadnews/',
+    ],
+];
+    ?>
+      <div class="wrap templatespare-dashboard-wrap">        
+
+        <div class="themes-panel news-panel">
+          <div class="panel-header">
+            <h2><?php esc_html_e('Recommended Free WordPress Themes for News, Magazines & Blogs', 'templatespare'); ?></h2>
+            <p class="panel-subtitle">
+              <?php esc_html_e('Power your news, magazine, and blog sites with free WordPress themes engineered for 1-click compatibility with TemplateSpare starter kits.', 'templatespare'); ?>
+            </p>
+          </div>
+
+          <div class="themes-item bs-themes-grid">
+            <?php foreach ($themes as $theme):
+              $install_url = esc_url($admin_theme_install_url . $theme['slug']);
+              $preview_url = esc_url($static_img . $theme['filename'] . '.jpg');
+            ?>
+              <div class="bs-card theme-card">
+                <div class="bs-content">
+                  <div class="bs-preview">
+                    <div class="bs-image-placeholder">
+                      <img src="<?php echo $preview_url; ?>" alt="<?php echo esc_attr($theme['title']); ?>" loading="lazy" />
+                    </div>
+                  </div>
+
+                  <div class="bs-info">
+                    <?php if (!empty($theme['badge'])): ?>
+                      <span class="bs-tag"><?php echo esc_html($theme['badge']); ?></span>
+                    <?php endif; ?>
+                    <h3 class="bs-title"><?php echo esc_html($theme['title']); ?></h3>
+                    <p class="bs-description"><?php echo esc_html($theme['description']); ?></p>
+
+                    <div class="bs-card-actions">
+                      <a href="<?php echo $install_url; ?>" class="button button-primary bs-btn-install">
+                        <?php esc_html_e('Install Now', 'templatespare'); ?>
+                      </a>
+                      <a href="<?php echo esc_url($theme['download_url']); ?>" class="button button-secondary bs-btn-download" target="_blank" rel="noopener noreferrer">
+                        <?php esc_html_e('View Details', 'templatespare'); ?>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <?php endforeach; ?>
+          </div>
+        </div>
+      </div>
+<?php
+    }
   }
+
+
 
   new AFTMLS_Templates_Importer();
 }

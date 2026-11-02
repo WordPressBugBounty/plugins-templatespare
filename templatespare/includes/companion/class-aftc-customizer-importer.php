@@ -1,5 +1,7 @@
 <?php
-
+if (!defined('ABSPATH')) {
+  exit;
+}
 /**
  * Class for the customizer importer used in the Templatespare plugin.
  *
