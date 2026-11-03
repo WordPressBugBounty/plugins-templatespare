@@ -1,10 +1,10 @@
 <?php
 
 /**
- * Plugin Name:       TemplateSpare – No-Code Demo Importer & Site Migration
+ * Plugin Name:       TemplateSpare - No-Code Demo Importer & Site Migration
  * Plugin URI:        https://templatespare.com/?uri=plugin
  * Description:       Build & migrate news, magazine, blog, and eCommerce sites in minutes. TemplateSpare delivers 1000+ professional starter templates, 1-click demo imports, and seamless site migration tools for Elementor, Gutenberg & AF themes.
- * Version:           4.3.2
+ * Version:           4.4.0
  * Author:            AF themes
  * Author URI:        https://afthemes.com/
  * Text Domain:       templatespare

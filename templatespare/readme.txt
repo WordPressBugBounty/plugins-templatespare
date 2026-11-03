@@ -1,16 +1,18 @@
-=== TemplateSpare – No-Code Starter Templates, Demo Importer & Site Migration for News, Magazine & Blog ===
+=== TemplateSpare – No-Code Website Templates, Demo Importer & Site Migration for News, Magazine & Blog ===
 Contributors: templatespare, afthemes
-Tags: starter templates, demo importer, site migration, 1-click import, blog templates,  news magazine, elementor, gutenberg
+Tags: templates, website templates, elementor templates, gutenberg templates, starter sites
 Requires at least: 5.6
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 4.3.2
+Stable tag: 4.4.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 1000+ news, magazine & blog starter templates, 1-click demo importer & site migration tool by AF Themes for Elementor, Gutenberg & WooCommerce.
 
 == Description ==
+
+= Website Templates, Page Templates and Block Patterns for WordPress =
 
 ## Build & Migrate WordPress News, Magazine, Blog & eCommerce Sites in 3 Minutes 🚀
 Are you tired of waiting weeks for custom website designs, wrestling with complex page builders, or struggling with manual database migrations? **TemplateSpare** is the ultimate **No-Code Starter Templates Importer** and **Full Site Migration Tool** built specifically for publishers, news agencies, digital magazines, lifestyle bloggers, online stores, and digital agencies.
@@ -20,6 +22,8 @@ As the central starter site engine powering the **[AF Themes](https://afthemes.c
 Whether you craft websites using **[EleSpare](https://wordpress.org/plugins/elespare/)** (Elementor addons), **[BlockSpare](https://wordpress.org/plugins/blockspare/)** (Gutenberg AI site builder), **[WP Post Author](https://wordpress.org/plugins/wp-post-author/)**, or **WooCommerce**, TemplateSpare installs all required themes, companion plugins, custom post grids, and demo media automatically!
 
 🔗 [Explore 1000+ Starter Sites](https://afthemes.com/starter-sites/) | 📰 [Elementor Templates](https://afthemes.com/plugins/elespare/) | 📰 [Gutenberg Block Templates](https://blockspare.com/) | 📺 [Watch Step-by-Step Tutorials](https://www.youtube.com/@wpafthemes/)
+
+[youtube https://www.youtube.com/watch?v=WeHALYnDQBM]
 
 ---
 
@@ -121,7 +125,7 @@ TemplateSpare configures required themes and companion plugins automatically dur
 
 **[Discover 1000+ More Starter Sites](https://templatespare.com/)** – Updated regularly with new niche template kits.
 
-[youtube https://www.youtube.com/watch?v=WeHALYnDQBM]
+
 
 ---
 
