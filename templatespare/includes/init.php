@@ -257,71 +257,84 @@ if (!class_exists('AFTMLS_Templates_Importer')) {
 
     public function blockspare_demo_import_callback()
     {
+      // Ensure WordPress plugin helper functions are loaded
+      if (!function_exists('get_plugin_data') || !function_exists('is_plugin_active')) {
+        require_once ABSPATH . 'wp-admin/includes/plugin.php';
+      }
+
       wp_enqueue_script('aftmls-plugin-installl-activation-script');
-      $templatespare_blockspare_installed = templatespare_get_plugin_file('blockspare-pro');
+
       $install = [];
       $activate = [];
-      $templatespare_blockspare_verison = '';
-      $templatespare_check_blockspare = $this->templatespare_check_blockspare_free_pro_activated();
+      $templatespare_blockspare_version = '';
+      $templatespare_blockspare_active = false;
       $templatespare_blockspare_status = 'free';
-      if (!empty($templatespare_blockspare_installed) && $templatespare_check_blockspare == 'pro') {
+
+      $templatespare_check_blockspare = $this->templatespare_check_blockspare_free_pro_activated();
+      $templatespare_blockspare_installed = templatespare_get_plugin_file('blockspare-pro');
+
+      // 1. Check Blockspare Pro status
+      if (!empty($templatespare_blockspare_installed) && $templatespare_check_blockspare === 'pro') {
         $templatespare_blockspare_status = 'pro';
         $templatespare_blockspare_old_version = '4.1.3';
-        $templatespare_blockspare_pro_info = get_plugin_data(WP_PLUGIN_DIR . '/' . $templatespare_blockspare_installed);
-        $templatespare_blockspare_verison = $templatespare_blockspare_pro_info['Version'];
+
+        $pro_info = get_plugin_data(WP_PLUGIN_DIR . '/' . $templatespare_blockspare_installed);
+        $templatespare_blockspare_version = $pro_info['Version'] ?? '';
         $templatespare_blockspare_active = is_plugin_active($templatespare_blockspare_installed);
 
-        if ($templatespare_blockspare_active == false && $templatespare_blockspare_installed != null) {
+        if (!$templatespare_blockspare_active) {
           $activate[] = 'blockspare-pro';
         }
       } else {
-
+        // 2. Fallback to Blockspare Free status
         $templatespare_blockspare_installed = templatespare_get_plugin_file('blockspare');
         $templatespare_blockspare_old_version = '3.1.0';
 
         if (!empty($templatespare_blockspare_installed)) {
-          $templatespare_blockspare_info = get_plugin_data(WP_PLUGIN_DIR . '/' . $templatespare_blockspare_installed);
-          $templatespare_blockspare_verison = $templatespare_blockspare_info['Version'];
-          $templatespare_blockspare_active = is_plugin_active('blockspare/blockspare.php');
+          $free_info = get_plugin_data(WP_PLUGIN_DIR . '/' . $templatespare_blockspare_installed);
+          $templatespare_blockspare_version = $free_info['Version'] ?? '';
+          $templatespare_blockspare_active = is_plugin_active($templatespare_blockspare_installed);
 
-          if ($templatespare_blockspare_active == false && $templatespare_blockspare_installed != null) {
+          if (!$templatespare_blockspare_active) {
             $activate = ['blockspare'];
           }
         } else {
-          if ($templatespare_blockspare_installed == null) {
-            $install = ['blockspare'];
-          }
+          $install = ['blockspare'];
         }
+      }
 
-        $plugin_update = 'false';
-        if (!empty($templatespare_blockspare_verison) && $templatespare_blockspare_verison < $templatespare_blockspare_old_version) {
-          $plugin_update = 'true';
+      // Check if a version update is required
+      $plugin_update = 'false';
+      if (!empty($templatespare_blockspare_version) && version_compare($templatespare_blockspare_version, $templatespare_blockspare_old_version, '<')) {
+        $plugin_update = 'true';
+      }
+
+      // CONDITION 3: If Blockspare or Blockspare Pro is active and up to date, show dashboard
+      if ($templatespare_blockspare_installed && $templatespare_blockspare_active && $plugin_update === 'false') {
+        echo '<div id="bs-starter-sites"></div>';
+      } else {
+        // CONDITIONS 1 & 2: If missing, inactive, or needs an update, show the install/activate button markup
+        if (!empty($templatespare_blockspare_version) && $templatespare_blockspare_active && version_compare($templatespare_blockspare_version, $templatespare_blockspare_old_version, '<')) {
+          $class = admin_url('plugins.php');
+          $message = sprintf(
+            __('Blockspare plugin version should be more than %s.', 'templatespare'),
+            $templatespare_blockspare_old_version
+          );
+        } else {
+          $class = 'false';
+          $message = __('One-click Demo Import, Block Editor Ready, No Code Required! Built with Blockspare.', 'templatespare');
         }
-        if (($templatespare_blockspare_installed && $templatespare_blockspare_active) && $plugin_update == 'false') {
-
       ?>
-          <div id="bs-starter-sites"></div>
-        <?php } else {
-
-          if (!empty($templatespare_blockspare_verison) && $templatespare_blockspare_active && $templatespare_blockspare_verison < $templatespare_blockspare_old_version) {
-            $class = admin_url('plugins.php');
-
-            $message = sprintf(
-              __('Blockspare plugin version should be more than %s.', 'templatespare'),
-              $templatespare_blockspare_old_version
-            );
-          } else {
-            $class = 'false';
-            $message = __('One-click Demo Import, Block Editor Ready, No Code Required! Built with Blockspare.', 'templatespare');
-          } ?>
-          <div id="templatespare-plugins-install-activate" data-class="<?php echo $class; ?>" current-theme='blockspare'
-            install=<?php echo json_encode($install); ?> activate=<?php echo json_encode($activate); ?> data-plugin-page="blockspare-dashboard"
-            message='<?php echo $message; ?>' isPro='<?php echo esc_attr($templatespare_blockspare_status); ?>'></div>
-
-        <?php }
-        ?>
-
-      <?php }
+        <div id="templatespare-plugins-install-activate"
+          data-class="<?php echo esc_attr($class); ?>"
+          current-theme="blockspare"
+          install="<?php echo esc_attr(json_encode($install)); ?>"
+          activate="<?php echo esc_attr(json_encode($activate)); ?>"
+          data-plugin-page="blockspare-dashboard"
+          message="<?php echo esc_attr($message); ?>"
+          isPro="<?php echo esc_attr($templatespare_blockspare_status); ?>"></div>
+      <?php
+      }
     }
 
     public function elespare_demo_import_callback()
@@ -722,105 +735,105 @@ if (!class_exists('AFTMLS_Templates_Importer')) {
       $static_img = trailingslashit(AFTMLS_PLUGIN_URL) . 'assets/images/themes/';
 
       $themes = [
-    [
-        'slug'         => 'covernews',
-        'filename'     => 'CoverNews',
-        'title'        => __('CoverNews', 'templatespare'),
-        'description'  => __('A content-rich news and magazine theme. Fully integrated with TemplateSpare starter sites, Elementor kits, and BlockSpare patterns for seamless 1-click demo import.', 'templatespare'),
-        'badge'        => __('News Portals & Editorial Sites', 'templatespare'),
-        'download_url' => 'https://afthemes.com/products/covernews/',
-    ],
-    [
-        'slug'         => 'chromenews',
-        'filename'     => 'ChromeNews',
-        'title'        => __('ChromeNews', 'templatespare'),
-        'description'  => __('Designed for modern online newspapers with widgetized homepages and customizer controls. Easily import pre-built site demos via TemplateSpare.', 'templatespare'),
-        'badge'        => __('Newspaper & Digital Media', 'templatespare'),
-        'download_url' => 'https://afthemes.com/products/chromenews/',
-    ],
-    [
-        'slug'         => 'morenews',
-        'filename'     => 'MoreNews',
-        'title'        => __('MoreNews', 'templatespare'),
-        'description'  => __('Versatile magazine theme featuring light/dark modes and WooCommerce support. Combine with TemplateSpare site templates for instant publication launches.', 'templatespare'),
-        'badge'        => __('Modern Magazines & WooCommerce', 'templatespare'),
-        'download_url' => 'https://afthemes.com/products/morenews/',
-    ],
-    [
-        'slug'         => 'darknews',
-        'filename'     => 'DarkNews',
-        'title'        => __('DarkNews', 'templatespare'),
-        'description'  => __('A high-impact dark editorial theme. Import dark-mode starter kits and post grids powered by Elementor, EleSpare, and Gutenberg block patterns.', 'templatespare'),
-        'badge'        => __('Dark-Style News & Media', 'templatespare'),
-        'download_url' => 'https://afthemes.com/products/darknews/',
-    ],
-    [
-        'slug'         => 'newsphere',
-        'filename'     => 'Newsphere',
-        'title'        => __('Newsphere', 'templatespare'),
-        'description'  => __('Fast, performance-tuned news theme. Features 1-click TemplateSpare starter site imports, full customizer styling, and WooCommerce compatibility.', 'templatespare'),
-        'badge'        => __('Fast News & Multi-Niche Demos', 'templatespare'),
-        'download_url' => 'https://afthemes.com/products/newsphere/',
-    ],
-    [
-        'slug'         => 'elegant-magazine',
-        'filename'     => 'Elegant-Magazine',
-        'title'        => __('Elegant Magazine', 'templatespare'),
-        'description'  => __('Typography-focused magazine theme for editorial bloggers. Use TemplateSpare to import complete template kits and widgetized section layouts.', 'templatespare'),
-        'badge'        => __('Editorial Blogs & Magazines', 'templatespare'),
-        'download_url' => 'https://afthemes.com/products/elegant-magazine/',
-    ],
-    [
-        'slug'         => 'enternews',
-        'filename'     => 'EnterNews',
-        'title'        => __('EnterNews', 'templatespare'),
-        'description'  => __('Clean newspaper theme for digital publishers. Build engaging homepages quickly by importing pre-designed TemplateSpare starter demos.', 'templatespare'),
-        'badge'        => __('Digital Newspaper Kits', 'templatespare'),
-        'download_url' => 'https://afthemes.com/products/enternews/',
-    ],
-    [
-        'slug'         => 'newsever',
-        'filename'     => 'Newsever',
-        'title'        => __('Newsever', 'templatespare'),
-        'description'  => __('Global news theme with full RTL support and custom color controls. Ready for 1-click import using TemplateSpare demo migration tools.', 'templatespare'),
-        'badge'        => __('Global News & RTL Publishing', 'templatespare'),
-        'download_url' => 'https://afthemes.com/products/newsever/',
-    ],
-    [
-        'slug'         => 'newsium',
-        'filename'     => 'Newsium',
-        'title'        => __('Newsium', 'templatespare'),
-        'description'  => __('Content-dense publishing theme for news portals and review sites. Extends effortlessly with BlockSpare blocks and EleSpare Elementor kits.', 'templatespare'),
-        'badge'        => __('News & Review Portal Kits', 'templatespare'),
-        'download_url' => 'https://afthemes.com/products/newsium/',
-    ],
-    [
-        'slug'         => 'newspare',
-        'filename'     => 'NewSpare',
-        'title'        => __('NewSpare', 'templatespare'),
-        'description'  => __('Native Full Site Editing (FSE) block theme for Gutenberg. Build headers, footers, and archive layouts using BlockSpare news, blog and magazine block patterns.', 'templatespare'),
-        'badge'        => __('Gutenberg & Full Site Editing (FSE)', 'templatespare'),
-        'download_url' => 'https://afthemes.com/products/newspare/',
-    ],
-    [
-        'slug'         => 'reviewnews',
-        'filename'     => 'ReviewNews',
-        'title'        => __('ReviewNews', 'templatespare'),
-        'description'  => __('Engineered for product reviews and affiliate news. Import complete review website demos instantly using TemplateSpare site importer.', 'templatespare'),
-        'badge'        => __('Affiliate & Product Reviews', 'templatespare'),
-        'download_url' => 'https://afthemes.com/products/reviewnews/',
-    ],
-    [
-        'slug'         => 'broadnews',
-        'filename'     => 'BroadNews',
-        'title'        => __('BroadNews', 'templatespare'),
-        'description'  => __('Wide-container editorial theme built for high-density publishing. Compatible with custom widgets, BlockSpare layouts, and Elementor kits.', 'templatespare'),
-        'badge'        => __('High-Density Editorial Layouts', 'templatespare'),
-        'download_url' => 'https://afthemes.com/products/broadnews/',
-    ],
-];
+        [
+          'slug'         => 'covernews',
+          'filename'     => 'CoverNews',
+          'title'        => __('CoverNews', 'templatespare'),
+          'description'  => __('A content-rich news and magazine theme. Fully integrated with TemplateSpare starter sites, Elementor kits, and BlockSpare patterns for seamless 1-click demo import.', 'templatespare'),
+          'badge'        => __('News Portals & Editorial Sites', 'templatespare'),
+          'download_url' => 'https://afthemes.com/products/covernews/',
+        ],
+        [
+          'slug'         => 'chromenews',
+          'filename'     => 'ChromeNews',
+          'title'        => __('ChromeNews', 'templatespare'),
+          'description'  => __('Designed for modern online newspapers with widgetized homepages and customizer controls. Easily import pre-built site demos via TemplateSpare.', 'templatespare'),
+          'badge'        => __('Newspaper & Digital Media', 'templatespare'),
+          'download_url' => 'https://afthemes.com/products/chromenews/',
+        ],
+        [
+          'slug'         => 'morenews',
+          'filename'     => 'MoreNews',
+          'title'        => __('MoreNews', 'templatespare'),
+          'description'  => __('Versatile magazine theme featuring light/dark modes and WooCommerce support. Combine with TemplateSpare site templates for instant publication launches.', 'templatespare'),
+          'badge'        => __('Modern Magazines & WooCommerce', 'templatespare'),
+          'download_url' => 'https://afthemes.com/products/morenews/',
+        ],
+        [
+          'slug'         => 'darknews',
+          'filename'     => 'DarkNews',
+          'title'        => __('DarkNews', 'templatespare'),
+          'description'  => __('A high-impact dark editorial theme. Import dark-mode starter kits and post grids powered by Elementor, EleSpare, and Gutenberg block patterns.', 'templatespare'),
+          'badge'        => __('Dark-Style News & Media', 'templatespare'),
+          'download_url' => 'https://afthemes.com/products/darknews/',
+        ],
+        [
+          'slug'         => 'newsphere',
+          'filename'     => 'Newsphere',
+          'title'        => __('Newsphere', 'templatespare'),
+          'description'  => __('Fast, performance-tuned news theme. Features 1-click TemplateSpare starter site imports, full customizer styling, and WooCommerce compatibility.', 'templatespare'),
+          'badge'        => __('Fast News & Multi-Niche Demos', 'templatespare'),
+          'download_url' => 'https://afthemes.com/products/newsphere/',
+        ],
+        [
+          'slug'         => 'elegant-magazine',
+          'filename'     => 'Elegant-Magazine',
+          'title'        => __('Elegant Magazine', 'templatespare'),
+          'description'  => __('Typography-focused magazine theme for editorial bloggers. Use TemplateSpare to import complete template kits and widgetized section layouts.', 'templatespare'),
+          'badge'        => __('Editorial Blogs & Magazines', 'templatespare'),
+          'download_url' => 'https://afthemes.com/products/elegant-magazine/',
+        ],
+        [
+          'slug'         => 'enternews',
+          'filename'     => 'EnterNews',
+          'title'        => __('EnterNews', 'templatespare'),
+          'description'  => __('Clean newspaper theme for digital publishers. Build engaging homepages quickly by importing pre-designed TemplateSpare starter demos.', 'templatespare'),
+          'badge'        => __('Digital Newspaper Kits', 'templatespare'),
+          'download_url' => 'https://afthemes.com/products/enternews/',
+        ],
+        [
+          'slug'         => 'newsever',
+          'filename'     => 'Newsever',
+          'title'        => __('Newsever', 'templatespare'),
+          'description'  => __('Global news theme with full RTL support and custom color controls. Ready for 1-click import using TemplateSpare demo migration tools.', 'templatespare'),
+          'badge'        => __('Global News & RTL Publishing', 'templatespare'),
+          'download_url' => 'https://afthemes.com/products/newsever/',
+        ],
+        [
+          'slug'         => 'newsium',
+          'filename'     => 'Newsium',
+          'title'        => __('Newsium', 'templatespare'),
+          'description'  => __('Content-dense publishing theme for news portals and review sites. Extends effortlessly with BlockSpare blocks and EleSpare Elementor kits.', 'templatespare'),
+          'badge'        => __('News & Review Portal Kits', 'templatespare'),
+          'download_url' => 'https://afthemes.com/products/newsium/',
+        ],
+        [
+          'slug'         => 'newspare',
+          'filename'     => 'NewSpare',
+          'title'        => __('NewSpare', 'templatespare'),
+          'description'  => __('Native Full Site Editing (FSE) block theme for Gutenberg. Build headers, footers, and archive layouts using BlockSpare news, blog and magazine block patterns.', 'templatespare'),
+          'badge'        => __('Gutenberg & Full Site Editing (FSE)', 'templatespare'),
+          'download_url' => 'https://afthemes.com/products/newspare/',
+        ],
+        [
+          'slug'         => 'reviewnews',
+          'filename'     => 'ReviewNews',
+          'title'        => __('ReviewNews', 'templatespare'),
+          'description'  => __('Engineered for product reviews and affiliate news. Import complete review website demos instantly using TemplateSpare site importer.', 'templatespare'),
+          'badge'        => __('Affiliate & Product Reviews', 'templatespare'),
+          'download_url' => 'https://afthemes.com/products/reviewnews/',
+        ],
+        [
+          'slug'         => 'broadnews',
+          'filename'     => 'BroadNews',
+          'title'        => __('BroadNews', 'templatespare'),
+          'description'  => __('Wide-container editorial theme built for high-density publishing. Compatible with custom widgets, BlockSpare layouts, and Elementor kits.', 'templatespare'),
+          'badge'        => __('High-Density Editorial Layouts', 'templatespare'),
+          'download_url' => 'https://afthemes.com/products/broadnews/',
+        ],
+      ];
     ?>
-      <div class="wrap templatespare-dashboard-wrap">        
+      <div class="wrap templatespare-dashboard-wrap">
 
         <div class="themes-panel news-panel">
           <div class="panel-header">

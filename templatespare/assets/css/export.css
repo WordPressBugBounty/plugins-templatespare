@@ -15,6 +15,10 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 }
 
+.templatespare_page_templatespare-recommended-themes .notice,
+.templatespare_page_blockspare-dashboard .notice,
+.templatespare_page_elespare-dashboard .notice,
+.templatespare_page_recommended-page .notice,
 .templatespare_page_templatespare-site-backup .notice,
 .templatespare_page_templatespare-site-import .notice {
   display: none !important;
@@ -67,11 +71,12 @@
   display: inline-block !important;
   vertical-align: middle !important;
   font-size: 15px !important;
-  height: 15px !important;
+  height: 26px !important;
   width: 15px !important;
   margin: 0 !important;
   padding: 0 !important;
   color: inherit !important;
+  line-height: 1.9 !important;
 }
 
 
@@ -293,27 +298,27 @@
   color: #16a34a;
 }
 
-.themes-panel.news-panel {
+.templatespare_page_templatespare-recommended-themes .themes-panel.news-panel {
   display: block;
   width: 100%;
   box-sizing: border-box;
-  padding: 20px 20px 20px 0;
+  padding: 20px;
 }
 
-.themes-panel.news-panel h2 {
+.templatespare_page_templatespare-recommended-themes .themes-panel.news-panel h2 {
   font-size: 22px;
   font-weight: 600;
   color: #1d2327;
   margin-bottom: 8px;
 }
 
-.themes-panel.news-panel .panel-subtitle {
+.templatespare_page_templatespare-recommended-themes .themes-panel.news-panel .panel-subtitle {
   font-size: 14px;
   color: #646970;
   margin-bottom: 24px;
 }
 
-.themes-panel.news-panel .themes-item {
+.templatespare_page_templatespare-recommended-themes .themes-panel.news-panel .themes-item {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 25px;
@@ -322,23 +327,23 @@
 
 @media screen and (max-width: 1200px) {
   .themes-panel.news-panel .themes-item {
-    grid-template-columns: repeat(3, 1fr);
+ .templatespare_page_templatespare-recommended-themes    grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media screen and (max-width: 900px) {
   .themes-panel.news-panel .themes-item {
-    grid-template-columns: repeat(2, 1fr);
+ .templatespare_page_templatespare-recommended-themes    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media screen and (max-width: 600px) {
   .themes-panel.news-panel .themes-item {
-    grid-template-columns: 1fr;
+ .templatespare_page_templatespare-recommended-themes    grid-template-columns: 1fr;
   }
 }
 
-.themes-panel.news-panel .themes-item .bs-card {
+.templatespare_page_templatespare-recommended-themes .themes-panel.news-panel .themes-item .bs-card {
   display: flex;
   flex-direction: column;
   background: #ffffff;
@@ -349,26 +354,26 @@
   transition: all 0.2s ease-in-out;
 }
 
-.themes-panel.news-panel .themes-item .bs-card:hover {
+.templatespare_page_templatespare-recommended-themes .themes-panel.news-panel .themes-item .bs-card:hover {
   border-color: #c3c4c7;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-.themes-panel.news-panel .themes-item .bs-card .bs-content {
+.templatespare_page_templatespare-recommended-themes .themes-panel.news-panel .themes-item .bs-card .bs-content {
   display: flex;
   flex-direction: column;
   height: 100%;
   width: 100%;
 }
 
-.themes-panel.news-panel .themes-item .bs-card .bs-preview {
+.templatespare_page_templatespare-recommended-themes .themes-panel.news-panel .themes-item .bs-card .bs-preview {
   width: 100%;
   background: #f0f0f1;
   border-bottom: 1px solid #dcdcde;
   overflow: hidden;
 }
 
-.themes-panel.news-panel .themes-item .bs-card .bs-preview img {
+.templatespare_page_templatespare-recommended-themes .themes-panel.news-panel .themes-item .bs-card .bs-preview img {
   width: 100%;
   height: auto;
   display: block;
@@ -376,18 +381,18 @@
   transition: transform 0.3s ease;
 }
 
-.themes-panel.news-panel .themes-item .bs-card .bs-preview img:hover {
+.templatespare_page_templatespare-recommended-themes .themes-panel.news-panel .themes-item .bs-card .bs-preview img:hover {
   transform: scale(1.02);
 }
 
-.themes-panel.news-panel .themes-item .bs-card .bs-info {
+.templatespare_page_templatespare-recommended-themes .themes-panel.news-panel .themes-item .bs-card .bs-info {
   padding: 20px;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
 
-.themes-panel.news-panel .themes-item .bs-card .bs-info .bs-tag {
+.templatespare_page_templatespare-recommended-themes .themes-panel.news-panel .themes-item .bs-card .bs-info .bs-tag {
   display: inline-block;
   font-size: 11px;
   font-weight: 600;
@@ -399,14 +404,14 @@
   align-self: flex-start;
 }
 
-.themes-panel.news-panel .themes-item .bs-card .bs-info h3.bs-title {
+.templatespare_page_templatespare-recommended-themes .themes-panel.news-panel .themes-item .bs-card .bs-info h3.bs-title {
   margin: 0 0 10px 0;
   font-size: 14px;
   font-weight: 600;
   color: #1d2327;
 }
 
-.themes-panel.news-panel .themes-item .bs-card .bs-info .bs-description {
+.templatespare_page_templatespare-recommended-themes .themes-panel.news-panel .themes-item .bs-card .bs-info .bs-description {
   font-size: 13px;
   line-height: 1.5;
   color: #50575e;
@@ -414,13 +419,13 @@
   flex-grow: 1;
 }
 
-.themes-panel.news-panel .themes-item .bs-card .bs-info .bs-card-actions {
+.templatespare_page_templatespare-recommended-themes .themes-panel.news-panel .themes-item .bs-card .bs-info .bs-card-actions {
   display: flex;
   gap: 10px;
   margin-top: auto;
 }
 
-.themes-panel.news-panel .themes-item .bs-card .bs-info .bs-card-actions a {
+.templatespare_page_templatespare-recommended-themes .themes-panel.news-panel .themes-item .bs-card .bs-info .bs-card-actions a {
   flex: 1;
   text-align: center;
   justify-content: center;
@@ -434,26 +439,26 @@
   font-size: 13px;
 }
 
-.themes-panel.news-panel .themes-item .bs-card .bs-info .bs-card-actions .bs-btn-install {
+.templatespare_page_templatespare-recommended-themes .themes-panel.news-panel .themes-item .bs-card .bs-info .bs-card-actions .bs-btn-install {
   background-color: #154de9;
   border: 1px solid #154de9;
   color: #ffffff;
   font-weight: 600;
 }
 
-.themes-panel.news-panel .themes-item .bs-card .bs-info .bs-card-actions .bs-btn-install:hover {
+.templatespare_page_templatespare-recommended-themes .themes-panel.news-panel .themes-item .bs-card .bs-info .bs-card-actions .bs-btn-install:hover {
   background-color: #202020;
   border-color: #202020;
   color: #ffffff;
 }
 
-.themes-panel.news-panel .themes-item .bs-card .bs-info .bs-card-actions .bs-btn-download {
+.templatespare_page_templatespare-recommended-themes .themes-panel.news-panel .themes-item .bs-card .bs-info .bs-card-actions .bs-btn-download {
   background-color: #f6f7f7;
   border: 1px solid #dcdcde;
   color: #2c3338;
 }
 
-.themes-panel.news-panel .themes-item .bs-card .bs-info .bs-card-actions .bs-btn-download:hover {
+.templatespare_page_templatespare-recommended-themes .themes-panel.news-panel .themes-item .bs-card .bs-info .bs-card-actions .bs-btn-download:hover {
   background-color: #f0f0f1;
   border-color: #c3c4c7;
   color: #1d2327;

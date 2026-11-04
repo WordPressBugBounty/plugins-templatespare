@@ -72,7 +72,6 @@ class AFTMLS_Companion
     add_action('after_setup_theme', array($this, 'setup_plugin_with_filter_data'));
     //
     add_action('plugins_loaded', array($this, 'load_textdomain'));
-    
   }
 
 
@@ -160,8 +159,7 @@ class AFTMLS_Companion
       $this->log_file_path = AFTMLS_Helpers::get_log_path($demo_import_start_time);
 
       // Get selected file index or set it to 0.
-      $templatespare_templates_kit = sanitize_text_field($_POST['templatespare_templates_kit']);
-
+      $templatespare_templates_kit = isset($_POST['templatespare_templates_kit']) ? sanitize_text_field(wp_unslash($_POST['templatespare_templates_kit'])) : '';
       $manual = '';
 
       if (isset($_POST['images']) && is_array($_POST['images'])) {
@@ -175,98 +173,100 @@ class AFTMLS_Companion
         update_option('templatespare_use_images_in_content', $sanitized_is_content);
         update_option('templatespare_use_images_in_featued', $sanitized_is_feayured);
       }
-      $user_id = get_current_user_id();
-      if (! $user_id) {
-        return;
-      }
-      // Get existing user meta
-      $existing = get_user_meta(
-        $user_id,
-        'templatespare_demo_tags_urls',
-        true
-      );
-
-      if (! is_array($existing)) {
-        $existing = [];
-      }
-
-      /* ---------- Initialize defaults ---------- */
-      $url            = '';
-      $tags           = [];
-      $plugins        = [];
-      $selectedTheme  = '';
-      $mainCategories = '';
-
-      /* ---------- Individual POST checks ---------- */
-
-      // URL
-      if (isset($_POST['url'])) {
-        $url = esc_url_raw(wp_unslash($_POST['url']));
-      }
-
-      // Tags (comma-separated string)
-      if (isset($_POST['tags'])) {
-        $tags = array_map(
-          'sanitize_text_field',
-          explode(',', wp_unslash($_POST['tags']))
+      if ($templatespare_templates_kit) {
+        $user_id = get_current_user_id();
+        if (! $user_id) {
+          return;
+        }
+        // Get existing user meta
+        $existing = get_user_meta(
+          $user_id,
+          'templatespare_demo_tags_urls',
+          true
         );
-      }
 
-      // Selected Theme
-      if (isset($_POST['selectedTheme'])) {
-        $selectedTheme = sanitize_text_field(
-          wp_unslash($_POST['selectedTheme'])
+        if (! is_array($existing)) {
+          $existing = [];
+        }
+
+        /* ---------- Initialize defaults ---------- */
+        $url            = '';
+        $tags           = [];
+        $plugins        = [];
+        $selectedTheme  = '';
+        $mainCategories = '';
+
+        /* ---------- Individual POST checks ---------- */
+
+        // URL
+        if (isset($_POST['url'])) {
+          $url = esc_url_raw(wp_unslash($_POST['url']));
+        }
+
+        // Tags (comma-separated string)
+        if (isset($_POST['tags'])) {
+          $tags = array_map(
+            'sanitize_text_field',
+            explode(',', wp_unslash($_POST['tags']))
+          );
+        }
+
+        // Selected Theme
+        if (isset($_POST['selectedTheme'])) {
+          $selectedTheme = sanitize_text_field(
+            wp_unslash($_POST['selectedTheme'])
+          );
+        }
+
+        // Main Categories
+        if (isset($_POST['mainCategories'])) {
+          $mainCategories = array_map(
+            'sanitize_text_field',
+            array_map(
+              'trim',
+              explode(',', wp_unslash($_POST['mainCategories']))
+            )
+          );
+        }
+
+        // Plugins (array)
+        if (isset($_POST['plugins']) && is_array($_POST['plugins'])) {
+          $plugins = array_map(
+            'sanitize_text_field',
+            wp_unslash($_POST['plugins'])
+          );
+        }
+
+        /* ---------- Optional required-field validation ---------- */
+        if (empty($url) || empty($tags)) {
+          return;
+        }
+
+        /* ---------- New entry ---------- */
+        $new_entry = [
+          'previewurl'            => $url,
+          'tags'           => $tags,
+          'selectedTheme'  => $selectedTheme,
+          'mainCategories' => $mainCategories,
+          'plugins'        => $plugins,
+          'time'           => current_time('mysql'),
+        ];
+
+        // Append and save
+        $existing[] = $new_entry;
+
+        update_user_meta(
+          $user_id,
+          'templatespare_demo_tags_urls',
+          $existing
         );
+
+        // 🧹 FLUSH RECOMMENDATION CACHE HERE INSTANTLY
+        delete_transient('templatespare_smart_recommended_demos_v2');
+        delete_transient('templatespare_site_intelligence_cache');
       }
 
-      // Main Categories
-      if (isset($_POST['mainCategories'])) {
-        $mainCategories = array_map(
-          'sanitize_text_field',
-          array_map(
-            'trim',
-            explode(',', wp_unslash($_POST['mainCategories']))
-          )
-        );
-      }
 
-      // Plugins (array)
-      if (isset($_POST['plugins']) && is_array($_POST['plugins'])) {
-        $plugins = array_map(
-          'sanitize_text_field',
-          wp_unslash($_POST['plugins'])
-        );
-      }
-
-      /* ---------- Optional required-field validation ---------- */
-      if (empty($url) || empty($tags)) {
-        return;
-      }
-
-      /* ---------- New entry ---------- */
-      $new_entry = [
-        'previewurl'            => $url,
-        'tags'           => $tags,
-        'selectedTheme'  => $selectedTheme,
-        'mainCategories' => $mainCategories,
-        'plugins'        => $plugins,
-        'time'           => current_time('mysql'),
-      ];
-
-      // Append and save
-      $existing[] = $new_entry;
-
-      update_user_meta(
-        $user_id,
-        'templatespare_demo_tags_urls',
-        $existing
-      );
-
-      // 🧹 FLUSH RECOMMENDATION CACHE HERE INSTANTLY
-      delete_transient('templatespare_smart_recommended_demos_v2');
-      delete_transient('templatespare_site_intelligence_cache');
-
-      
 
       if (!empty($is_builder_pro)) {
 
@@ -417,7 +417,7 @@ class AFTMLS_Companion
     if ((false !== has_action($action)) && empty($this->frontend_error_messages)) {
 
       // Run the before_widgets_import action to setup other settings.
-      $this->do_import_action($action, $this->import_files[$this->selected_index]);
+      $this->do_import_action($action, $this->import_files[$this->selected_index], $homepagetype = '');
 
       if (apply_filters('templatespare/enable_custom_menu_widget_ids_fix', true)) {
         add_action('templatespare/widget_settings_array', array($this, 'templatespare_fix_custom_menu_widget_ids'));
@@ -582,7 +582,7 @@ class AFTMLS_Companion
    *
    * @param string $import_file_path path to the import file.
    */
-  private function import_content($import_file_path)
+  private function import_content($import_file_path, $allcontentimport = '')
   {
 
 

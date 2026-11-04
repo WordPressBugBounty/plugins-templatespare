@@ -4,7 +4,7 @@ Tags: templates, website templates, elementor templates, gutenberg templates, st
 Requires at least: 5.6
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 4.4.0
+Stable tag: 4.5.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -312,6 +312,20 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 == Changelog ==
+### 4.5.0 - 04/11/2026
+
+Changes:
+* Fixed security issues related to ZIP file imports, file deletion, Customizer imports, site exports, and remote attachment fetching.
+* Improved access control and permission checks for import and export operations.
+* Improved ZIP demo import functionality and error handling.
+* Improved recommended demos and free theme suggestions.
+* Improved demo import wizard and builder selection.
+* Added support for importing and exporting text and style settings.
+* Improved compatibility with BlockSpare and EleSpare.
+* Updated React and Webpack dependencies.
+* Improved translation support and language file handling.
+* Fixed CSS issues and improved styling.
+* Fixed console errors and other minor issues.
 
 ### 4.0.0 - 12/02/2026
 

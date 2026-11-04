@@ -15,7 +15,7 @@ class Templatespareimportzip
   public function __construct()
   {
 
-    if (!current_user_can('import')) { // Replace 'download_files' with a suitable capability if needed
+    if (!current_user_can('manage_options')) { // Replace 'download_files' with a suitable capability if needed
       return;
     }
 
@@ -31,11 +31,26 @@ class Templatespareimportzip
   public function templatespare_import_zip_Files()
   {
 
-
-
     check_ajax_referer('templastespare_sitebackup_nonce', 'nonce');
 
 
+    // 2. CRITICAL: Enforce User Capabilities & Permissions
+    // Ensure the user can install plugins and themes
+    if (!current_user_can('install_plugins') || !current_user_can('upload_plugins') || !current_user_can('edit_themes')) {
+      wp_send_json_error(['msg' => 'You do not have sufficient permissions to perform this action.']);
+      return;
+    }
+
+    // Additional safeguard for WordPress Multisite: Restrict to Super Admins
+    if (is_multisite() && !is_super_admin()) {
+      wp_send_json_error(['msg' => 'Only Network Administrators (Super Admins) can import backups containing plugins and themes.']);
+      return;
+    }
+
+    if (!isset($_FILES['templatespare_import_file']) || $_FILES['templatespare_import_file']['error'] !== UPLOAD_ERR_OK) {
+      wp_send_json_error(['msg' => 'Error uploading file.']);
+      return;
+    }
 
 
     if (isset($_FILES['templatespare_import_file'])) {
@@ -47,12 +62,7 @@ class Templatespareimportzip
 
       $uploaded_file = $_FILES['templatespare_import_file'];
 
-      // $file_mime_type = mime_content_type($uploaded_file['tmp_name']);
-      // $allowed_mime_types = ['application/zip'];
-      // if (!in_array($file_mime_type, $allowed_mime_types)) {
-      //   wp_send_json_error('Invalid file type. Only ZIP  files are allowed.');
-      //   return;
-      // }
+
 
       // Load WordPress Filesystem API
       if (!function_exists('WP_Filesystem')) {

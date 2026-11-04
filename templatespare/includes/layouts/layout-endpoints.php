@@ -11,7 +11,6 @@ if (!class_exists('AFTMLS_RestApi_Request')) {
     {
       $this->namespace = 'templatespare/v1';
       $this->query_base = 'demo-lists';
-      
     }
 
     public function templatespare_register_routes()
@@ -66,14 +65,12 @@ if (!class_exists('AFTMLS_RestApi_Request')) {
         'callback' => array($this, 'get_recommended_demo'),
         'permission_callback' => '__return_true',
       ));
-
-      
     }
 
     public function check_permissions($request)
     {
       // 1. Check if user has capability
-      if (! current_user_can('import')) {
+      if (! current_user_can('manage_options')) {
         return false;
       }
 
@@ -303,16 +300,46 @@ if (!class_exists('AFTMLS_RestApi_Request')) {
       $params = $request->get_json_params();
       $url = $params['url'] ?? '';
 
-      if (!$url) return array('deleted' => false);
-
-      $upload_dir = wp_upload_dir();
-      $filepath = str_replace($upload_dir['baseurl'], $upload_dir['basedir'], $url);
-
-      if (file_exists($filepath)) {
-        unlink($filepath);
+      if (!$url || !is_string($url)) {
+        return array('deleted' => false, 'message' => 'Invalid URL provided.');
       }
 
-      return array('deleted' => true);
+      $upload_dir = wp_upload_dir();
+      $baseurl = $upload_dir['baseurl'];
+      $basedir = wp_normalize_path($upload_dir['basedir']);
+
+      // 1. FIX: Enforce that the URL strictly starts with the site's upload base URL.
+      // If it doesn't contain it, str_replace would leave it as an arbitrary path.
+      if (strpos($url, $baseurl) !== 0) {
+        return array('deleted' => false, 'message' => 'Access denied: URL must originate from the uploads directory.');
+      }
+
+      // 2. Safe conversion now that prefix is verified
+      $filepath = str_replace($baseurl, $basedir, $url);
+      $filepath = wp_normalize_path($filepath);
+
+      // 3. Resolve canonical real paths to prevent path traversal (e.g., encoded ../)
+      $real_filepath = realpath($filepath);
+      $real_basedir = realpath($basedir);
+
+      // 4. Strict boundary containment check (critical for Multisite isolation)
+      if (
+        $real_filepath &&
+        $real_basedir &&
+        strpos($real_filepath, $real_basedir) === 0 &&
+        is_file($real_filepath)
+      ) {
+        // Enforce file extension restriction (.zip only)
+        $ext = strtolower(pathinfo($real_filepath, PATHINFO_EXTENSION));
+        if ($ext !== 'zip') {
+          return array('deleted' => false, 'message' => 'Only .zip files are allowed to be deleted.');
+        }
+
+        $deleted = unlink($real_filepath);
+        return array('deleted' => (bool)$deleted);
+      }
+
+      return array('deleted' => false, 'message' => 'File not found or outside allowed directory.');
     }
 
     /**
@@ -323,7 +350,7 @@ if (!class_exists('AFTMLS_RestApi_Request')) {
       $active_theme = wp_get_theme();
       $theme_slug   = strtolower($active_theme->get_stylesheet());
       $theme_name   = strtolower($active_theme->get('Name'));
-      
+
       // 1. Scan installed themes (active + inactive directories)
       $installed_themes_slugs = array();
       $theme_roots = function_exists('wp_get_themes') ? wp_get_themes() : array();
@@ -406,7 +433,7 @@ if (!class_exists('AFTMLS_RestApi_Request')) {
 
       if (class_exists('AFTMLS_Templates_Importer') && method_exists('AFTMLS_Templates_Importer', 'get_instance')) {
         $importer_instance = AFTMLS_Templates_Importer::get_instance();
-        
+
         if ($importer_instance && method_exists($importer_instance, 'templatespareget_user_meta_demo_import')) {
           $history = $importer_instance->templatespareget_user_meta_demo_import();
         }
@@ -434,7 +461,7 @@ if (!class_exists('AFTMLS_RestApi_Request')) {
     public function get_recommended_demo(WP_REST_Request $request)
     {
       $site_intel = $this->templatespare_get_site_intelligence();
-      
+
       // Dynamic key for the scored pool transient
       $pool_cache_key = 'templatespare_scored_pool_' . md5($site_intel['theme_slug'] . implode('', $site_intel['active_plugins']) . '_' . $site_intel['locale']);
       $candidate_pool = get_transient($pool_cache_key);
@@ -473,11 +500,23 @@ if (!class_exists('AFTMLS_RestApi_Request')) {
         }
 
         $foreign_keywords = array(
-          'arabic', 'russian', 'hindi', 'japanese', 'german', 
-          'bangladesh', 'korean', 'french', 'romanian', 'brazil', 
-          'myanmar', 'chinese', 'spanish', 'italian', 'rtl'
+          'arabic',
+          'russian',
+          'hindi',
+          'japanese',
+          'german',
+          'bangladesh',
+          'korean',
+          'french',
+          'romanian',
+          'brazil',
+          'myanmar',
+          'chinese',
+          'spanish',
+          'italian',
+          'rtl'
         );
-        
+
         $is_english_site = (false !== strpos(strtolower($site_intel['locale']), 'en'));
         $active_slug     = strtolower($site_intel['theme_slug']);
         $active_name     = strtolower($site_intel['theme_name']);
@@ -610,6 +649,5 @@ if (!class_exists('AFTMLS_RestApi_Request')) {
 
       return array_slice($pool_values, 0, 15);
     }
-
   }
 }

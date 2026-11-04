@@ -540,7 +540,7 @@ class AFTMLS_Helpers
     check_ajax_referer('aftc-ajax-verification', 'security');
 
     // Check if user has the WP capability to import data.
-    if (!current_user_can('import')) {
+    if (!current_user_can('manage_options')) {
       wp_die(
         sprintf(
           __('%sYour user role isn\'t high enough. You don\'t have permission to import demo data.%s', 'templatespare'),

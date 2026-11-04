@@ -131,8 +131,6 @@ class TemplatesapreBackupSite
 
     check_ajax_referer('templastespare_sitebackup_nonce', 'nonce');
 
-
-
     require_once ABSPATH . 'wp-admin/includes/file.php';
     WP_Filesystem();
     global $wp_filesystem;
@@ -148,6 +146,12 @@ class TemplatesapreBackupSite
     $yearDir = $backupDir . date('Y-m-d__H-i-s') . '/';
     if (!$wp_filesystem->exists($yearDir)) {
       $wp_filesystem->mkdir($yearDir);
+      // 1. BLOCK APACHE WEB ACCESS: Completely deny direct HTTP requests
+      $htaccess_content = "Options -Indexes\nDeny from all\n<IfModule mod_authz_core.c>\nRequire all denied\n</IfModule>";
+      $wp_filesystem->put_contents($backupDir . '.htaccess', $htaccess_content, FS_CHMOD_FILE);
+
+      // 2. PREVENT DIRECTORY LISTING: Add a silent index.php file
+      //$wp_filesystem->put_contents($backupDir . 'index.php', '<?php // Silence is golden.', FS_CHMOD_FILE);
     }
 
     // Create demo content directory
